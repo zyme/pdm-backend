@@ -76,7 +76,7 @@ Rails.application.configure do
     # config.sequel.load_database_tasks = :sequel
 
     # This setting disabled the automatic connect after Rails init
-    config.sequel.skip_connect = false
+    # config.sequel.skip_connect = false 
     #
     # # If you want to use a specific logger
     # config.sequel.logger = MyLogger.new($stdout)

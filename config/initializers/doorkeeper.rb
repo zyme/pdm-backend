@@ -1,3 +1,5 @@
+
+unless rake_task?(%w(db:create db:migrate db:drop db:schema:load))
 Doorkeeper.configure do
   # Change the ORM that doorkeeper will use (needs plugins)
   orm :sequel
@@ -146,3 +148,4 @@ grant_flows %w[password ]
  end
 end
 Doorkeeper.configuration.token_grant_types << "password"
+end

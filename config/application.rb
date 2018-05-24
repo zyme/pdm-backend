@@ -16,9 +16,16 @@ require "rails/test_unit/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-
+def rake_task?(tasks = [])
+  defined?(Rake) && tasks.any? do |task|
+    Rake.application.top_level_tasks.include?(task)
+  end
+end
 module HealthDataManager
   class Application < Rails::Application
+    if rake_task?(%w(db:create db:migrate db:drop db:schema:load))
+      config.sequel.skip_connect = false
+    end
     config.middleware.use ActionDispatch::Flash
     config.middleware.use ActionDispatch::Cookies
     # Initialize configuration defaults for originally generated Rails version.
