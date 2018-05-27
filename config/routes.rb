@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     namespace :api,defaults: { format: :json } do
       namespace :v1 do
         resources :profiles  do
-          resources :providers, controller: :profile_providers,  only: [:index, :create, :delete],  as: :providers
+          resources :providers, controller: :profile_providers,  only: [:index, :create, :destroy],  as: :providers
         end
         resources :providers, only: [:index,:show]
       end
