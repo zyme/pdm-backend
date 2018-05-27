@@ -1,3 +1,6 @@
-class Resource < Sequel::Model
+class Resource < ApplicationRecord
 
-end 
+  belongs_to :transaction
+  belongs_to :user
+  belongs_to :provider
+end

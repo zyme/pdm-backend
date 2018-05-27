@@ -1,59 +1,68 @@
-Sequel.migration do
-  change do
-    create_table :oauth_applications do
-      primary_key :id
-
-      column :name, String, size: 255, null: false
-      column :uid, String, size: 255, null: false, index: { unique: true }
-      column :secret, String, size: 255, null: false
-
-      column :scopes, String, size: 255, null: false, default: ''
-      column :redirect_uri, String
-
-      column :created_at, DateTime
-      column :updated_at, DateTime
+class CreateDoorkeeperTables < ActiveRecord::Migration[5.2]
+  def change
+    create_table :oauth_applications do |t|
+      t.string  :name,         null: false
+      t.string  :uid,          null: false
+      t.string  :secret,       null: false
+      t.text    :redirect_uri, null: false
+      t.string  :scopes,       null: false, default: ''
+      t.timestamps             null: false
     end
 
-    create_table :oauth_access_grants do
-      primary_key :id
-      foreign_key :application_id, :oauth_applications, null: false, on_delete: :cascade
+    add_index :oauth_applications, :uid, unique: true
 
-      column :resource_owner_id, Integer, null: false
-
-      column :token, String, size: 255, null: false, index: { unique: true }
-      column :expires_in, Integer, null: false
-      column :redirect_uri, String, null: false
-      column :created_at, DateTime, null: false
-      column :revoked_at, DateTime
-      column :scopes, String, size: 255
+    create_table :oauth_access_grants do |t|
+      t.integer  :resource_owner_id, null: false
+      t.references :application,     null: false
+      t.string   :token,             null: false
+      t.integer  :expires_in,        null: false
+      t.text     :redirect_uri,      null: false
+      t.datetime :created_at,        null: false
+      t.datetime :revoked_at
+      t.string   :scopes
     end
 
-    create_table :oauth_access_tokens do
-      primary_key :id
-      foreign_key :application_id, :oauth_applications,  on_delete: :cascade
+    add_index :oauth_access_grants, :token, unique: true
+    add_foreign_key(
+      :oauth_access_grants,
+      :oauth_applications,
+      column: :application_id
+    )
 
-      column :resource_owner_id, Integer, index: true
+    create_table :oauth_access_tokens do |t|
+      t.integer  :resource_owner_id
+      t.references :application
 
       # If you use a custom token generator you may need to change this column
       # from string to text, so that it accepts tokens larger than 255
       # characters. More info on custom token generators in:
       # https://github.com/doorkeeper-gem/doorkeeper/tree/v3.0.0.rc1#custom-access-token-generator
       #
-      # column :token, String, null: false
-      column :token, String, size: 255, null: false, index: { unique: true }
+      # t.text     :token,             null: false
+      t.string   :token,                  null: false
 
-      column :refresh_token, String, size: 255, index: { unique: true }
+      t.string   :refresh_token
+      t.integer  :expires_in
+      t.datetime :revoked_at
+      t.datetime :created_at,             null: false
+      t.string   :scopes
+
       # If there is a previous_refresh_token column,
       # refresh tokens will be revoked after a related access token is used.
       # If there is no previous_refresh_token column,
       # previous tokens are revoked as soon as a new access token is created.
       # Comment out this line if you'd rather have refresh tokens
       # instantly revoked.
-      column :previous_refresh_token, String, size: 255, null: false, default: ''
-      column :expires_in, Integer
-      column :revoked_at, DateTime
-      column :created_at, DateTime, null: false
-      column :scopes, String, size: 255
+      t.string   :previous_refresh_token, null: false, default: ""
     end
+
+    add_index :oauth_access_tokens, :token, unique: true
+    add_index :oauth_access_tokens, :resource_owner_id
+    add_index :oauth_access_tokens, :refresh_token, unique: true
+    add_foreign_key(
+      :oauth_access_tokens,
+      :oauth_applications,
+      column: :application_id
+    )
   end
 end

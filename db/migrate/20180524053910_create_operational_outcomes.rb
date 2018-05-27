@@ -1,12 +1,12 @@
-Sequel.migration do
-  change do
-    create_table :operational_outcomes do
-      primary_key :id
-      foreign_key :user_id, :users
-      foreign_key :resource_id , :resources
-      column :resolved, :boolean
-      column :type, String
-      column :data , :jsonb
+class CreateOperationalOutcomes < ActiveRecord::Migration[5.2]
+  def change
+    create_table :operational_outcomes do |t|
+
+      t.references :profile
+      t.references :resource
+      t.boolean :resolved,  null: false, default: false
+      t.string :oo_type
+      t.jsonb :data
     end
   end
 end

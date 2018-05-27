@@ -28,11 +28,6 @@ gem 'devise'
 gem 'doorkeeper'
 gem 'rack-cors', :require => 'rack/cors'
 
-gem 'sequel'
-gem 'sequel-rails'
-gem 'sequel-devise'
-gem 'sequel-devise-generators'
-gem 'doorkeeper-sequel', '~> 1.4'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
@@ -41,6 +36,11 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
+group :test do
+   gem 'rerun'
+   gem 'minitest'
+   gem 'minitest-emoji'
+end
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

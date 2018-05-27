@@ -1,10 +1,18 @@
+
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
 
-class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
+class ActionDispatch::IntegrationTest
 
-  # Add more helper methods to be used by all tests here...
+  def generate_token(user_id)
+     token = Doorkeeper::AccessToken.new(resource_owner_id: user_id)
+     token.save!
+     token
+  end
+
+end
+
+class ActiveSupport::TestCase
+ fixtures :all
 end

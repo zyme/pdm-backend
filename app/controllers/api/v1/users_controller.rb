@@ -4,7 +4,7 @@ module Api
     class UsersController < ApiController
 
       def show
-        render json: current_resource_owner.attributes, status: 200
+        render json: current_resource_owner, status: 200
       end
 
     end

@@ -1,3 +1,7 @@
-class Transaction < Sequel::Model
+class Transaction < ApplicationRecord
 
-end 
+  belongs_to :provider
+  belongs_to :user
+  belongs_to :profile
+  has_many :resources
+end

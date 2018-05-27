@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -38,12 +38,12 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
-  # # Raise an error on page load if there are pending migrations.
-  # config.active_record.migration_error = :page_load
-  #
-  # # Highlight code that triggered database queries in logs.
-  # config.active_record.verbose_query_logs = true
-  #
+  # Raise an error on page load if there are pending migrations.
+  config.active_record.migration_error = :page_load
+
+  # Highlight code that triggered database queries in logs.
+  config.active_record.verbose_query_logs = true
+
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
@@ -51,33 +51,4 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-
-
-  # Allowed options: :sql, :ruby.
-    config.sequel.schema_format = :sql
-
-    # Whether to dump the schema after successful migrations.
-    # Defaults to false in production and test, true otherwise.
-    config.sequel.schema_dump = true
-
-    # These override corresponding settings from the database config.
-    config.sequel.max_connections = 16
-    config.sequel.search_path = %w(mine public)
-
-    # Configure whether database's rake tasks will be loaded or not.
-    #
-    # If passed a String or Symbol, this will replace the `db:` namespace for
-    # the database's Rake tasks.
-    #
-    config.sequel.load_database_tasks = :sequel
-    #     will results in `rake db:migrate` to become `rake sequel:migrate`
-    #
-    # Defaults to true
-    # config.sequel.load_database_tasks = :sequel
-
-    # This setting disabled the automatic connect after Rails init
-    # config.sequel.skip_connect = false 
-    #
-    # # If you want to use a specific logger
-    # config.sequel.logger = MyLogger.new($stdout)
 end

@@ -1,11 +1,9 @@
-Sequel.migration do
-  change do
-    create_table :clients do
-      primary_key :id
-      column :name, String
-      column :type , String 
-      column :created_at, DateTime
-      column :updated_at, DateTime
+class CreateClients < ActiveRecord::Migration[5.2]
+  def change
+    create_table :clients do |t|
+      t.string :name, null: false
+      t.string  :client_type , null: false
+      t.timestamps
     end
   end
 end

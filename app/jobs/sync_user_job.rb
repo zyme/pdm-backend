@@ -2,7 +2,7 @@ class SyncUserJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
-    up =   UserProviders
+    up =   profile.profile_providers 
     # which client is it?
     client = up.provider.client
     # resolve the client that does the work

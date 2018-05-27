@@ -1,8 +1,7 @@
 
-unless rake_task?(%w(db:create db:migrate db:drop db:schema:load))
 Doorkeeper.configure do
   # Change the ORM that doorkeeper will use (needs plugins)
-  orm :sequel
+  # orm :acti
 
   # This block will be called to check whether the resource owner is authenticated or not.
   resource_owner_authenticator do
@@ -143,9 +142,8 @@ grant_flows %w[password ]
 
   # WWW-Authenticate Realm (default "Doorkeeper").
   # realm "Doorkeeper"
-  skip_authorization do
-   true
- end
+  # skip_authorization do
+  #  true
+  # end
 end
 Doorkeeper.configuration.token_grant_types << "password"
-end

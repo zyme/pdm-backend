@@ -43,19 +43,4 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
-  # Configure whether database's rake tasks will be loaded or not.
-  #
-  # If passed a String or Symbol, this will replace the `db:` namespace for
-  # the database's Rake tasks.
-  #
-  config.sequel.load_database_tasks = :sequel
-  #     will results in `rake db:migrate` to become `rake sequel:migrate`
-  #
-  # Defaults to true
-  # config.sequel.load_database_tasks = :sequel
-
-  # This setting disabled the automatic connect after Rails init
-  config.sequel.skip_connect = false
-  #
 end
