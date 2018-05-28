@@ -13,8 +13,19 @@ class Provider < ApplicationRecord
      end
   end
 
+  def get_access_token(code, params={})
+    options = get_endpoint_params
+    options[:site]=base_endpoint
+    options[:raise_errors]=true
+    client = OAuth2::Client.new(client_id, client_secret,options)
+    client.auth_code.get_token(code, params)
+  end
+
+private
+
+
   def generate_fhir_auth_url(params={})
-    options = get_endpoint_params || discover_fhir_endpoint_params
+    options = get_fhir_endpoint_params
     options[:site]=base_endpoint
     options[:raise_errors]=true
     generate_oauth_auth_url(options, get_auth_params(params))
@@ -24,6 +35,7 @@ class Provider < ApplicationRecord
     options = get_endpoint_params
     options[:site]=base_endpoint
     options[:raise_errors]=true
+    options
     generate_oauth_auth_url(options, get_auth_params(params))
   end
 
@@ -34,6 +46,10 @@ class Provider < ApplicationRecord
 
   private
 
+  def get_fhir_endpoint_params(params={})
+    get_endpoint_params || discover_fhir_endpoint_params
+  end
+
   def get_auth_params(params={})
     {aud: base_endpoint,
       redirect_uri: "http://localhost:8080/callback" ,
@@ -42,8 +58,8 @@ class Provider < ApplicationRecord
 
   def get_endpoint_params
     if token_endpoint && authorization_endpoint
-      {authorize_url: authorization_url,
-       token_uri: token_url }
+      {authorize_url: authorization_endpoint,
+       token_url: token_endpoint}
     end
   end
 

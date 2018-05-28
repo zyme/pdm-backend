@@ -7,11 +7,11 @@
 harry_partners:
   profile: harrys_profile
   provider: partners
-  patient_id: harrys_partners_paitent_id
+  subject_id: harrys_partners_paitent_id
 # column: value
 #
 sema_partners:
   profile: semas_profile
   provider: bwh
-  patient_id: semas_partners_paitent_id
+  subject_id: semas_partners_paitent_id
 # column: value

@@ -36,8 +36,8 @@ fitbit:
   provider_type: :fitbit
   description: ya know, fitbit
   base_endpoint: http://fitbit.com/api
-  token_endpoint:
-  authorization_endpoint:
+  token_endpoint: http://fitbit.com/api/oauth/token
+  authorization_endpoint: http://fitbit.com/api/oauth/auth
   scopes:
-  client_id:
-  client_secret:
+  client_id: fitbit_client_id
+  client_secret: fitbit_client_secret

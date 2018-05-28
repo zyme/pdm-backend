@@ -24,7 +24,7 @@ class ProfileTest < ActiveSupport::TestCase
     pp = profile_providers(:harry_partners)
     new_pp = ProfileProvider.new({provider_id: pp.provider_id,
                               profile_id: pp.profile_id,
-                              patient_id: "" })
+                              subject_id: "" })
     assert !new_pp.valid? , "Provider Profile should not be valid if the profile is already linked to the provider"
     assert_equal new_pp.errors[:provider], ["already linked to this provider"]
   end
@@ -34,7 +34,7 @@ class ProfileTest < ActiveSupport::TestCase
     bwh = providers(:bwh)
     new_pp = ProfileProvider.new({provider_id: bwh.id,
                               profile_id: pp.profile_id,
-                              patient_id: ""} )
+                              subject_id: ""} )
 
     assert !new_pp.valid? , "Provider Profile should not be valid if the profile is already linked to the providers parent"
     assert_equal new_pp.errors[:provider], ["already linked to this provider through parent"]
@@ -45,7 +45,7 @@ class ProfileTest < ActiveSupport::TestCase
     fitbit = providers(:fitbit)
     new_pp = ProfileProvider.new({provider_id: fitbit.id,
                               profile_id: pp.profile_id,
-                              patient_id: ""} )
+                              subject_id: ""} )
     assert new_pp.valid? , "Should be able to link to a provider that is not already linked to"
     assert new_pp.save, "should be able to save profile provider when not already linked to"
   end

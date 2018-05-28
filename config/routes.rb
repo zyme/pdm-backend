@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     controllers: {
       registrations: 'users/registrations'
     }
+
+    get "/oauth/callback" , action: :callback, controller: 'oauth/callback'
     namespace :api,defaults: { format: :json } do
       namespace :v1 do
         resources :profiles  do

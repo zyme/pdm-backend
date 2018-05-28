@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2018_05_24_053910) do
   create_table "profile_providers", force: :cascade do |t|
     t.bigint "profile_id", null: false
     t.bigint "provider_id", null: false
-    t.string "patient_id", null: false
+    t.string "subject_id"
     t.string "access_token"
     t.string "refresh_token"
     t.datetime "last_sync"
