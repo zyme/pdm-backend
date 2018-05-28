@@ -14,6 +14,7 @@ module Api
            render json: {message: "Provider already linked"}, status: 500
          end
 
+        redirect_to provider.generate_auth_url_for_provider
         # kick off the linking -- actual creation of the user_provider object happens
         # through an ouath2 flow to have the user log into the provider system and
         # grant access, the redirection of this will result in the object being created

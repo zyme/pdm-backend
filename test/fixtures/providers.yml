@@ -6,21 +6,38 @@
 #
 partners:
   name: Partners Health Care
-  provider_type: :epic
+  provider_type: :smart
   description: pcare
-  end_point: http://partners.com/smart
+  base_endpoint: http://partners.com/smart
+  token_endpoint:
+  authorization_endpoint:
+  scopes:
+  client_id: partners id
+  client_secret: partners secrete
+
 # column: value
 #
 bwh:
   name: Brigham and Womens
-  provider_type: epic
+  provider_type: smart
   description: BWH
   parent: partners
-  end_point: http://partners.com/smart
+  base_endpoint: http://partners.com/smart
+  token_endpoint:
+  authorization_endpoint:
+  scopes:
+  client_id:
+  client_secret:
+
 # column: value
 
 fitbit:
   name: FitBit
   provider_type: :fitbit
   description: ya know, fitbit
-  end_point: http://fitbit.com/api
+  base_endpoint: http://fitbit.com/api
+  token_endpoint:
+  authorization_endpoint:
+  scopes:
+  client_id:
+  client_secret:

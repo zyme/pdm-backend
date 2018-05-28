@@ -25,7 +25,6 @@ class ProfileTest < ActiveSupport::TestCase
     new_pp = ProfileProvider.new({provider_id: pp.provider_id,
                               profile_id: pp.profile_id,
                               patient_id: "" })
-                              
     assert !new_pp.valid? , "Provider Profile should not be valid if the profile is already linked to the provider"
     assert_equal new_pp.errors[:provider], ["already linked to this provider"]
   end

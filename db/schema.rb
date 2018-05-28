@@ -18,7 +18,13 @@ ActiveRecord::Schema.define(version: 2018_05_24_053910) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name", null: false
-    t.string "client_type", null: false
+    t.string "type", null: false
+    t.string "base_endpoint"
+    t.string "token_endpoint"
+    t.string "authorization_endpoint"
+    t.string "default_scopes"
+    t.string "client_id"
+    t.string "client_secret"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -100,10 +106,14 @@ ActiveRecord::Schema.define(version: 2018_05_24_053910) do
   create_table "providers", force: :cascade do |t|
     t.integer "parent_id"
     t.string "provider_type", null: false
-    t.string "String"
     t.string "name", null: false
     t.string "description", default: "", null: false
-    t.string "end_point"
+    t.string "base_endpoint"
+    t.string "token_endpoint"
+    t.string "authorization_endpoint"
+    t.string "scopes"
+    t.string "client_id"
+    t.string "client_secret"
     t.index ["parent_id"], name: "index_providers_on_parent_id"
   end
 

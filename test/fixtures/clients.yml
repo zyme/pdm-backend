@@ -1,0 +1,20 @@
+partners_epic:
+  name: partners_epic
+  client_id: epic id
+  client_secret: epic secret
+  type:  Client::SmartClient
+  base_endpoint: http://partners.com/smart
+  token_endpoint:
+  authorization_endpoint:
+  default_scopes:
+
+
+fit_bit_client:
+  name: fitbit
+  client_id: fit_id
+  client_secret: fit_secrete
+  type: Client::FitBitClient
+  base_endpoint:
+  token_endpoint: http://fitbit/token
+  authorization_endpoint: http://fitbit/auth
+  default_scopes: run,walk,ride

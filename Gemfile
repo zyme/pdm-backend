@@ -27,7 +27,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'doorkeeper'
 gem 'rack-cors', :require => 'rack/cors'
-
+gem "fhir_client"
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
@@ -37,6 +37,7 @@ group :development, :test do
 end
 
 group :test do
+  gem "fakeweb"
    gem 'rerun'
    gem 'minitest'
    gem 'minitest-emoji'
