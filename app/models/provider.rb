@@ -17,18 +17,14 @@ class Provider < ApplicationRecord
     options = get_endpoint_params || discover_fhir_endpoint_params
     options[:site]=base_endpoint
     options[:raise_errors]=true
-
-    generate_oauth_auth_url(options, params.merge({redirect_uri: "http://localhost:8080/callback" ,
-                                      scopes: scopes}))
-
+    generate_oauth_auth_url(options, get_auth_params(params))
   end
 
   def generate_generic_auth_url(params={})
     options = get_endpoint_params
     options[:site]=base_endpoint
     options[:raise_errors]=true
-    generate_oauth_auth_url(options, params.merge({redirect_uri: "http://localhost:8080/callback" ,
-                                      scopes: scopes}))
+    generate_oauth_auth_url(options, get_auth_params(params))
   end
 
   def generate_oauth_auth_url(client_options, auth_params )
@@ -38,7 +34,11 @@ class Provider < ApplicationRecord
 
   private
 
-
+  def get_auth_params(params={})
+    {aud: base_endpoint,
+      redirect_uri: "http://localhost:8080/callback" ,
+      scopes: scopes}.merge params
+  end
 
   def get_endpoint_params
     if token_endpoint && authorization_endpoint
