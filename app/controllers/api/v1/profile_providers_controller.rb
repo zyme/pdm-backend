@@ -4,7 +4,7 @@ module Api
     class ProfileProvidersController < ApiController
 
       def index
-        render json: current_resource_owner.profiles, status: 200
+        render json: find_profile.profile_providers, status: 200
       end
 
       def create
@@ -29,7 +29,9 @@ module Api
       end
 
       private
-
+      def find_provider
+        Provider.find(params[:provider_id])
+      end
       def find_profile
         current_resource_owner.profiles.find(params[:profile_id])
       end

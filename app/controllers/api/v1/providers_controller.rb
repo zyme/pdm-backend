@@ -1,5 +1,4 @@
 module Api
-
   module V1
     class ProvidersController < ApiController
 
@@ -13,5 +12,4 @@ module Api
 
     end
   end
-
 end

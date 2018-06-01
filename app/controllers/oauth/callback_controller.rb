@@ -34,9 +34,10 @@ module Oauth
       pp = ProfileProvider.new()
       pp.profile = req[:profile]
       pp.provider = req[:provider]
-      pp.access_token = token[:access_token]
-      pp.refresh_token = token[:refresh_token]
-      pp.subject_id = token[:subject_id]
+      pp.access_token = token.token
+      pp.refresh_token = token.refresh_token
+      pp.subject_id = token.params["patient"] || token.params["patient_id"] || token.params["user_id"]
+      pp.scopes = token.params["scope"]
       pp.save!
     end
   end

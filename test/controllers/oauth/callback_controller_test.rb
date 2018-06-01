@@ -16,14 +16,15 @@ class Api::V1::ProfilesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 0, ProfileProvider.where(profile_id: profile.id, provider_id: provider.id).count
     state = HDM::OAuth::State.encode(provider.id,profile.id)
     code = "this is a test code"
+
     get "/oauth/callback", params: { code: code, state: state }
 
     assert_redirected_to "http://www.example.com/profile/#{profile.id}/providers/#{provider.id}"
     providers = ProfileProvider.where(profile_id: profile.id, provider_id: provider.id)
     assert_equal 1, providers.count
     provider = providers.first
-    assert_equal data["access_token"], provider.access_token
-    assert_equal data["refresh_token"], provider.refresh_token
+    assert_equal data[:access_token], provider.access_token
+    assert_equal data[:refresh_token], provider.refresh_token
 
 
   end

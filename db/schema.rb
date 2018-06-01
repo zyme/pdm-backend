@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_24_053910) do
+ActiveRecord::Schema.define(version: 2018_05_31_201037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2018_05_24_053910) do
     t.string "access_token"
     t.string "refresh_token"
     t.datetime "last_sync"
+    t.string "scopes"
     t.index ["profile_id"], name: "index_profile_providers_on_profile_id"
     t.index ["provider_id"], name: "index_profile_providers_on_provider_id"
   end

@@ -30,7 +30,13 @@ semas_profile:
   user: sema
 
 
-
+smart_sandbox:
+    patient_id: 5b14691a-d9fe-4a34-b094-e09d7da8d15e
+    name: who
+    first_name: who
+    last_name: dat
+    gender: male
+    user: smart_sandbox
 
 
 

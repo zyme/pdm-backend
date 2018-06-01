@@ -52,8 +52,8 @@ private
 
   def get_auth_params(params={})
     {aud: base_endpoint,
-      redirect_uri: "http://localhost:8080/callback" ,
-      scopes: scopes}.merge params
+      redirect_uri: "http://localhost:3000/oauth/callback" ,
+      scope: scopes}.merge params
   end
 
   def get_endpoint_params
