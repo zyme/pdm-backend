@@ -1,6 +1,7 @@
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
+require 'hdm'
 require 'rails/test_help'
 require "hdm/oauth/state"
 class ActionDispatch::IntegrationTest

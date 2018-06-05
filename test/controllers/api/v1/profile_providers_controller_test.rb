@@ -8,7 +8,6 @@ class Api::V1::ProfilesControllerTest < ActionDispatch::IntegrationTest
     profile = user.profiles.first
     get "/api/v1/profiles/#{profile.id}/providers", params: { :access_token => token.token}
     assert_response :success
-    puts response.body
   end
 
   test "user should be able to unlink a provider from their profile" do
@@ -19,7 +18,6 @@ class Api::V1::ProfilesControllerTest < ActionDispatch::IntegrationTest
     delete "/api/v1/profiles/#{profile.id}/providers/#{pp.id}", params: { :access_token => token.token}
     assert_response 204
     assert ProfileProvider.find_by_id(pp.id).nil?, "Profile link should have been deleted"
-    puts response.body
   end
 
 end

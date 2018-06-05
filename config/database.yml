@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: health-data-manager_production
-  username: health-data-manager
-  password: <%= ENV['HEALTH-DATA-MANAGER_DATABASE_PASSWORD'] %>
+  pool: <%= ENV["RAILS_MAX_THREADS"] || 5 %>
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USER']%>
+  password: <%= ENV['DB_PASSWORD'] %>
