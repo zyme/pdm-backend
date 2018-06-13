@@ -1,14 +1,15 @@
 class Client < ApplicationRecord
 
-  def generate_auth_url_for_provider(provider)
+  CLIENTS = {smart: HDM::Client::SmartClient}
 
-
-    client = FHIR::Client.new(provider.end_point)
-    oauth_info = client.get_oauth2_metadata_from_conformance
-    client.set_oauth2_auth(client_id, client_secret, oauth_info[:authorize_url], oauth_info[:token_url])
-    client.client.auth_code.authorize_url(:redirect_uri => 'http://localhost:8080/oauth2/callback',
-                                   scopes: [:openid, :profile, :offline_access, "patient/*.read"])
+  def generate_auth_url(provider, params={})
+    client = CLIENTS[client_type.to_sym]
+    client.generate_auth_url(self, provider, params)
   end
 
+  def get_access_token(code, providerProfile, params={})
+    client = CLIENTS[client_type.to_sym]
+    client.get_access_token(self, provider, params)
+  end
 
 end

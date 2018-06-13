@@ -8,6 +8,7 @@ harry_partners:
   profile: harrys_profile
   provider: partners
   subject_id: harrys_partners_paitent_id
+  access_token: this_is_harrys_access_token
 # column: value
 #
 sema_partners:

@@ -9,8 +9,8 @@ partners:
   provider_type: :smart
   description: pcare
   base_endpoint: http://partners.com/smart
-  token_endpoint:
-  authorization_endpoint:
+  token_endpoint: http://partners.com/oauth/token
+  authorization_endpoint: http://partners.com/oauth/auth
   scopes:
   client_id: partners id
   client_secret: partners secrete
@@ -23,8 +23,8 @@ bwh:
   description: BWH
   parent: partners
   base_endpoint: http://partners.com/smart
-  token_endpoint:
-  authorization_endpoint:
+  token_endpoint: http://partners.com/oauth/token
+  authorization_endpoint: http://partners.com/oauth/auth
   scopes:
   client_id:
   client_secret:

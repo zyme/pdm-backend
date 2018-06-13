@@ -18,7 +18,6 @@ module Api
 
       def update
         profile = find_profile
-        puts params[:profile]
         if profile.update(profile_params)
           render json: profile, status: 200
         end
