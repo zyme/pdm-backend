@@ -1,4 +1,4 @@
-FROM ruby:2.3
+FROM ruby:2.3.5
 
 # see update.sh for why all "apt-get install"s have to stay as one long line
 RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
@@ -21,7 +21,9 @@ ENV RAILS_ENV=production \
     RACK_ENV=production
 
 # Expose port 3000 from the container
-EXPOSE 3000
 
+RUN gem install bundler
+RUN bundle install
 # Run puma server by default
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
+EXPOSE 3000
