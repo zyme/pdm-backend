@@ -8,7 +8,6 @@ class Api::V1::ProfilesControllerTest < ActionDispatch::IntegrationTest
     token = generate_token(user.id)
     get '/api/v1/profiles', params: { access_token: token.token }
     assert_response :success
-    puts response.body
   end
 
   test 'user should be able to get a specific  profiles' do

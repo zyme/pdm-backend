@@ -12,7 +12,6 @@ class ProviderTest < ActiveSupport::TestCase
     fake_body = File.read(File.join(__dir__, '../fixtures/files/ouath_capability_statement.json'))
     FakeWeb.register_uri(:any, %r{http://partners.com/}, body: fake_body, content_type: 'application/json')
     p = providers(:partners)
-    url = p.generate_auth_url
-    puts url
+    p.generate_auth_url
   end
 end
