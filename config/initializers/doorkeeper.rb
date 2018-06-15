@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 Doorkeeper.configure do
   # Change the ORM that doorkeeper will use (needs plugins)
@@ -5,15 +6,13 @@ Doorkeeper.configure do
 
   # This block will be called to check whether the resource owner is authenticated or not.
   resource_owner_authenticator do
-     current_user || warden.authenticate!(:scope => :user)
+    current_user || warden.authenticate!(scope: :user)
   end
 
   # # In this flow, a token is requested in exchange for the resource owner credentials (username and password)
-  resource_owner_from_credentials do |routes|
-    user = User.find_for_database_authentication(:email => params[:email])
-    if user && user.valid_for_authentication? { user.valid_password?(params[:password]) }
-      user
-    end
+  resource_owner_from_credentials do |_routes|
+    user = User.find_for_database_authentication(email: params[:email])
+    user if user&.valid_for_authentication? { user.valid_password?(params[:password]) }
   end
 
   # If you want to restrict access to the web interface for adding oauth authorized applications, you need to declare the block below.
@@ -28,7 +27,7 @@ Doorkeeper.configure do
 
   # Access token expiration time (default 2 hours).
   # If you want to disable expiration, set this to nil.
-   access_token_expires_in 2.hours
+  access_token_expires_in 2.hours
 
   # Assign a custom TTL for implicit grants.
   # custom_access_token_expires_in do |oauth_client|
@@ -120,8 +119,8 @@ Doorkeeper.configure do
   #   http://tools.ietf.org/html/rfc6819#section-4.4.2
   #   http://tools.ietf.org/html/rfc6819#section-4.4.3
   #
-   # grant_flows %w[password authorization_code client_credentials]
-grant_flows %w[password ]
+  # grant_flows %w[password authorization_code client_credentials]
+  grant_flows %w[password]
   # Hook into the strategies' request & response life-cycle in case your
   # application needs advanced customization or logging:
   #
@@ -146,4 +145,4 @@ grant_flows %w[password ]
   #  true
   # end
 end
-Doorkeeper.configuration.token_grant_types << "password"
+Doorkeeper.configuration.token_grant_types << 'password'

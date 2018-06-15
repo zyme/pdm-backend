@@ -1,19 +1,17 @@
-module Api
+# frozen_string_literal: true
 
+module Api
   module V1
     class ProfileProvidersController < ApiController
-
       def index
-        render json: find_profile.profile_providers, status: 200
+        render json: find_profile.profile_providers, status: :ok
       end
 
       def create
-         profile = find_profile
-         provider = find_provider
-         if profile.has_provider? provider
-           render json: {message: "Provider already linked"}, status: 500
-         end
-        state = {provider_id: provider.id, profile_id: profile.id }.to_json
+        profile = find_profile
+        provider = find_provider
+        render json: { message: 'Provider already linked' }, status: :internal_server_error if profile.has_provider? provider
+        state = { provider_id: provider.id, profile_id: profile.id }.to_json
         state_enc = Base64.encode64(state)
         redirect_to provider.generate_auth_url(state: state_enc)
         # kick off the linking -- actual creation of the user_provider object happens
@@ -25,13 +23,15 @@ module Api
       def destroy
         provider_link = find_profile.profile_providers.find(params[:id])
         provider_link.destroy
-        render json: {message: "provider removed"}, status: 204
+        render json: { message: 'provider removed' }, status: :no_content
       end
 
       private
+
       def find_provider
         Provider.find(params[:provider_id])
       end
+
       def find_profile
         current_resource_owner.profiles.find(params[:profile_id])
       end

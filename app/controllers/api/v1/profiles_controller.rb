@@ -1,33 +1,30 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class ProfilesController < ApiController
-
       def index
-        render json: current_resource_owner.profiles, status: 200
+        render json: current_resource_owner.profiles, status: :ok
       end
 
       def show
-        render json: find_profile, status: 200
+        render json: find_profile, status: :ok
       end
 
       def create
         profile = current_resource_owner.profiles.build(profile_params)
         profile.save!
-        render json: profile, status: 201
+        render json: profile, status: :created
       end
 
       def update
         profile = find_profile
-        if profile.update(profile_params)
-          render json: profile, status: 200
-        end
+        render json: profile, status: :ok if profile.update(profile_params)
       end
 
       def destroy
         profile = find_profile
-        if profile.delete
-          render json: {message: "Deleted" }, status: 204
-        end
+        render json: { message: 'Deleted' }, status: :no_content if profile.delete
       end
 
       private
@@ -35,10 +32,11 @@ module Api
       def find_profile
         current_resource_owner.profiles.find(params[:id])
       end
+
       # Never trust parameters from the scary internet, only allow the white list through.
-     def profile_params
-       params.require(:profile).permit(:name,:first_name,:last_name, :dob, :gender)
-     end
+      def profile_params
+        params.require(:profile).permit(:name, :first_name, :last_name, :dob, :gender)
+      end
    end
  end
 end

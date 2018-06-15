@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class SyncUserJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
-    up =   profile.profile_providers 
+  def perform(*_args)
+    up =   profile.profile_providers
     # which client is it?
     client = up.provider.client
     # resolve the client that does the work
@@ -16,17 +18,14 @@ class SyncUserJob < ApplicationJob
     # this call should set the access token that the client will use for this
     # sync operation
     access_token = pull_client.refresh
-    up.access_token=access_token
+    up.access_token = access_token
     pull_client.sync(up)
-    up.last_sync=now
+    up.last_sync = now
     up.save
-      # Do something later
+    # Do something later
   end
 
-private
+  private
 
-  def resolve_client(client)
-
-  end
-
+  def resolve_client(client); end
 end

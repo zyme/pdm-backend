@@ -1,21 +1,22 @@
+# frozen_string_literal: true
 
 Rails.application.routes.draw do
-    use_doorkeeper
-    devise_for :users,
-    defaults: { format: :json },
-    only: :registrations,
-    controllers: {
-      registrations: 'users/registrations'
-    }
+  use_doorkeeper
+  devise_for :users,
+             defaults: { format: :json },
+             only: :registrations,
+             controllers: {
+               registrations: 'users/registrations'
+             }
 
-    get "/oauth/callback" , action: :callback, controller: 'oauth/callback'
-    namespace :api,defaults: { format: :json } do
-      namespace :v1 do
-        resources :profiles  do
-          resources :providers, controller: :profile_providers,  only: [:index, :create, :destroy],  as: :providers
-        end
-        resources :providers, only: [:index,:show]
+  get '/oauth/callback', action: :callback, controller: 'oauth/callback'
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :profiles do
+        resources :providers, controller: :profile_providers, only: %i[index create destroy], as: :providers
       end
+      resources :providers, only: %i[index show]
     end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
@@ -5,12 +7,11 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
 
-  test "user can have multiple profiles" do
+  test 'user can have multiple profiles' do
     user = users(:harry)
     assert user.profiles.length > 1
   end
 
-  test "default profile created when user is created" do
-
+  test 'default profile created when user is created' do
   end
 end
