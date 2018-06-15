@@ -40,6 +40,8 @@ group :development, :test do
 end
 
 group :test do
+  gem 'brakeman', require: false
+  gem 'bundler-audit'
   gem 'fakeweb'
   gem 'minitest'
   gem 'minitest-emoji'
