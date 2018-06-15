@@ -1,19 +1,19 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class Api::V1::ProvidersControllerTest < ActionDispatch::IntegrationTest
-
-  test "SHould be able to get list of providers" do
+  test 'SHould be able to get list of providers' do
     user = users(:harry)
     token = generate_token(user.id)
-    get "/api/v1/providers", params: { :access_token => token.token}
+    get '/api/v1/providers', params: { access_token: token.token }
     assert_response :success
   end
 
-  test "Should be able to get a single provider" do
+  test 'Should be able to get a single provider' do
     user = users(:harry)
     token = generate_token(user.id)
-    get "/api/v1/providers/#{Provider.first.id}", params: { :access_token => token.token}
+    get "/api/v1/providers/#{Provider.first.id}", params: { access_token: token.token }
     assert_response :success
   end
-
 end

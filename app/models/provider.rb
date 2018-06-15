@@ -1,25 +1,21 @@
+# frozen_string_literal: true
+
 class Provider < ApplicationRecord
+  belongs_to :parent, foreign_key: :parent_id, class_name: name
 
+  validates :name, :base_endpoint, presence: true
 
-  belongs_to :parent , foreign_key: :parent_id, class_name: self.name
-
-  validates_presence_of :name, :base_endpoint
-
-
-  def generate_auth_url(params={})
-     get_client.generate_auth_url( params)
+  def generate_auth_url(params = {})
+    get_client.generate_auth_url(params)
   end
 
-  def get_access_token(code, params={})
-    get_client.get_access_token(code,params)
+  def get_access_token(code, params = {})
+    get_client.get_access_token(code, params)
   end
 
-private
+  private
 
   def get_client
     HDM::Client.get_client(self)
   end
-
-
-
 end

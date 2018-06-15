@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateProfileProviders < ActiveRecord::Migration[5.2]
   def change
     create_table :profile_providers do |t|
@@ -9,6 +11,5 @@ class CreateProfileProviders < ActiveRecord::Migration[5.2]
       t.timestamp :last_sync
       t.timestamp
     end
-
   end
 end

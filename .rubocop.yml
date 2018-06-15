@@ -1,0 +1,41 @@
+inherit_from: .rubocop_todo.yml
+AllCops:
+  TargetRubyVersion: 2.3
+  # Exclude:
+Rails:
+  Enabled: true
+# Rails/HasAndBelongsToMany:
+#   Exclude:
+Metrics/LineLength:
+  Max: 165
+
+Metrics/MethodLength:
+  CountComments: false  # count full line comments?
+  Max: 50
+
+
+Metrics/ClassLength:
+  Max: 250
+
+Metrics/AbcSize:
+  # The ABC size is a calculated magnitude, so this number can be a Fixnum or
+  # a Float.
+  Max: 35
+
+
+# Metrics/ModuleLength:
+#   Exclude:
+# Avoid complex methods.
+Metrics/CyclomaticComplexity:
+  Max: 20
+Metrics/PerceivedComplexity:
+  Max: 20
+
+Style/GuardClause:
+  Enabled: false
+# Style/ClassVars:
+  # Exclude:
+Style/NumericPredicate:
+  Enabled: false
+#Style/HashSyntax:
+#  UseHashRocketsWithSymbolValues: true

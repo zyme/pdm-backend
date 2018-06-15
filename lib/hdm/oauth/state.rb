@@ -1,9 +1,11 @@
-module  HDM
+# frozen_string_literal: true
+
+module HDM
   module OAuth
     module State
-      def self.encode(provider_id,profile_id, extra={})
-        data = {provider_id: provider_id,
-         profile_id: profile_id}.merge(extra)
+      def self.encode(provider_id, profile_id, extra = {})
+        data = { provider_id: provider_id,
+                 profile_id: profile_id }.merge(extra)
         Base64.encode64(data.to_json)
       end
 
