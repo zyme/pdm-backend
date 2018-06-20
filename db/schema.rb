@@ -16,6 +16,28 @@ ActiveRecord::Schema.define(version: 2018_06_19_210933) do
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
+  create_table "allergies", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.jsonb "jsonb"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_allergies_on_profile_id"
+  end
+
+  create_table "care_plans", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.jsonb "jsonb"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_care_plans_on_profile_id"
+  end
+
   create_table "clients", force: :cascade do |t|
     t.string "name", null: false
     t.string "type", null: false
@@ -29,6 +51,17 @@ ActiveRecord::Schema.define(version: 2018_06_19_210933) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "conditions", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.jsonb "jsonb"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_conditions_on_profile_id"
+  end
+
   create_table "data_receipts", force: :cascade do |t|
     t.bigint "profile_id", null: false
     t.bigint "provider_id", null: false
@@ -40,6 +73,94 @@ ActiveRecord::Schema.define(version: 2018_06_19_210933) do
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_data_receipts_on_profile_id"
     t.index ["provider_id"], name: "index_data_receipts_on_provider_id"
+  end
+
+  create_table "devices", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.jsonb "jsonb"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_devices_on_profile_id"
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.jsonb "jsonb"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_documents_on_profile_id"
+  end
+
+  create_table "encounters", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.jsonb "jsonb"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_encounters_on_profile_id"
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.jsonb "jsonb"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_goals_on_profile_id"
+  end
+
+  create_table "immunizations", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.jsonb "jsonb"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_immunizations_on_profile_id"
+  end
+
+  create_table "medication_administrations", force: :cascade do |t|
+    t.string "resource_id", null: false
+    t.bigint "profile_id", null: false
+    t.jsonb "resource"
+    t.jsonb "jsonb"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_medication_administrations_on_profile_id"
+  end
+
+  create_table "medication_requests", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.jsonb "jsonb"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_medication_requests_on_profile_id"
+  end
+
+  create_table "medication_statements", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.jsonb "jsonb"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_medication_statements_on_profile_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -82,8 +203,6 @@ ActiveRecord::Schema.define(version: 2018_06_19_210933) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
-<<<<<<< HEAD
-=======
   create_table "observations", force: :cascade do |t|
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false
@@ -95,7 +214,6 @@ ActiveRecord::Schema.define(version: 2018_06_19_210933) do
     t.index ["profile_id"], name: "index_observations_on_profile_id"
   end
 
->>>>>>> adding base data models, creation tests and concern
   create_table "operational_outcomes", force: :cascade do |t|
     t.bigint "profile_id"
     t.bigint "resource_id"
@@ -104,6 +222,28 @@ ActiveRecord::Schema.define(version: 2018_06_19_210933) do
     t.jsonb "data"
     t.index ["profile_id"], name: "index_operational_outcomes_on_profile_id"
     t.index ["resource_id"], name: "index_operational_outcomes_on_resource_id"
+  end
+
+  create_table "practitioners", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.jsonb "jsonb"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_practitioners_on_profile_id"
+  end
+
+  create_table "procedures", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.jsonb "jsonb"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_procedures_on_profile_id"
   end
 
   create_table "profile_providers", force: :cascade do |t|

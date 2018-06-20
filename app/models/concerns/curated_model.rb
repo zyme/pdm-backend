@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'uuid'
 module CuratedModel
   extend ActiveSupport::Concern
@@ -10,9 +11,7 @@ module CuratedModel
     end
     # update the underlying json model with the current
     before_save do
-      if new_record? && resource_id.nil?
-        generate_resource_id
-      end
+      generate_resource_id if new_record? && resource_id.nil?
       fhir_model.id = resource_id
       update_resource
       self.resource = fhir_model.as_json
@@ -43,5 +42,4 @@ module CuratedModel
   def generate_resource_id
     self.resource_id = UUID.generate
   end
-
 end
