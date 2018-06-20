@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_19_210933) do
+ActiveRecord::Schema.define(version: 2018_06_20_202351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
-  create_table "allergies", force: :cascade do |t|
+  create_table "allergy_intolerances", force: :cascade do |t|
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false
     t.jsonb "resource"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2018_06_19_210933) do
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["profile_id"], name: "index_allergies_on_profile_id"
+    t.index ["profile_id"], name: "index_allergy_intolerances_on_profile_id"
   end
 
   create_table "care_plans", force: :cascade do |t|

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Allergy < ApplicationRecord
+class AllergyIntolerance < ApplicationRecord
   include CuratedModel
   belongs_to :profile
 end

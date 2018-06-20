@@ -32,7 +32,7 @@ module ResourceTestHelper
 
   def create_new_success(klass, profile, data)
     mod = klass.new(profile: profile, resource: data)
-    assert mod.valid?
+    assert mod.valid?, "Model should be valid: #{klass} #{mod.errors.messages}"
     assert mod.save
     assert_patient_or_subject mod
     assert_equal mod.fhir_model.id, mod.resource_id, 'Should update resource id'
