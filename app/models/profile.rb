@@ -6,7 +6,7 @@ class Profile < ApplicationRecord
   has_many :providers, through: :profile_providers
   validates :name, presence: true
 
-  has_many :allergies
+  has_many :allergy_intolerances
   has_many :care_plans
   has_many :conditions
   has_many :devices

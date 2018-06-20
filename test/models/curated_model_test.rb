@@ -18,6 +18,19 @@ class CuratedModelTest < ActiveSupport::TestCase
         assert false, "Error testing #{type} #{$!}"
       end
     end
+
+    p.reload
+
+    assert_equal p.allergy_intolerances.length , 1
+    assert_equal p.care_plans.length , 1
+    assert_equal p.conditions.length , 1
+    assert_equal p.devices.length , 1
+    assert_equal p.encounters.length , 1
+    assert_equal p.immunizations.length , 1
+    assert_equal p.medication_administrations.length , 1
+    assert_equal p.medication_requests.length , 1
+    assert_equal p.medication_statements.length , 1
+    assert_equal p.observations.length , 1
   end
 
 
@@ -60,4 +73,5 @@ class CuratedModelTest < ActiveSupport::TestCase
         end
       end
     end
+
 end
