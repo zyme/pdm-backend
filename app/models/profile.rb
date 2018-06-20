@@ -17,9 +17,13 @@ class Profile < ApplicationRecord
   has_many :medication_requests
   has_many :medication_statements
   has_many :observations
-  
+
   def has_provider?(provider_id)
     return false if provider_id.nil?
     !providers.find_by(id: provider_id).nil?
+  end
+
+  def reference
+    "Patient/#{patient_id}"
   end
 end

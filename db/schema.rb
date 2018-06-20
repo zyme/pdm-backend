@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_18_143116) do
+ActiveRecord::Schema.define(version: 2018_06_19_210933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,20 @@ ActiveRecord::Schema.define(version: 2018_06_18_143116) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
+<<<<<<< HEAD
+=======
+  create_table "observations", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.jsonb "jsonb"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_observations_on_profile_id"
+  end
+
+>>>>>>> adding base data models, creation tests and concern
   create_table "operational_outcomes", force: :cascade do |t|
     t.bigint "profile_id"
     t.bigint "resource_id"
