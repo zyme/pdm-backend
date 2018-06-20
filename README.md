@@ -1,24 +1,43 @@
-# README
+# Health Data Manager - Backend Server
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About
 
-Things you may want to cover:
+This project is the backend for the Health Data Manager.
 
-* Ruby version
 
-* System dependencies
+## Quick Start
 
-* Configuration
+### System Requirements
 
-* Database creation
+ - Ruby, v2.3.5 or higher ([rvm](https://rvm.io/) is recommended for managing multiple versions of Ruby)
+ - PostgreSQL, v9.4 or higher, running on port 5432
 
-* Database initialization
+### Installation
+```
+gem install bundler
+bundle install
+bundle exec rake db:setup
 
-* How to run the test suite
+# finally, to confirm it worked -- should see "<#> runs, <#> assertions, 0 failures, 0 errors, 0 skips" at the end
+bundle exec rake test
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Usage
+```
+bundle exec rails s
+```
 
-* Deployment instructions
+To optionally specify port: (default is 3000 if not specified)
 
-* ...
+```
+bundle exec rails s --port 7001
+```
+
+To execute the test suite:
+
+```
+bundle exec rake test
+```
+
+# License
+Copyright 2018 The MITRE Corporation 
