@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class TransactionTest < ActiveSupport::TestCase
+class DataReceiptTest < ActiveSupport::TestCase
   # test "Transaction must be associated with a profile" do
   #   assert false
   # end

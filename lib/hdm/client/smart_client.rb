@@ -23,11 +23,11 @@ module HDM
           reply = fhir_client.search(type, search: { parameters: { patient: profile_provider.subject_id } })
           bundle = reply.resource
           next unless bundle
-          trans = Transaction.new(profile_id: profile_provider.profile.id,
-                                  provider_id: provider.id,
-                                  transaction_type: 'fhir_bundle',
-                                  data: bundle.as_json)
-          puts trans.errors unless trans.save
+          receipt = DataReceipt.new(profile_id: profile_provider.profile.id,
+                                    provider_id: provider.id,
+                                    data_type: 'fhir_bundle',
+                                    data: bundle.as_json)
+          puts receipt.errors unless receipt.save
         end
         profile_provider.last_sync = Time.now
         profile_provider.save

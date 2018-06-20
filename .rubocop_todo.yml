@@ -88,7 +88,6 @@ Rails/CreateTableWithTimestamps:
 Rails/HasManyOrHasOneDependent:
   Exclude:
     - 'app/models/profile.rb'
-    - 'app/models/transaction.rb'
     - 'app/models/user.rb'
 
 # Offense count: 1
