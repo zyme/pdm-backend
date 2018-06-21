@@ -40,3 +40,6 @@ Style/NumericPredicate:
   Enabled: false
 #Style/HashSyntax:
 #  UseHashRocketsWithSymbolValues: true
+Lint/HandleExceptions:
+  Exclude:
+    - 'test/models/curated_model_test.rb'
