@@ -5,7 +5,7 @@ class CreateDocuments < ActiveRecord::Migration[5.2]
     create_table :documents do |t|
       t.references :profile, null: false
       t.string :resource_id, null: false
-      t.jsonb :resource, :jsonb
+      t.jsonb :resource
       t.string :version
       t.timestamps
     end

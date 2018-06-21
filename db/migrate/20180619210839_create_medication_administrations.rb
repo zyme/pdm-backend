@@ -5,7 +5,7 @@ class CreateMedicationAdministrations < ActiveRecord::Migration[5.2]
     create_table :medication_administrations do |t|
       t.string :resource_id, null: false
       t.references :profile, null: false
-      t.jsonb :resource, :jsonb
+      t.jsonb :resource
       t.string :version
       t.timestamps
     end

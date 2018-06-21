@@ -5,7 +5,7 @@ class CreateCarePlans < ActiveRecord::Migration[5.2]
     create_table :care_plans do |t|
       t.references :profile, null: false
       t.string :resource_id, null: false
-      t.jsonb :resource, :jsonb
+      t.jsonb :resource
       t.string :version
       t.timestamps
     end

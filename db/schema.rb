@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_20_202351) do
+ActiveRecord::Schema.define(version: 2018_06_21_173439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false
     t.jsonb "resource"
-    t.jsonb "jsonb"
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,7 +30,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false
     t.jsonb "resource"
-    t.jsonb "jsonb"
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -55,7 +53,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false
     t.jsonb "resource"
-    t.jsonb "jsonb"
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -79,7 +76,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false
     t.jsonb "resource"
-    t.jsonb "jsonb"
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -90,7 +86,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false
     t.jsonb "resource"
-    t.jsonb "jsonb"
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -101,7 +96,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false
     t.jsonb "resource"
-    t.jsonb "jsonb"
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -112,7 +106,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false
     t.jsonb "resource"
-    t.jsonb "jsonb"
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -123,7 +116,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false
     t.jsonb "resource"
-    t.jsonb "jsonb"
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -134,7 +126,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.string "resource_id", null: false
     t.bigint "profile_id", null: false
     t.jsonb "resource"
-    t.jsonb "jsonb"
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -145,7 +136,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false
     t.jsonb "resource"
-    t.jsonb "jsonb"
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -156,7 +146,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false
     t.jsonb "resource"
-    t.jsonb "jsonb"
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -207,7 +196,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false
     t.jsonb "resource"
-    t.jsonb "jsonb"
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -228,7 +216,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false
     t.jsonb "resource"
-    t.jsonb "jsonb"
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -239,7 +226,6 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false
     t.jsonb "resource"
-    t.jsonb "jsonb"
     t.string "version"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -288,7 +274,7 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
   create_table "resource_histories", force: :cascade do |t|
     t.bigint "resource_id"
     t.bigint "provider_id"
-    t.bigint "transaction_id"
+    t.bigint "data_receipt_id"
     t.string "resource_type"
     t.string "provider_resource_id"
     t.string "provider_resource_version"
@@ -299,16 +285,16 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.jsonb "jsonb"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["data_receipt_id"], name: "index_resource_histories_on_data_receipt_id"
     t.index ["provider_id"], name: "index_resource_histories_on_provider_id"
     t.index ["resource_id"], name: "index_resource_histories_on_resource_id"
-    t.index ["transaction_id"], name: "index_resource_histories_on_transaction_id"
   end
 
   create_table "resources", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "profile_id", null: false
     t.bigint "provider_id", null: false
-    t.bigint "transaction_id", null: false
+    t.bigint "data_receipt_id", null: false
     t.string "resource_type", null: false
     t.string "provider_resource_id", null: false
     t.string "provider_resource_version", null: false
@@ -319,9 +305,9 @@ ActiveRecord::Schema.define(version: 2018_06_20_202351) do
     t.jsonb "jsonb"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["data_receipt_id"], name: "index_resources_on_data_receipt_id"
     t.index ["profile_id"], name: "index_resources_on_profile_id"
     t.index ["provider_id"], name: "index_resources_on_provider_id"
-    t.index ["transaction_id"], name: "index_resources_on_transaction_id"
     t.index ["user_id"], name: "index_resources_on_user_id"
   end
 
