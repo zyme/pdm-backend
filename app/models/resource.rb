@@ -3,5 +3,6 @@
 class Resource < ApplicationRecord
   belongs_to :data_receipt
   belongs_to :user
+  belongs_to :profile
   belongs_to :provider
 end
