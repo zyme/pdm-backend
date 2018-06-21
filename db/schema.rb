@@ -10,11 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_18_143116) do
+ActiveRecord::Schema.define(version: 2018_06_21_173439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "allergy_intolerances", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_allergy_intolerances_on_profile_id"
+  end
+
+  create_table "care_plans", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_care_plans_on_profile_id"
+  end
 
   create_table "clients", force: :cascade do |t|
     t.string "name", null: false
@@ -29,6 +49,16 @@ ActiveRecord::Schema.define(version: 2018_06_18_143116) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "conditions", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_conditions_on_profile_id"
+  end
+
   create_table "data_receipts", force: :cascade do |t|
     t.bigint "profile_id", null: false
     t.bigint "provider_id", null: false
@@ -40,6 +70,86 @@ ActiveRecord::Schema.define(version: 2018_06_18_143116) do
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_data_receipts_on_profile_id"
     t.index ["provider_id"], name: "index_data_receipts_on_provider_id"
+  end
+
+  create_table "devices", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_devices_on_profile_id"
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_documents_on_profile_id"
+  end
+
+  create_table "encounters", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_encounters_on_profile_id"
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_goals_on_profile_id"
+  end
+
+  create_table "immunizations", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_immunizations_on_profile_id"
+  end
+
+  create_table "medication_administrations", force: :cascade do |t|
+    t.string "resource_id", null: false
+    t.bigint "profile_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_medication_administrations_on_profile_id"
+  end
+
+  create_table "medication_requests", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_medication_requests_on_profile_id"
+  end
+
+  create_table "medication_statements", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_medication_statements_on_profile_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -82,6 +192,16 @@ ActiveRecord::Schema.define(version: 2018_06_18_143116) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
+  create_table "observations", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_observations_on_profile_id"
+  end
+
   create_table "operational_outcomes", force: :cascade do |t|
     t.bigint "profile_id"
     t.bigint "resource_id"
@@ -90,6 +210,26 @@ ActiveRecord::Schema.define(version: 2018_06_18_143116) do
     t.jsonb "data"
     t.index ["profile_id"], name: "index_operational_outcomes_on_profile_id"
     t.index ["resource_id"], name: "index_operational_outcomes_on_resource_id"
+  end
+
+  create_table "practitioners", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_practitioners_on_profile_id"
+  end
+
+  create_table "procedures", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_procedures_on_profile_id"
   end
 
   create_table "profile_providers", force: :cascade do |t|
@@ -134,7 +274,7 @@ ActiveRecord::Schema.define(version: 2018_06_18_143116) do
   create_table "resource_histories", force: :cascade do |t|
     t.bigint "resource_id"
     t.bigint "provider_id"
-    t.bigint "transaction_id"
+    t.bigint "data_receipt_id"
     t.string "resource_type"
     t.string "provider_resource_id"
     t.string "provider_resource_version"
@@ -145,16 +285,16 @@ ActiveRecord::Schema.define(version: 2018_06_18_143116) do
     t.jsonb "jsonb"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["data_receipt_id"], name: "index_resource_histories_on_data_receipt_id"
     t.index ["provider_id"], name: "index_resource_histories_on_provider_id"
     t.index ["resource_id"], name: "index_resource_histories_on_resource_id"
-    t.index ["transaction_id"], name: "index_resource_histories_on_transaction_id"
   end
 
   create_table "resources", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "profile_id", null: false
     t.bigint "provider_id", null: false
-    t.bigint "transaction_id", null: false
+    t.bigint "data_receipt_id", null: false
     t.string "resource_type", null: false
     t.string "provider_resource_id", null: false
     t.string "provider_resource_version", null: false
@@ -165,9 +305,9 @@ ActiveRecord::Schema.define(version: 2018_06_18_143116) do
     t.jsonb "jsonb"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["data_receipt_id"], name: "index_resources_on_data_receipt_id"
     t.index ["profile_id"], name: "index_resources_on_profile_id"
     t.index ["provider_id"], name: "index_resources_on_provider_id"
-    t.index ["transaction_id"], name: "index_resources_on_transaction_id"
     t.index ["user_id"], name: "index_resources_on_user_id"
   end
 
