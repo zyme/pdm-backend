@@ -43,7 +43,7 @@ class HDM::Merge::MergerTest < ActiveSupport::TestCase
     load_resources(profile, provider)
     assert_equal 12, profile.resources.where(merged: false).count
     merger = HDM::Merge::Merger.new
-    # called multiple times to simulate updating the profile more than once 
+    # called multiple times to simulate updating the profile more than once
     merger.update_profile(profile)
     merger.update_profile(profile)
     merger.update_profile(profile)
