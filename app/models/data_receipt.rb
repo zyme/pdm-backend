@@ -32,7 +32,7 @@ class DataReceipt < ApplicationRecord
                                   created_at: Time.now.utc,
                                   updated_at: Time.now.utc)
 
-      puts app_resource.errors unless app_resource.save
+      app_resource.save!
     end
 
     self.processed = true

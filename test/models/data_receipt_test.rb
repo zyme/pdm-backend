@@ -55,21 +55,21 @@ class DataReceiptTest < ActiveSupport::TestCase
     assert_equal(0, dr.resources.count)
   end
 
-  test "Transaction must be associated with a profile" do
+  test 'Data Receipt must be associated with a profile' do
     provider = providers(:partners)
     json = read_test_file('bundles/search-set.json')
     dr = DataReceipt.new(provider: provider, data: json, data_type: 'fhir')
 
-    refute(dr.save)
+    assert_not(dr.save)
     assert_not_nil(dr.errors)
   end
   
-  test "Transaction must be associated with a provider" do
+  test 'Data Receipt must be associated with a provider' do
     profile = profiles(:harrys_profile)
     json = read_test_file('bundles/search-set.json')
     dr = DataReceipt.new(profile: profile, data: json, data_type: 'fhir')
 
-    refute(dr.save)
+    assert_not(dr.save)
     assert_not_nil(dr.errors)
   end
 end
