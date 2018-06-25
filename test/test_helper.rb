@@ -27,7 +27,11 @@ module ResourceTestHelper
   end
 
   def read_test_file(file)
-    JSON.parse(File.read(File.join('./test/fixtures/files', file)))
+    File.read(File.join('./test/fixtures/files', file))
+  end
+
+  def parse_test_file(file)
+    JSON.parse(read_test_file(file))
   end
 
   def create_new_success(klass, profile, data)
