@@ -13,7 +13,7 @@ class CuratedModelTest < ActiveSupport::TestCase
       begin
         puts "Testing create #{type}"
         snake = type.name.underscore
-        create_new_success(type, p, read_test_file("#{snake.pluralize}/#{snake}_good.json"))
+        create_new_success(type, p, parse_test_file("#{snake.pluralize}/#{snake}_good.json"))
       rescue StandardError
         assert false, "Error testing #{type} #{$ERROR_INFO}"
       end
@@ -42,7 +42,7 @@ class CuratedModelTest < ActiveSupport::TestCase
       begin
         puts "Testing resourceType #{type}"
 
-        mod = type.new(profile: p, resource: read_test_file('bundles/search-set.json'))
+        mod = type.new(profile: p, resource: parse_test_file('bundles/search-set.json'))
         assert_equal false, mod.valid?, 'Should not be valid with wrond resource type'
         errors = mod.errors
         assert_equal errors['resource'], ["Wrong resource type: expected #{type.name} was Bundle"]
@@ -62,7 +62,7 @@ class CuratedModelTest < ActiveSupport::TestCase
       begin
         puts "Testing invalid resource for  #{type}"
         snake = type.name.underscore
-        mod = type.new(profile: p, resource: read_test_file("#{snake.pluralize}/#{snake}_bad.json"))
+        mod = type.new(profile: p, resource: parse_test_file("#{snake.pluralize}/#{snake}_bad.json"))
         mod.valid?
         errors = mod.errors
         assert_equal false, mod.valid?, 'Should not be valid with invalid fhir resource'
