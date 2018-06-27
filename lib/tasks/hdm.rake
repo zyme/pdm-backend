@@ -13,5 +13,7 @@ namespace :hdm do
                               data: bundle_json)
 
     receipt.process!
+    merger = HDM::Merge:: Merger.new
+    merger.update_profile(receipt.profile)
   end
 end

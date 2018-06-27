@@ -100,7 +100,7 @@ class HDM::Merge::MergerTest < ActiveSupport::TestCase
     types.each do |type|
       snake = type.name.underscore
       res = Resource.new(data_receipt: dr, provider: provider, profile: profile,
-                         resource: read_test_file("#{snake.pluralize}/#{snake}_good.json"),
+                         resource: parse_test_file("#{snake.pluralize}/#{snake}_good.json"),
                          resource_type: snake, provider_resource_id: 1, provider_resource_version: '')
       assert res.save, "Expected resource to save #{res.errors.messages}"
     end

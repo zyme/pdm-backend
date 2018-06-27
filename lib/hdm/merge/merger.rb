@@ -41,7 +41,7 @@ module HDM
       private
 
       def model_relationship(resource_type, profile)
-        profile.send resource_type.pluralize.to_sym
+        profile.send resource_type.pluralize.underscore.to_sym
       end
 
       def resource_model(resource_type)
