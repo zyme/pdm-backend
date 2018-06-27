@@ -1,0 +1,15 @@
+first_data_receipt:
+  id: 983242
+  profile: jills_profile
+  provider: partners
+  data_type: fhir_bundle
+  data: '{}'
+  processed: true
+
+second_data_receipt:
+  id: 203974
+  profile: semas_profile
+  provider: partners
+  data_type: fhir_bundle
+  data: '{}'
+  processed: true
