@@ -7,15 +7,12 @@ module Api
       before_action :find_profile
 
       def index
-        # byebug
         results = authorized_resources.where(filtered_params)
 
-        unless params[:raw_models]
-          # get just the FHIR resources
-          results = results.map(&:resource)
-        end
+        results = wrap_in_bundle(results) unless params[:raw_models]
 
-        render json: results, status: :ok
+        # pre-converting to json is a workaround for a bug w/ rails & fhir_models
+        render json: results.to_json, status: :ok
       end
 
       def show
@@ -26,10 +23,17 @@ module Api
           result = result.resource
         end
 
-        render json: result, status: :ok
+        # pre-converting to json is a workaround for a bug w/ rails & fhir_models
+        render json: result.to_json, status: :ok
       end
 
       private
+
+      def wrap_in_bundle(results)
+        # get just the FHIR resources, but then wrap it in an Entry.
+        resources = results.map { |r| { resource: JSON.parse(r.resource) } }
+        FHIR::Bundle.new(type: 'searchset', entry: resources)
+      end
 
       def authorized_resources
         @model_class.where(profile: @profile)

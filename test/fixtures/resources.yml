@@ -1,0 +1,19 @@
+first_dr_1:
+  id: 1
+  profile: jills_profile
+  provider: partners
+  data_receipt: first_data_receipt
+  resource_type: Condition
+  provider_resource_id: 12345
+  provider_resource_version: 1
+  resource: '{}'
+
+second_dr_1:
+  id: 2
+  profile: semas_profile
+  provider: partners
+  data_receipt: first_data_receipt
+  resource_type: Condition
+  provider_resource_id: 12345
+  provider_resource_version: 1
+  resource: '{}'

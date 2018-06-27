@@ -1,0 +1,27 @@
+uncombable_hair_syndrome:
+  id: 841
+  profile: jills_profile
+  resource_id: first_dr_1 id
+  resource: '{"resourceType": "Condition",
+              "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "Q84.1" }]},
+              "subject": {"reference": "Patient/b4d4b13e-f6e0-4fa8-bd6b-51e9ff1c2e71"}}'
+  version: 1
+
+struck_by_duck:
+  id: 6162
+  profile: jills_profile
+  resource_id: first_dr_1 id
+  resource: '{"resourceType": "Condition",
+              "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "W61.62" }]},
+              "subject": {"reference": "Patient/b4d4b13e-f6e0-4fa8-bd6b-51e9ff1c2e71"}}'
+  version: 1
+
+
+waterskis_on_fire:
+  id: 9107
+  profile: semas_profile
+  resource_id: second_dr_1 id
+  resource: '{"resourceType": "Condition",
+              "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": " V91.07" }]},
+              "subject": {"reference": "Patient/b4d4b13e-f6e0-4fa8-bd6b-51e9ff1c2e71"}}'
+  version: 1

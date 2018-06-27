@@ -63,7 +63,7 @@ class DataReceiptTest < ActiveSupport::TestCase
     assert_not(dr.save)
     assert_not_nil(dr.errors)
   end
-  
+
   test 'Data Receipt must be associated with a provider' do
     profile = profiles(:harrys_profile)
     json = read_test_file('bundles/search-set.json')

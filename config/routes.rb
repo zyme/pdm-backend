@@ -12,11 +12,10 @@ Rails.application.routes.draw do
   get '/oauth/callback', action: :callback, controller: 'oauth/callback'
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-
       curated_models = %i[allergy_intolerances care_plans conditions
-                        devices documents encounters goals immunizations
-                        medication_administrations medication_requests medication_statements
-                        observations practitioners procedures]
+                          devices documents encounters goals immunizations
+                          medication_administrations medication_requests medication_statements
+                          observations practitioners procedures]
 
       resources :profiles do
         resources :providers, controller: :profile_providers, only: %i[index create destroy], as: :providers
@@ -28,6 +27,7 @@ Rails.application.routes.draw do
       end
       resources :providers, only: %i[index show]
 
+      resources :Patient, controller: :patients, only: %i[index show]
       # curated models as FHIR
       curated_models.each do |cm|
         resources cm.to_s.classify.to_sym, controller: cm, only: %i[index show]
