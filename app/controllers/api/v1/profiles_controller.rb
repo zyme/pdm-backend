@@ -24,7 +24,7 @@ module Api
 
       def destroy
         profile = find_profile
-        render json: { message: 'Deleted' }, status: :no_content if profile.delete
+        render json: profile, status: :ok if profile.delete
       end
 
       private

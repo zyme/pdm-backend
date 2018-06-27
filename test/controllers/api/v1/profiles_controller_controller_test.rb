@@ -30,7 +30,7 @@ class Api::V1::ProfilesControllerTest < ActionDispatch::IntegrationTest
     token = generate_token(harry.id)
     profile = harry.profiles.first.id
     delete "/api/v1/profiles/#{harry.profiles.first.id}", params: { access_token: token.token }
-    assert_response 204
+    assert_response 200 # returning 200 because we are returning the deleted resource
     assert Profile.find_by(id: profile).nil?, 'Profile should have been deleted'
   end
 
