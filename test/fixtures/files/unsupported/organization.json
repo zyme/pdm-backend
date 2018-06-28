@@ -1,0 +1,56 @@
+{
+    "resourceType": "Organization",
+    "id": "4e412cbe-d6e2-49e6-8e3e-7fe07d52fc0e",
+    "meta": {
+      "profile": [
+        "http://standardhealthrecord.org/fhir/StructureDefinition/shr-entity-Organization"
+      ]
+    },
+    "identifier": [
+      {
+        "system": "https://github.com/synthetichealth/synthea",
+        "value": "90a5cb21-9fd4-4155-b84c-dccda662b7da"
+      },
+      {
+        "system": "urn:ietf:rfc:3986",
+        "value": "90a5cb21-9fd4-4155-b84c-dccda662b7da"
+      }
+    ],
+    "type": [
+      {
+        "coding": [
+          {
+            "system": "Healthcare Provider",
+            "code": "prov",
+            "display": "Healthcare Provider"
+          }
+        ],
+        "text": "Healthcare Provider"
+      }
+    ],
+    "name": "HEYWOOD HOSPITAL -",
+    "telecom": [
+      {
+        "system": "phone",
+        "value": "9786323420"
+      }
+    ],
+    "address": [
+      {
+        "line": [
+          "242 GREEN STREET"
+        ],
+        "city": "GARDNER",
+        "state": "MA",
+        "postalCode": "01440",
+        "country": "US"
+      }
+    ],
+    "contact": [
+      {
+        "name": {
+          "text": "Synthetic Provider"
+        }
+      }
+    ]
+  }
