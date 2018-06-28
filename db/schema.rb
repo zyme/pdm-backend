@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_21_173439) do
+ActiveRecord::Schema.define(version: 2018_06_28_131540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -254,11 +254,15 @@ ActiveRecord::Schema.define(version: 2018_06_21_173439) do
     t.date "dob"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "middle_name"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "providers", force: :cascade do |t|
-    t.string "client_id"
     t.integer "parent_id"
     t.string "provider_type", null: false
     t.string "name", null: false
@@ -267,8 +271,8 @@ ActiveRecord::Schema.define(version: 2018_06_21_173439) do
     t.string "token_endpoint"
     t.string "authorization_endpoint"
     t.string "scopes"
+    t.string "client_id"
     t.string "client_secret"
-    t.index ["client_id"], name: "index_providers_on_client_id"
     t.index ["parent_id"], name: "index_providers_on_parent_id"
   end
 
@@ -292,6 +296,7 @@ ActiveRecord::Schema.define(version: 2018_06_21_173439) do
   end
 
   create_table "resources", force: :cascade do |t|
+    t.bigint "user_id"
     t.bigint "profile_id", null: false
     t.bigint "provider_id", null: false
     t.bigint "data_receipt_id", null: false
@@ -308,6 +313,7 @@ ActiveRecord::Schema.define(version: 2018_06_21_173439) do
     t.index ["data_receipt_id"], name: "index_resources_on_data_receipt_id"
     t.index ["profile_id"], name: "index_resources_on_profile_id"
     t.index ["provider_id"], name: "index_resources_on_provider_id"
+    t.index ["user_id"], name: "index_resources_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
