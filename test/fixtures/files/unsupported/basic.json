@@ -1,0 +1,18 @@
+{
+    "resourceType": "Basic",
+    "id": "153739e3-299f-4d65-aab1-3fa722c55980",
+    "meta": {
+      "profile": [
+        "http://standardhealthrecord.org/fhir/StructureDefinition/shr-entity-Person"
+      ]
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://standardhealthrecord.org/fhir/basic-resource-type",
+          "code": "shr-entity-Person",
+          "display": "shr-entity-Person"
+        }
+      ]
+    }
+  }

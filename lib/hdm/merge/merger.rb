@@ -18,6 +18,7 @@ module HDM
         end
         matcher = matcher(resource.resource_type)
         relationship = model_relationship(resource.resource_type, profile)
+        return unless relationship
         matches = matcher.match(resource.resource, relationship)
 
         if matches.present?
@@ -42,6 +43,8 @@ module HDM
 
       def model_relationship(resource_type, profile)
         profile.send resource_type.pluralize.underscore.to_sym
+      rescue StandardError
+        nil
       end
 
       def resource_model(resource_type)

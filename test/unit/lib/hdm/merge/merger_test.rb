@@ -63,6 +63,20 @@ class HDM::Merge::MergerTest < ActiveSupport::TestCase
     assert_equal profile.observations.length, 1
   end
 
+  test 'should ignore fhir types not supported' do
+    profile = profiles(:harrys_profile)
+    provider = providers(:partners)
+    load_unsupported_resources(profile, provider)
+    assert_equal 2, profile.resources.where(merged: false).count
+    merger = HDM::Merge::Merger.new
+    # called multiple times to simulate updating the profile more than once
+    begin
+      merger.update_profile(profile)
+    rescue StandardError
+      assert false, 'Falied to merge properly with unsupported resource types'
+    end
+  end
+
   private
 
   def load_resources(profile, provider)
@@ -75,6 +89,20 @@ class HDM::Merge::MergerTest < ActiveSupport::TestCase
       snake = type.name.underscore
       res = Resource.new(data_receipt: dr, provider: provider, profile: profile,
                          resource: parse_test_file("#{snake.pluralize}/#{snake}_good.json"),
+                         resource_type: snake, provider_resource_id: 1, provider_resource_version: '')
+      assert res.save, "Expected resource to save #{res.errors.messages}"
+    end
+  end
+
+  def load_unsupported_resources(profile, provider)
+    dr = DataReceipt.new(profile: profile, provider: provider, data: {}, data_type: 'fhir')
+    dr.save
+    files = Dir['./test/fixtures/files/unsupported/*.json']
+    files.each do |file|
+      resource = JSON.parse(File.read(file))
+      snake = resource['resourceType'].underscore
+      res = Resource.new(data_receipt: dr, provider: provider, profile: profile,
+                         resource: resource,
                          resource_type: snake, provider_resource_id: 1, provider_resource_version: '')
       assert res.save, "Expected resource to save #{res.errors.messages}"
     end
