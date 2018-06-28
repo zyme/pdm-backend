@@ -1,0 +1,265 @@
+Marti99 White193
+================
+Race:                Asian
+Ethnicity:           Non-Hispanic
+Gender:              F
+Age:                 43
+Birth Date:          1975-04-09
+Marital Status:      S
+Outpatient Provider: SALT LAKE REGIONAL MEDICAL CENTER
+--------------------------------------------------------------------------------
+ALLERGIES:
+No Known Allergies
+--------------------------------------------------------------------------------
+MEDICATIONS:
+2018-04-13[CURRENT] : Xulane 150/35 MCG/Day Weekly Transdermal System
+2017-04-18[STOPPED] : Nexplanon 68 MG Drug Implant
+2016-04-23[STOPPED] : Errin 28 Day Pack
+2015-04-20[STOPPED] : Liletta 52 MG Intrauterine System
+2015-02-22[STOPPED] : Acetaminophen 160 MG for Acute bronchitis (disorder)
+2014-04-25[STOPPED] : Levora 0.15/30 28 Day Pack
+2013-04-30[STOPPED] : Nexplanon 68 MG Drug Implant
+2012-05-05[STOPPED] : Natazia 28 Day Pack
+2011-05-11[STOPPED] : Yaz 28 Day Pack
+2009-09-09[STOPPED] : Trinessa 28 Day Pack
+2007-09-12[STOPPED] : Yaz 28 Day Pack
+1979-04-15[CURRENT] : 200 ACTUAT Albuterol 0.09 MG/ACTUAT Metered Dose Inhaler for Childhood asthma
+1979-04-15[CURRENT] : 120 ACTUAT Fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler for Childhood asthma
+--------------------------------------------------------------------------------
+CONDITIONS:
+2017-03-08 -            : Body mass index 30+ - obesity (finding)
+2015-02-22 - 2015-03-08 : Acute bronchitis (disorder)
+2012-07-31 - 2012-08-07 : Viral sinusitis (disorder)
+2010-08-11 - 2011-03-30 : Normal pregnancy
+2008-12-17 - 2009-07-29 : Normal pregnancy
+1996-01-13 -            : Asthma
+--------------------------------------------------------------------------------
+CARE PLANS:
+2015-02-22[STOPPED] : Respiratory therapy
+                         Reason: Acute bronchitis (disorder)
+                         Activity: Recommendation to avoid exercise
+                         Activity: Deep breathing and coughing exercises
+2010-08-11[STOPPED] : Routine antenatal care
+                         Reason: Normal pregnancy
+                         Activity: Antenatal education
+                         Activity: Antenatal risk assessment
+                         Activity: Antenatal blood tests
+2008-12-17[STOPPED] : Routine antenatal care
+                         Reason: Normal pregnancy
+                         Activity: Antenatal education
+                         Activity: Antenatal risk assessment
+                         Activity: Antenatal blood tests
+1979-04-15[CURRENT] : Asthma self management
+                         Reason: Childhood asthma
+                         Activity: Inhaled steroid therapy
+                         Activity: Home nebulizer therapy
+                         Activity: Breathing control
+--------------------------------------------------------------------------------
+OBSERVATIONS:
+2017-03-08 : High Density Lipoprotein Cholesterol     60.8 mg/dL
+2017-03-08 : Low Density Lipoprotein Cholesterol      95.4 mg/dL
+2017-03-08 : Triglycerides                            124.1 mg/dL
+2017-03-08 : Total Cholesterol                        181.0 mg/dL
+2017-03-08 : Blood Pressure
+           - Diastolic Blood Pressure                 77.0 mmHg
+           - Systolic Blood Pressure                  114.4 mmHg
+2017-03-08 : Body Mass Index                          30.8 kg/m2
+2017-03-08 : Body Weight                              92.6 kg
+2017-03-08 : Body Height                              173.3 cm
+2015-03-04 : Blood Pressure
+           - Diastolic Blood Pressure                 75.5 mmHg
+           - Systolic Blood Pressure                  104.9 mmHg
+2015-03-04 : Body Mass Index                          29.9 kg/m2
+2015-03-04 : Body Weight                              89.9 kg
+2015-03-04 : Body Height                              173.3 cm
+2013-02-06 : High Density Lipoprotein Cholesterol     79.5 mg/dL
+2013-02-06 : Low Density Lipoprotein Cholesterol      65.5 mg/dL
+2013-02-06 : Triglycerides                            147.8 mg/dL
+2013-02-06 : Total Cholesterol                        174.6 mg/dL
+2013-02-06 : Blood Pressure
+           - Diastolic Blood Pressure                 81.3 mmHg
+           - Systolic Blood Pressure                  132.8 mmHg
+2013-02-06 : Body Mass Index                          28.8 kg/m2
+2013-02-06 : Body Weight                              86.5 kg
+2013-02-06 : Body Height                              173.3 cm
+2010-02-03 : High Density Lipoprotein Cholesterol     78.2 mg/dL
+2010-02-03 : Low Density Lipoprotein Cholesterol      96.7 mg/dL
+2010-02-03 : Triglycerides                            106.9 mg/dL
+2010-02-03 : Total Cholesterol                        196.2 mg/dL
+2010-02-03 : Blood Pressure
+           - Diastolic Blood Pressure                 85.2 mmHg
+           - Systolic Blood Pressure                  134.4 mmHg
+2010-02-03 : Body Mass Index                          27.4 kg/m2
+2010-02-03 : Body Weight                              82.2 kg
+2010-02-03 : Body Height                              173.3 cm
+--------------------------------------------------------------------------------
+PROCEDURES:
+2017-05-03 : Replacement of subcutaneous contraceptive
+2017-04-18 : Insertion of subcutaneous contraceptive
+2015-04-24 : Insertion of intrauterine contraceptive device
+2015-03-04 : Documentation of current medications
+2013-04-30 : Insertion of subcutaneous contraceptive
+2013-02-06 : Documentation of current medications
+2011-05-11 : Depression screening
+2011-05-11 : Physical examination following birth
+2011-03-30 : Childbirth for Normal pregnancy
+2011-03-23 : Auscultation of the fetal heart for Normal pregnancy
+2011-03-23 : Evaluation of uterine fundal height for Normal pregnancy
+2011-03-16 : Auscultation of the fetal heart for Normal pregnancy
+2011-03-16 : Evaluation of uterine fundal height for Normal pregnancy
+2011-03-09 : Auscultation of the fetal heart for Normal pregnancy
+2011-03-09 : Evaluation of uterine fundal height for Normal pregnancy
+2011-02-23 : Auscultation of the fetal heart for Normal pregnancy
+2011-02-23 : Evaluation of uterine fundal height for Normal pregnancy
+2011-02-23 : Streptococcus pneumoniae group B antigen test for Normal pregnancy
+2011-01-26 : Auscultation of the fetal heart for Normal pregnancy
+2011-01-26 : Evaluation of uterine fundal height for Normal pregnancy
+2011-12-29 : Auscultation of the fetal heart for Normal pregnancy
+2011-12-29 : Evaluation of uterine fundal height for Normal pregnancy
+2011-12-29 : Urine screening for glucose for Normal pregnancy
+2011-12-29 : Vaccination for diphtheria, pertussis, and tetanus for Normal pregnancy
+2011-12-29 : Hemoglobin / Hematocrit / Platelet count for Normal pregnancy
+2010-12-01 : Auscultation of the fetal heart for Normal pregnancy
+2010-12-01 : Evaluation of uterine fundal height for Normal pregnancy
+2010-11-03 : Auscultation of the fetal heart for Normal pregnancy
+2010-11-03 : Evaluation of uterine fundal height for Normal pregnancy
+2010-10-06 : Auscultation of the fetal heart for Normal pregnancy
+2010-10-06 : Evaluation of uterine fundal height for Normal pregnancy
+2010-10-06 : Alpha-fetoprotein test for Normal pregnancy
+2010-10-06 : Fetal anatomy study for Normal pregnancy
+2010-09-08 : Screening for chromosomal aneuploidy in prenatal amniotic fluid for Normal pregnancy
+2010-09-08 : Auscultation of the fetal heart for Normal pregnancy
+2010-09-08 : Evaluation of uterine fundal height for Normal pregnancy
+2010-08-11 : Physical examination of mother for Normal pregnancy
+2010-08-11 : Urine protein test for Normal pregnancy
+2010-08-11 : Skin test for tuberculosis for Normal pregnancy
+2010-08-11 : Measurement of Varicella-zoster virus antibody  for Normal pregnancy
+2010-08-11 : Rubella screening for Normal pregnancy
+2010-08-11 : Hepatitis C antibody test for Normal pregnancy
+2010-08-11 : Urine screening test for diabetes for Normal pregnancy
+2010-08-11 : Cytopathology procedure, preparation of smear, genital source for Normal pregnancy
+2010-08-11 : Urine culture for Normal pregnancy
+2010-08-11 : Syphilis infection test for Normal pregnancy
+2010-08-11 : Gonorrhea infection test for Normal pregnancy
+2010-08-11 : Chlamydia antigen test for Normal pregnancy
+2010-08-11 : Human immunodeficiency virus antigen test for Normal pregnancy
+2010-08-11 : Hepatitis B Surface Antigen Measurement for Normal pregnancy
+2010-08-11 : Hemoglobin / Hematocrit / Platelet count for Normal pregnancy
+2010-08-11 : Blood typing, RH typing for Normal pregnancy
+2010-08-11 : Auscultation of the fetal heart for Normal pregnancy
+2010-08-11 : Evaluation of uterine fundal height for Normal pregnancy
+2010-08-11 : Ultrasound scan for fetal viability for Normal pregnancy
+2010-08-11 : Standard pregnancy test for Normal pregnancy
+2010-02-03 : Documentation of current medications
+2009-09-09 : Depression screening
+2009-09-09 : Physical examination following birth
+2009-07-29 : Childbirth for Normal pregnancy
+2009-07-22 : Auscultation of the fetal heart for Normal pregnancy
+2009-07-22 : Evaluation of uterine fundal height for Normal pregnancy
+2009-07-15 : Auscultation of the fetal heart for Normal pregnancy
+2009-07-15 : Evaluation of uterine fundal height for Normal pregnancy
+2009-07-01 : Auscultation of the fetal heart for Normal pregnancy
+2009-07-01 : Evaluation of uterine fundal height for Normal pregnancy
+2009-07-01 : Streptococcus pneumoniae group B antigen test for Normal pregnancy
+2009-06-03 : Auscultation of the fetal heart for Normal pregnancy
+2009-06-03 : Evaluation of uterine fundal height for Normal pregnancy
+2009-05-06 : Auscultation of the fetal heart for Normal pregnancy
+2009-05-06 : Evaluation of uterine fundal height for Normal pregnancy
+2009-05-06 : Urine screening for glucose for Normal pregnancy
+2009-05-06 : Vaccination for diphtheria, pertussis, and tetanus for Normal pregnancy
+2009-05-06 : Hemoglobin / Hematocrit / Platelet count for Normal pregnancy
+2009-04-08 : Auscultation of the fetal heart for Normal pregnancy
+2009-04-08 : Evaluation of uterine fundal height for Normal pregnancy
+2009-03-11 : Auscultation of the fetal heart for Normal pregnancy
+2009-03-11 : Evaluation of uterine fundal height for Normal pregnancy
+2009-02-11 : Auscultation of the fetal heart for Normal pregnancy
+2009-02-11 : Evaluation of uterine fundal height for Normal pregnancy
+2009-02-11 : Alpha-fetoprotein test for Normal pregnancy
+2009-02-11 : Fetal anatomy study for Normal pregnancy
+2009-01-14 : Screening for chromosomal aneuploidy in prenatal amniotic fluid for Normal pregnancy
+2009-01-14 : Auscultation of the fetal heart for Normal pregnancy
+2009-01-14 : Evaluation of uterine fundal height for Normal pregnancy
+2008-12-17 : Physical examination of mother for Normal pregnancy
+2008-12-17 : Urine protein test for Normal pregnancy
+2008-12-17 : Skin test for tuberculosis for Normal pregnancy
+2008-12-17 : Measurement of Varicella-zoster virus antibody  for Normal pregnancy
+2008-12-17 : Rubella screening for Normal pregnancy
+2008-12-17 : Hepatitis C antibody test for Normal pregnancy
+2008-12-17 : Urine screening test for diabetes for Normal pregnancy
+2008-12-17 : Cytopathology procedure, preparation of smear, genital source for Normal pregnancy
+2008-12-17 : Urine culture for Normal pregnancy
+2008-12-17 : Syphilis infection test for Normal pregnancy
+2008-12-17 : Gonorrhea infection test for Normal pregnancy
+2008-12-17 : Chlamydia antigen test for Normal pregnancy
+2008-12-17 : Human immunodeficiency virus antigen test for Normal pregnancy
+2008-12-17 : Hepatitis B Surface Antigen Measurement for Normal pregnancy
+2008-12-17 : Hemoglobin / Hematocrit / Platelet count for Normal pregnancy
+2008-12-17 : Blood typing, RH typing for Normal pregnancy
+2008-12-17 : Auscultation of the fetal heart for Normal pregnancy
+2008-12-17 : Evaluation of uterine fundal height for Normal pregnancy
+2008-12-17 : Ultrasound scan for fetal viability for Normal pregnancy
+2008-12-17 : Standard pregnancy test for Normal pregnancy
+--------------------------------------------------------------------------------
+IMMUNIZATIONS:
+2017-03-08 : Td (adult) preservative free
+2017-03-08 : Influenza, seasonal, injectable, preservative free
+2015-03-04 : Influenza, seasonal, injectable, preservative free
+2013-02-06 : Influenza, seasonal, injectable, preservative free
+2010-02-03 : Influenza, seasonal, injectable, preservative free
+--------------------------------------------------------------------------------
+ENCOUNTERS:
+2018-04-13 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2017-09-21 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Asthma
+2017-05-03 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2017-04-18 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2017-03-08 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2016-04-23 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2015-04-24 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2015-04-20 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2015-04-05 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Asthma
+2015-03-04 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2015-02-22 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Acute bronchitis (disorder)
+2014-04-25 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2013-04-30 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2013-02-06 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2012-07-31 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Viral sinusitis (disorder)
+2012-05-05 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2011-05-11 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2011-05-11 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2011-03-30 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2011-03-23 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2011-03-16 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2011-03-09 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2011-02-23 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2011-01-26 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2011-12-29 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2010-12-01 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2010-10-28 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Asthma
+2010-11-03 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2010-10-06 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2010-09-08 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2010-08-11 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2010-05-01 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Asthma
+2010-04-30 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Asthma
+2010-02-03 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2009-11-01 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Asthma
+2009-09-09 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2009-09-09 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2009-07-29 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2009-07-22 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2009-07-15 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2009-07-01 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2009-06-03 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2009-05-05 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Asthma
+2009-05-06 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2009-04-08 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2009-03-11 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2009-02-11 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2009-01-14 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2008-12-17 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Normal pregnancy
+2007-09-12 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+1996-01-13 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Asthma
+1979-04-15 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Childhood asthma
+--------------------------------------------------------------------------------
+IMAGING STUDIES:
+--------------------------------------------------------------------------------

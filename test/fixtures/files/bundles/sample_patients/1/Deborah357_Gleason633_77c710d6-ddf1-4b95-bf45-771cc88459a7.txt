@@ -1,0 +1,189 @@
+Deborah357 Gleason633
+=====================
+Race:                Black
+Ethnicity:           Non-Hispanic
+Gender:              F
+Age:                 7
+Birth Date:          2011-03-30
+Marital Status:      S
+Outpatient Provider: SALT LAKE REGIONAL MEDICAL CENTER
+--------------------------------------------------------------------------------
+ALLERGIES:
+No Known Allergies
+--------------------------------------------------------------------------------
+MEDICATIONS:
+2018-04-25[STOPPED] : Penicillin V Potassium 250 MG for Streptococcal sore throat (disorder)
+2015-11-04[STOPPED] : Acetaminophen 160 MG Oral Tablet
+2015-11-04[STOPPED] : Amoxicillin 200 MG Oral Tablet
+--------------------------------------------------------------------------------
+CONDITIONS:
+2018-04-25 - 2018-05-03 : Streptococcal sore throat (disorder)
+2015-11-04 - 2016-03-09 : Otitis media
+--------------------------------------------------------------------------------
+CARE PLANS:
+--------------------------------------------------------------------------------
+OBSERVATIONS:
+2018-05-02 : Blood Pressure
+           - Diastolic Blood Pressure                 75.6 mmHg
+           - Systolic Blood Pressure                  115.7 mmHg
+2018-05-02 : Body Mass Index                          16.6 kg/m2
+2018-05-02 : Body Weight                              25.7 kg
+2018-05-02 : Body Height                              124.7 cm
+2018-04-25 : Oral temperature                         38.8 Cel
+2018-03-21 : Blood Pressure
+           - Diastolic Blood Pressure                 79.4 mmHg
+           - Systolic Blood Pressure                  102.4 mmHg
+2018-03-21 : Body Mass Index                          16.5 kg/m2
+2018-03-21 : Body Weight                              25.5 kg
+2018-03-21 : Body Height                              124.1 cm
+2017-03-15 : Blood Pressure
+           - Diastolic Blood Pressure                 83.1 mmHg
+           - Systolic Blood Pressure                  106.0 mmHg
+2017-03-15 : Body Mass Index                          16.4 kg/m2
+2017-03-15 : Body Weight                              22.5 kg
+2017-03-15 : Body Height                              117.2 cm
+2016-03-09 : Blood Pressure
+           - Diastolic Blood Pressure                 82.7 mmHg
+           - Systolic Blood Pressure                  102.8 mmHg
+2016-03-09 : Body Mass Index                          16.4 kg/m2
+2016-03-09 : Body Weight                              19.8 kg
+2016-03-09 : Body Height                              109.9 cm
+2015-03-04 : Blood Pressure
+           - Diastolic Blood Pressure                 74.8 mmHg
+           - Systolic Blood Pressure                  100.2 mmHg
+2015-03-04 : Body Mass Index                          16.4 kg/m2
+2015-03-04 : Body Weight                              17.1 kg
+2015-03-04 : Body Height                              102.2 cm
+2014-09-03 : Blood Pressure
+           - Diastolic Blood Pressure                 80.9 mmHg
+           - Systolic Blood Pressure                  133.6 mmHg
+2014-09-03 : Body Mass Index                          16.4 kg/m2
+2014-09-03 : Body Weight                              15.9 kg
+2014-09-03 : Body Height                              98.7 cm
+2014-03-05 : Blood Pressure
+           - Diastolic Blood Pressure                 77.7 mmHg
+           - Systolic Blood Pressure                  101.0 mmHg
+2014-03-05 : Body Mass Index                          16.4 kg/m2
+2014-03-05 : Body Weight                              14.8 kg
+2014-03-05 : Body Height                              95.1 cm
+2013-09-04 : Blood Pressure
+           - Diastolic Blood Pressure                 79.5 mmHg
+           - Systolic Blood Pressure                  119.4 mmHg
+2013-09-04 : Body Mass Index                          16.8 kg/m2
+2013-09-04 : Body Weight                              13.8 kg
+2013-09-04 : Body Height                              90.7 cm
+2013-03-06 : Blood Pressure
+           - Diastolic Blood Pressure                 88.2 mmHg
+           - Systolic Blood Pressure                  121.6 mmHg
+2013-03-06 : Body Weight                              12.7 kg
+2013-03-06 : Body Height                              86.3 cm
+2012-09-05 : Blood Pressure
+           - Diastolic Blood Pressure                 74.7 mmHg
+           - Systolic Blood Pressure                  114.8 mmHg
+2012-09-05 : Body Weight                              11.5 kg
+2012-09-05 : Body Height                              80.4 cm
+2012-06-06 : Blood Pressure
+           - Diastolic Blood Pressure                 74.1 mmHg
+           - Systolic Blood Pressure                  122.3 mmHg
+2012-06-06 : Body Weight                              11.0 kg
+2012-06-06 : Body Height                              78.3 cm
+2012-03-07 : Blood Pressure
+           - Diastolic Blood Pressure                 74.2 mmHg
+           - Systolic Blood Pressure                  107.2 mmHg
+2012-03-07 : Body Weight                              9.7 kg
+2012-03-07 : Body Height                              73.4 cm
+2011-12-07 : Blood Pressure
+           - Diastolic Blood Pressure                 75.9 mmHg
+           - Systolic Blood Pressure                  112.1 mmHg
+2011-12-07 : Body Weight                              9.0 kg
+2011-12-07 : Body Height                              70.6 cm
+2011-09-07 : Blood Pressure
+           - Diastolic Blood Pressure                 72.1 mmHg
+           - Systolic Blood Pressure                  135.1 mmHg
+2011-09-07 : Body Weight                              7.5 kg
+2011-09-07 : Body Height                              65.7 cm
+2011-07-06 : Blood Pressure
+           - Diastolic Blood Pressure                 80.4 mmHg
+           - Systolic Blood Pressure                  105.6 mmHg
+2011-07-06 : Body Weight                              5.7 kg
+2011-07-06 : Body Height                              59.4 cm
+2011-05-04 : Blood Pressure
+           - Diastolic Blood Pressure                 72.6 mmHg
+           - Systolic Blood Pressure                  117.7 mmHg
+2011-05-04 : Body Weight                              4.2 kg
+2011-05-04 : Body Height                              53.0 cm
+2011-03-30 : Blood Pressure
+           - Diastolic Blood Pressure                 null mmHg
+           - Systolic Blood Pressure                  null mmHg
+2011-03-30 : Body Weight                              4.2 kg
+2011-03-30 : Body Height                              53.0 cm
+--------------------------------------------------------------------------------
+PROCEDURES:
+2017-03-15 : Documentation of current medications
+2016-03-09 : Documentation of current medications
+2014-09-03 : Documentation of current medications
+2014-03-05 : Documentation of current medications
+2013-03-06 : Documentation of current medications
+2012-09-05 : Documentation of current medications
+2012-06-06 : Documentation of current medications
+2011-12-07 : Documentation of current medications
+--------------------------------------------------------------------------------
+IMMUNIZATIONS:
+2018-03-21 : Influenza, seasonal, injectable, preservative free
+2017-03-15 : Influenza, seasonal, injectable, preservative free
+2016-03-09 : MMR
+2016-03-09 : DTaP
+2016-03-09 : Influenza, seasonal, injectable, preservative free
+2016-03-09 : IPV
+2016-03-09 : varicella
+2015-03-04 : Influenza, seasonal, injectable, preservative free
+2014-03-05 : Influenza, seasonal, injectable, preservative free
+2013-09-04 : Hep A, ped/adol, 2 dose
+2013-03-06 : Influenza, seasonal, injectable, preservative free
+2012-09-05 : DTaP
+2012-06-06 : Hep A, ped/adol, 2 dose
+2012-06-06 : Pneumococcal conjugate PCV 13
+2012-06-06 : MMR
+2012-06-06 : varicella
+2012-06-06 : Hib (PRP-OMP)
+2011-12-07 : Hep B, adolescent or pediatric
+2011-12-07 : Pneumococcal conjugate PCV 13
+2011-12-07 : DTaP
+2011-12-07 : Influenza, seasonal, injectable, preservative free
+2011-12-07 : IPV
+2011-09-07 : Pneumococcal conjugate PCV 13
+2011-09-07 : DTaP
+2011-09-07 : IPV
+2011-09-07 : rotavirus, monovalent
+2011-09-07 : Hib (PRP-OMP)
+2011-07-06 : Pneumococcal conjugate PCV 13
+2011-07-06 : DTaP
+2011-07-06 : IPV
+2011-07-06 : rotavirus, monovalent
+2011-07-06 : Hib (PRP-OMP)
+2011-05-04 : Hep B, adolescent or pediatric
+2011-03-30 : Hep B, adolescent or pediatric
+--------------------------------------------------------------------------------
+ENCOUNTERS:
+2018-05-02 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2018-04-25 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Streptococcal sore throat (disorder)
+2018-03-21 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2017-03-15 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2016-03-09 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2015-11-04 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Otitis media
+2015-03-04 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2014-09-03 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2014-03-05 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2013-09-04 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2013-03-06 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2012-09-05 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2012-06-06 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2012-03-07 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2011-12-07 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2011-09-07 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2011-07-06 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2011-05-04 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2011-03-30 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+--------------------------------------------------------------------------------
+IMAGING STUDIES:
+--------------------------------------------------------------------------------
