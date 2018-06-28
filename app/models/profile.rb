@@ -12,11 +12,16 @@ class Profile < ApplicationRecord
   has_many :devices
   has_many :documents
   has_many :encounters
+  has_many :goals
   has_many :immunizations
   has_many :medication_administrations
   has_many :medication_requests
   has_many :medication_statements
   has_many :observations
+  has_many :procedures
+  # resources are the raw resources that are created from transactions, they
+  # do not equate to the currated data models resources
+  has_many :resources
 
   def has_provider?(provider_id)
     return false if provider_id.nil?

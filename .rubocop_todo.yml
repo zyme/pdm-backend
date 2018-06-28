@@ -134,6 +134,7 @@ Style/ClassAndModuleChildren:
     - 'test/test_helper.rb'
     - 'test/unit/lib/hdm/client/base_client_test.rb'
     - 'test/unit/lib/hdm/client/smart_client_test.rb'
+    - 'test/unit/lib/hdm/merge/merger_test.rb'
 
 # Offense count: 33
 Style/Documentation:
