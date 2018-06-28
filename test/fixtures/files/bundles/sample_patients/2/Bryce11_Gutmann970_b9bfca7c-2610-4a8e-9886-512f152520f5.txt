@@ -1,0 +1,109 @@
+Bryce11 Gutmann970
+==================
+Race:                White
+Ethnicity:           Non-Hispanic
+Gender:              M
+Age:                 30
+Birth Date:          1988-05-08
+Marital Status:      S
+Outpatient Provider: METROWEST MEDICAL CENTER
+--------------------------------------------------------------------------------
+ALLERGIES:
+No Known Allergies
+--------------------------------------------------------------------------------
+MEDICATIONS:
+2015-09-13[STOPPED] : Acetaminophen 160 MG for Acute bronchitis (disorder)
+2011-11-23[STOPPED] : Acetaminophen 325 MG Oral Tablet
+--------------------------------------------------------------------------------
+CONDITIONS:
+2016-12-10 - 2016-12-24 : Viral sinusitis (disorder)
+2015-09-13 - 2015-09-27 : Acute bronchitis (disorder)
+2011-11-23 - 2011-12-14 : First degree burn
+2010-01-18 - 2010-02-08 : Viral sinusitis (disorder)
+2009-07-07 -            : Chronic sinusitis (disorder)
+2009-06-09 - 2009-09-15 : Sinusitis (disorder)
+2008-11-18 - 2008-12-02 : Viral sinusitis (disorder)
+2006-07-02 -            : Hypertension
+--------------------------------------------------------------------------------
+CARE PLANS:
+2015-09-13[CURRENT] : Respiratory therapy
+                         Reason: Acute bronchitis (disorder)
+                         Activity: Recommendation to avoid exercise
+                         Activity: Deep breathing and coughing exercises
+2011-11-23[STOPPED] : Burn care
+                         Reason: First degree burn
+                         Activity: Dressing change management
+                         Activity: Behavior to prevent sun exposure
+                         Activity: Behavior to prevent infection
+1994-06-08[STOPPED] : Respiratory therapy
+                         Reason: Acute bronchitis (disorder)
+                         Activity: Recommendation to avoid exercise
+                         Activity: Deep breathing and coughing exercises
+--------------------------------------------------------------------------------
+OBSERVATIONS:
+2015-08-02 : Estimated Glomerular Filtration Rate     100.7 mL/min/{1.73_m2}
+2015-08-02 : Blood Pressure
+           - Diastolic Blood Pressure                 116.5 mmHg
+           - Systolic Blood Pressure                  174.3 mmHg
+2015-08-02 : Body Mass Index                          29.9 kg/m2
+2015-08-02 : Body Weight                              96.4 kg
+2015-08-02 : Body Height                              179.5 cm
+2012-07-29 : Estimated Glomerular Filtration Rate     144.5 mL/min/{1.73_m2}
+2012-07-29 : Blood Pressure
+           - Diastolic Blood Pressure                 96.2 mmHg
+           - Systolic Blood Pressure                  195.9 mmHg
+2012-07-29 : Body Mass Index                          28.4 kg/m2
+2012-07-29 : Body Weight                              91.6 kg
+2012-07-29 : Body Height                              179.5 cm
+2009-07-26 : Estimated Glomerular Filtration Rate     99.6 mL/min/{1.73_m2}
+2009-07-26 : Blood Pressure
+           - Diastolic Blood Pressure                 106.6 mmHg
+           - Systolic Blood Pressure                  189.8 mmHg
+2009-07-26 : Body Mass Index                          26.9 kg/m2
+2009-07-26 : Body Weight                              86.7 kg
+2009-07-26 : Body Height                              179.5 cm
+2009-07-19 : Estimated Glomerular Filtration Rate     101.0 mL/min/{1.73_m2}
+2009-07-19 : Blood Pressure
+           - Diastolic Blood Pressure                 98.3 mmHg
+           - Systolic Blood Pressure                  170.2 mmHg
+2009-07-19 : Body Mass Index                          26.9 kg/m2
+2009-07-19 : Body Weight                              86.7 kg
+2009-07-19 : Body Height                              179.5 cm
+--------------------------------------------------------------------------------
+PROCEDURES:
+2015-09-13 : Measurement of respiratory function (procedure) for Acute bronchitis (disorder)
+2015-08-02 : Documentation of current medications
+2009-07-19 : Documentation of current medications
+--------------------------------------------------------------------------------
+IMMUNIZATIONS:
+2015-09-20 : Influenza, seasonal, injectable, preservative free
+2015-08-02 : Influenza, seasonal, injectable, preservative free
+2012-07-29 : Influenza, seasonal, injectable, preservative free
+2009-07-26 : Influenza, seasonal, injectable, preservative free
+2009-07-19 : Td (adult) preservative free
+2009-07-19 : Influenza, seasonal, injectable, preservative free
+--------------------------------------------------------------------------------
+ENCOUNTERS:
+2016-12-10 : Encounter at METROWEST MEDICAL CENTER : Encounter for Viral sinusitis (disorder)
+2015-09-20 : Encounter at WALTHAM URGENT CARE
+2015-09-13 : Encounter at METROWEST MEDICAL CENTER : Encounter for Acute bronchitis (disorder)
+2015-08-02 : Encounter at METROWEST MEDICAL CENTER
+2012-07-29 : Encounter at METROWEST MEDICAL CENTER
+2011-12-14 : Encounter at METROWEST MEDICAL CENTER : Encounter for First degree burn
+2011-11-23 : Encounter at METROWEST MEDICAL CENTER
+2010-01-18 : Encounter at METROWEST MEDICAL CENTER : Encounter for Viral sinusitis (disorder)
+2009-09-08 : Encounter at METROWEST MEDICAL CENTER : Encounter for Sinusitis (disorder)
+2009-09-01 : Encounter at METROWEST MEDICAL CENTER : Encounter for Sinusitis (disorder)
+2009-08-11 : Encounter at METROWEST MEDICAL CENTER : Encounter for Sinusitis (disorder)
+2009-07-21 : Encounter at METROWEST MEDICAL CENTER : Encounter for Sinusitis (disorder)
+2009-07-26 : Encounter at METROWEST MEDICAL CENTER
+2009-07-14 : Encounter at METROWEST MEDICAL CENTER : Encounter for Sinusitis (disorder)
+2009-07-19 : Encounter at METROWEST MEDICAL CENTER
+2009-07-07 : Encounter at METROWEST MEDICAL CENTER : Encounter for Sinusitis (disorder)
+2009-06-09 : Encounter at METROWEST MEDICAL CENTER : Encounter for Sinusitis (disorder)
+2008-11-18 : Encounter at METROWEST MEDICAL CENTER : Encounter for Viral sinusitis (disorder)
+2006-07-02 : Encounter at METROWEST MEDICAL CENTER
+1994-06-08 : Encounter at METROWEST MEDICAL CENTER : Encounter for Acute bronchitis (disorder)
+--------------------------------------------------------------------------------
+IMAGING STUDIES:
+--------------------------------------------------------------------------------

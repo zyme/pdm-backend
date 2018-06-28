@@ -1,0 +1,286 @@
+Alisa860 Fay398
+===============
+Race:                White
+Ethnicity:           Non-Hispanic
+Gender:              F
+Age:                 22
+Birth Date:          1995-07-14
+Marital Status:      S
+Outpatient Provider: NORTHWEST HOSPITAL
+--------------------------------------------------------------------------------
+ALLERGIES:
+1996-12-16 - 2013-02-09 : Allergy to wheat
+1996-12-16 -            : Allergy to grass pollen
+1996-12-16 - 2012-01-20 : Dander (animal) allergy
+1996-12-16 - 2012-01-20 : House dust mite allergy
+1996-12-16 - 2012-01-20 : Allergy to mould
+1996-12-16 - 2013-02-09 : Latex allergy
+--------------------------------------------------------------------------------
+MEDICATIONS:
+2017-05-29[STOPPED] : Mirena 52 MG Intrauterine System
+2016-06-03[STOPPED] : Camila 28 Day Pack
+2011-06-30[STOPPED] : Camila 28 Day Pack
+1996-12-16[CURRENT] : 0.3 ML EPINEPHrine 0.5 MG/ML Auto-Injector
+1996-12-16[CURRENT] : Loratadine 5 MG Chewable Tablet
+--------------------------------------------------------------------------------
+CONDITIONS:
+2013-10-18 -            : Hypertension
+2009-09-01 - 2009-09-15 : Viral sinusitis (disorder)
+1997-07-20 -            : Perennial allergic rhinitis
+--------------------------------------------------------------------------------
+CARE PLANS:
+2008-07-18[STOPPED] : Allergic disorder monitoring
+                         Activity: Allergen immunotherapy drugs Band 1
+1996-12-05[CURRENT] : Self care
+                         Activity: Food allergy diet
+                         Activity: Allergy education
+                         Activity: Allergy education
+--------------------------------------------------------------------------------
+OBSERVATIONS:
+2017-10-27 : Estimated Glomerular Filtration Rate     75.9 mL/min/{1.73_m2}
+2017-10-27 : Blood Pressure
+           - Diastolic Blood Pressure                 118.1 mmHg
+           - Systolic Blood Pressure                  168.8 mmHg
+2017-10-27 : Body Mass Index                          19.3 kg/m2
+2017-10-27 : Body Weight                              56.9 kg
+2017-10-27 : Body Height                              171.7 cm
+2014-10-24 : Estimated Glomerular Filtration Rate     84.2 mL/min/{1.73_m2}
+2014-10-24 : Blood Pressure
+           - Diastolic Blood Pressure                 115.5 mmHg
+           - Systolic Blood Pressure                  196.8 mmHg
+2014-10-24 : Body Mass Index                          17.4 kg/m2
+2014-10-24 : Body Weight                              51.4 kg
+2014-10-24 : Body Height                              171.7 cm
+2013-10-18 : Blood Pressure
+           - Diastolic Blood Pressure                 117.4 mmHg
+           - Systolic Blood Pressure                  170.2 mmHg
+2013-10-18 : Body Mass Index                          17.1 kg/m2
+2013-10-18 : Body Weight                              50.5 kg
+2013-10-18 : Body Height                              171.6 cm
+2012-10-12 : Blood Pressure
+           - Diastolic Blood Pressure                 79.2 mmHg
+           - Systolic Blood Pressure                  114.5 mmHg
+2012-10-12 : Body Mass Index                          16.9 kg/m2
+2012-10-12 : Body Weight                              49.5 kg
+2012-10-12 : Body Height                              171.4 cm
+2012-01-20 : Latex IgE Ab in Serum                    68.6 kU/L
+2012-01-20 : Honey bee IgE Ab in Serum                0.3 kU/L
+2012-01-20 : Cladosporium herbarum IgE Ab in Serum    0.3 kU/L
+2012-01-20 : American house dust mite IgE Ab in Serum 0.1 kU/L
+2012-01-20 : Cat dander IgE Ab in Serum               0.1 kU/L
+2012-01-20 : Common Ragweed IgE Ab in Serum           67.4 kU/L
+2012-01-20 : White oak IgE Ab in Serum                0.0 kU/L
+2012-01-20 : Cow milk IgE Ab in Serum                 0.1 kU/L
+2012-01-20 : Soybean IgE Ab in Serum                  0.3 kU/L
+2012-01-20 : Egg white IgE Ab in Serum                0.2 kU/L
+2012-01-20 : Wheat IgE Ab in Serum                    96.2 kU/L
+2012-01-20 : Shrimp IgE Ab in Serum                   0.2 kU/L
+2012-01-20 : Codfish IgE Ab in Serum                  0.3 kU/L
+2012-01-20 : Walnut IgE Ab in Serum                   0.3 kU/L
+2012-01-20 : Peanut IgE Ab in Serum                   0.3 kU/L
+2011-10-07 : Blood Pressure
+           - Diastolic Blood Pressure                 80.3 mmHg
+           - Systolic Blood Pressure                  132.2 mmHg
+2011-10-07 : Body Mass Index                          16.5 kg/m2
+2011-10-07 : Body Weight                              48.3 kg
+2011-10-07 : Body Height                              171.1 cm
+2010-10-01 : Blood Pressure
+           - Diastolic Blood Pressure                 70.5 mmHg
+           - Systolic Blood Pressure                  102.1 mmHg
+2010-10-01 : Body Mass Index                          16.0 kg/m2
+2010-10-01 : Body Weight                              46.4 kg
+2010-10-01 : Body Height                              170.5 cm
+2009-09-25 : Blood Pressure
+           - Diastolic Blood Pressure                 79.4 mmHg
+           - Systolic Blood Pressure                  135.3 mmHg
+2009-09-25 : Body Mass Index                          15.3 kg/m2
+2009-09-25 : Body Weight                              43.8 kg
+2009-09-25 : Body Height                              169.4 cm
+2008-09-19 : Blood Pressure
+           - Diastolic Blood Pressure                 82.2 mmHg
+           - Systolic Blood Pressure                  113.5 mmHg
+2008-09-19 : Body Mass Index                          14.5 kg/m2
+2008-09-19 : Body Weight                              40.2 kg
+2008-09-19 : Body Height                              166.6 cm
+2008-07-18 : Latex IgE Ab in Serum                    47.7 kU/L
+2008-07-18 : Honey bee IgE Ab in Serum                0.2 kU/L
+2008-07-18 : Cladosporium herbarum IgE Ab in Serum    95.1 kU/L
+2008-07-18 : American house dust mite IgE Ab in Serum 73.0 kU/L
+2008-07-18 : Cat dander IgE Ab in Serum               70.6 kU/L
+2008-07-18 : Common Ragweed IgE Ab in Serum           48.9 kU/L
+2008-07-18 : White oak IgE Ab in Serum                0.2 kU/L
+2008-07-18 : Cow milk IgE Ab in Serum                 0.2 kU/L
+2008-07-18 : Soybean IgE Ab in Serum                  0.0 kU/L
+2008-07-18 : Egg white IgE Ab in Serum                0.3 kU/L
+2008-07-18 : Wheat IgE Ab in Serum                    14.4 kU/L
+2008-07-18 : Shrimp IgE Ab in Serum                   0.3 kU/L
+2008-07-18 : Codfish IgE Ab in Serum                  0.3 kU/L
+2008-07-18 : Walnut IgE Ab in Serum                   0.2 kU/L
+2008-07-18 : Peanut IgE Ab in Serum                   0.1 kU/L
+--------------------------------------------------------------------------------
+PROCEDURES:
+2017-10-27 : Documentation of current medications
+2017-06-02 : Insertion of intrauterine contraceptive device
+2014-10-24 : Documentation of current medications
+2013-10-18 : Documentation of current medications
+2012-01-20 : Allergy screening test
+2011-12-30 : Subcutaneous immunotherapy
+2011-12-09 : Subcutaneous immunotherapy
+2011-11-18 : Subcutaneous immunotherapy
+2011-10-28 : Subcutaneous immunotherapy
+2011-10-07 : Subcutaneous immunotherapy
+2011-10-07 : Documentation of current medications
+2011-09-16 : Subcutaneous immunotherapy
+2011-08-26 : Subcutaneous immunotherapy
+2011-08-05 : Subcutaneous immunotherapy
+2011-07-15 : Subcutaneous immunotherapy
+2011-06-24 : Subcutaneous immunotherapy
+2011-06-03 : Subcutaneous immunotherapy
+2011-05-13 : Subcutaneous immunotherapy
+2011-04-22 : Subcutaneous immunotherapy
+2011-04-01 : Subcutaneous immunotherapy
+2011-03-11 : Subcutaneous immunotherapy
+2011-02-18 : Subcutaneous immunotherapy
+2011-01-28 : Subcutaneous immunotherapy
+2011-01-07 : Subcutaneous immunotherapy
+2010-12-17 : Subcutaneous immunotherapy
+2010-11-26 : Subcutaneous immunotherapy
+2010-11-05 : Subcutaneous immunotherapy
+2010-10-15 : Subcutaneous immunotherapy
+2010-09-24 : Subcutaneous immunotherapy
+2010-09-03 : Subcutaneous immunotherapy
+2010-08-13 : Subcutaneous immunotherapy
+2010-07-23 : Subcutaneous immunotherapy
+2010-07-02 : Subcutaneous immunotherapy
+2010-06-11 : Subcutaneous immunotherapy
+2010-05-21 : Subcutaneous immunotherapy
+2010-04-30 : Subcutaneous immunotherapy
+2010-04-09 : Subcutaneous immunotherapy
+2010-03-19 : Subcutaneous immunotherapy
+2010-02-26 : Subcutaneous immunotherapy
+2010-02-05 : Subcutaneous immunotherapy
+2010-01-15 : Subcutaneous immunotherapy
+2009-12-25 : Subcutaneous immunotherapy
+2009-12-04 : Subcutaneous immunotherapy
+2009-11-13 : Subcutaneous immunotherapy
+2009-10-23 : Subcutaneous immunotherapy
+2009-10-02 : Subcutaneous immunotherapy
+2009-09-25 : Documentation of current medications
+2009-09-11 : Subcutaneous immunotherapy
+2009-08-21 : Subcutaneous immunotherapy
+2009-07-31 : Subcutaneous immunotherapy
+2009-07-10 : Subcutaneous immunotherapy
+2009-06-19 : Subcutaneous immunotherapy
+2009-05-29 : Subcutaneous immunotherapy
+2009-05-08 : Subcutaneous immunotherapy
+2009-04-17 : Subcutaneous immunotherapy
+2009-03-27 : Subcutaneous immunotherapy
+2009-03-06 : Subcutaneous immunotherapy
+2009-02-13 : Subcutaneous immunotherapy
+2009-01-23 : Subcutaneous immunotherapy
+2009-01-02 : Subcutaneous immunotherapy
+2008-12-12 : Subcutaneous immunotherapy
+2008-11-21 : Subcutaneous immunotherapy
+2008-10-31 : Subcutaneous immunotherapy
+2008-10-10 : Subcutaneous immunotherapy
+2008-09-19 : Subcutaneous immunotherapy
+2008-08-29 : Subcutaneous immunotherapy
+2008-08-08 : Subcutaneous immunotherapy
+2008-07-18 : Allergy screening test
+--------------------------------------------------------------------------------
+IMMUNIZATIONS:
+2017-10-27 : Td (adult) preservative free
+2017-10-27 : Influenza, seasonal, injectable, preservative free
+2014-10-24 : Influenza, seasonal, injectable, preservative free
+2013-10-18 : Influenza, seasonal, injectable, preservative free
+2012-10-12 : Influenza, seasonal, injectable, preservative free
+2011-10-07 : meningococcal MCV4P
+2011-10-07 : Influenza, seasonal, injectable, preservative free
+2010-10-01 : Influenza, seasonal, injectable, preservative free
+2009-09-04 : Influenza, seasonal, injectable, preservative free
+2008-09-19 : HPV, quadrivalent
+2008-09-19 : Influenza, seasonal, injectable, preservative free
+--------------------------------------------------------------------------------
+ENCOUNTERS:
+2017-10-27 : Encounter at NORTHWEST HOSPITAL
+2017-06-02 : Encounter at NORTHWEST HOSPITAL
+2017-05-29 : Encounter at NORTHWEST HOSPITAL
+2016-06-03 : Encounter at NORTHWEST HOSPITAL
+2014-10-24 : Encounter at NORTHWEST HOSPITAL
+2013-10-18 : Encounter at NORTHWEST HOSPITAL
+2012-10-12 : Encounter at NORTHWEST HOSPITAL
+2012-01-20 : Encounter at NORTHWEST HOSPITAL
+2011-12-30 : Encounter at NORTHWEST HOSPITAL
+2011-12-09 : Encounter at NORTHWEST HOSPITAL
+2011-11-18 : Encounter at NORTHWEST HOSPITAL
+2011-10-28 : Encounter at NORTHWEST HOSPITAL
+2011-10-07 : Encounter at NORTHWEST HOSPITAL
+2011-10-07 : Encounter at NORTHWEST HOSPITAL
+2011-09-16 : Encounter at NORTHWEST HOSPITAL
+2011-08-26 : Encounter at NORTHWEST HOSPITAL
+2011-08-05 : Encounter at NORTHWEST HOSPITAL
+2011-07-15 : Encounter at NORTHWEST HOSPITAL
+2011-06-30 : Encounter at NORTHWEST HOSPITAL
+2011-06-24 : Encounter at NORTHWEST HOSPITAL
+2011-06-03 : Encounter at NORTHWEST HOSPITAL
+2011-05-13 : Encounter at NORTHWEST HOSPITAL
+2011-04-22 : Encounter at NORTHWEST HOSPITAL
+2011-04-01 : Encounter at NORTHWEST HOSPITAL
+2011-03-11 : Encounter at NORTHWEST HOSPITAL
+2011-02-18 : Encounter at NORTHWEST HOSPITAL
+2011-01-28 : Encounter at NORTHWEST HOSPITAL
+2011-01-07 : Encounter at NORTHWEST HOSPITAL
+2010-12-17 : Encounter at NORTHWEST HOSPITAL
+2010-11-26 : Encounter at NORTHWEST HOSPITAL
+2010-11-05 : Encounter at NORTHWEST HOSPITAL
+2010-10-15 : Encounter at NORTHWEST HOSPITAL
+2010-10-01 : Encounter at NORTHWEST HOSPITAL
+2010-09-24 : Encounter at NORTHWEST HOSPITAL
+2010-09-03 : Encounter at NORTHWEST HOSPITAL
+2010-08-13 : Encounter at NORTHWEST HOSPITAL
+2010-07-23 : Encounter at NORTHWEST HOSPITAL
+2010-07-02 : Encounter at NORTHWEST HOSPITAL
+2010-06-11 : Encounter at NORTHWEST HOSPITAL
+2010-05-21 : Encounter at NORTHWEST HOSPITAL
+2010-04-30 : Encounter at NORTHWEST HOSPITAL
+2010-04-09 : Encounter at NORTHWEST HOSPITAL
+2010-03-19 : Encounter at NORTHWEST HOSPITAL
+2010-02-26 : Encounter at NORTHWEST HOSPITAL
+2010-02-05 : Encounter at NORTHWEST HOSPITAL
+2010-01-15 : Encounter at NORTHWEST HOSPITAL
+2009-12-25 : Encounter at NORTHWEST HOSPITAL
+2009-12-04 : Encounter at NORTHWEST HOSPITAL
+2009-11-13 : Encounter at NORTHWEST HOSPITAL
+2009-10-23 : Encounter at NORTHWEST HOSPITAL
+2009-10-02 : Encounter at NORTHWEST HOSPITAL
+2009-09-25 : Encounter at NORTHWEST HOSPITAL
+2009-09-11 : Encounter at NORTHWEST HOSPITAL
+2009-09-01 : Encounter at NORTHWEST HOSPITAL : Encounter for Viral sinusitis (disorder)
+2009-09-04 : Encounter at US HEALTHWORKS MEDICAL GROUP - DENNY WAY
+2009-08-21 : Encounter at NORTHWEST HOSPITAL
+2009-07-31 : Encounter at NORTHWEST HOSPITAL
+2009-07-10 : Encounter at NORTHWEST HOSPITAL
+2009-06-19 : Encounter at NORTHWEST HOSPITAL
+2009-05-29 : Encounter at NORTHWEST HOSPITAL
+2009-05-08 : Encounter at NORTHWEST HOSPITAL
+2009-04-17 : Encounter at NORTHWEST HOSPITAL
+2009-03-27 : Encounter at NORTHWEST HOSPITAL
+2009-03-06 : Encounter at NORTHWEST HOSPITAL
+2009-02-13 : Encounter at NORTHWEST HOSPITAL
+2009-01-23 : Encounter at NORTHWEST HOSPITAL
+2009-01-02 : Encounter at NORTHWEST HOSPITAL
+2008-12-12 : Encounter at NORTHWEST HOSPITAL
+2008-11-21 : Encounter at NORTHWEST HOSPITAL
+2008-10-31 : Encounter at NORTHWEST HOSPITAL
+2008-10-10 : Encounter at NORTHWEST HOSPITAL
+2008-09-19 : Encounter at NORTHWEST HOSPITAL
+2008-09-19 : Encounter at NORTHWEST HOSPITAL
+2008-08-29 : Encounter at NORTHWEST HOSPITAL
+2008-08-08 : Encounter at NORTHWEST HOSPITAL
+2008-07-18 : Encounter at NORTHWEST HOSPITAL
+1997-07-20 : Encounter at NORTHWEST HOSPITAL : Encounter for Perennial allergic rhinitis
+1996-12-16 : Encounter at NORTHWEST HOSPITAL
+1996-12-05 : Encounter at NORTHWEST HOSPITAL
+--------------------------------------------------------------------------------
+IMAGING STUDIES:
+--------------------------------------------------------------------------------

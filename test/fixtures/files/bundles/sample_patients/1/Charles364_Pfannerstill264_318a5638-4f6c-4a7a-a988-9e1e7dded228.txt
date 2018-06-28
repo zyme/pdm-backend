@@ -1,0 +1,87 @@
+Charles364 Pfannerstill264
+==========================
+Race:                White
+Ethnicity:           Non-Hispanic
+Gender:              M
+Age:                 42
+Birth Date:          1976-04-04
+Marital Status:      M
+Outpatient Provider: SALT LAKE REGIONAL MEDICAL CENTER
+--------------------------------------------------------------------------------
+ALLERGIES:
+No Known Allergies
+--------------------------------------------------------------------------------
+MEDICATIONS:
+2009-10-25[STOPPED] : Acetaminophen 160 MG for Acute bronchitis (disorder)
+--------------------------------------------------------------------------------
+CONDITIONS:
+2009-10-25 - 2009-11-08 : Acute bronchitis (disorder)
+2009-08-17 - 2009-08-31 : Viral sinusitis (disorder)
+1994-11-06 -            : Hypertension
+--------------------------------------------------------------------------------
+CARE PLANS:
+2009-10-25[STOPPED] : Respiratory therapy
+                         Reason: Acute bronchitis (disorder)
+                         Activity: Recommendation to avoid exercise
+                         Activity: Deep breathing and coughing exercises
+--------------------------------------------------------------------------------
+OBSERVATIONS:
+2017-11-12 : Estimated Glomerular Filtration Rate     95.2 mL/min/{1.73_m2}
+2017-11-12 : Blood Pressure
+           - Diastolic Blood Pressure                 114.2 mmHg
+           - Systolic Blood Pressure                  156.8 mmHg
+2017-11-12 : Body Mass Index                          27.1 kg/m2
+2017-11-12 : Body Weight                              98.7 kg
+2017-11-12 : Body Height                              190.9 cm
+2015-11-08 : Estimated Glomerular Filtration Rate     121.4 mL/min/{1.73_m2}
+2015-11-08 : High Density Lipoprotein Cholesterol     75.1 mg/dL
+2015-11-08 : Low Density Lipoprotein Cholesterol      61.3 mg/dL
+2015-11-08 : Triglycerides                            123.4 mg/dL
+2015-11-08 : Total Cholesterol                        161.1 mg/dL
+2015-11-08 : Blood Pressure
+           - Diastolic Blood Pressure                 113.0 mmHg
+           - Systolic Blood Pressure                  140.4 mmHg
+2015-11-08 : Body Mass Index                          26.0 kg/m2
+2015-11-08 : Body Weight                              94.8 kg
+2015-11-08 : Body Height                              190.9 cm
+2012-11-04 : Estimated Glomerular Filtration Rate     80.9 mL/min/{1.73_m2}
+2012-11-04 : High Density Lipoprotein Cholesterol     75.6 mg/dL
+2012-11-04 : Low Density Lipoprotein Cholesterol      71.2 mg/dL
+2012-11-04 : Triglycerides                            108.7 mg/dL
+2012-11-04 : Total Cholesterol                        168.5 mg/dL
+2012-11-04 : Blood Pressure
+           - Diastolic Blood Pressure                 118.4 mmHg
+           - Systolic Blood Pressure                  152.2 mmHg
+2012-11-04 : Body Mass Index                          24.9 kg/m2
+2012-11-04 : Body Weight                              90.8 kg
+2012-11-04 : Body Height                              190.9 cm
+2009-11-01 : Estimated Glomerular Filtration Rate     139.4 mL/min/{1.73_m2}
+2009-11-01 : Blood Pressure
+           - Diastolic Blood Pressure                 106.6 mmHg
+           - Systolic Blood Pressure                  176.6 mmHg
+2009-11-01 : Body Mass Index                          23.8 kg/m2
+2009-11-01 : Body Weight                              86.6 kg
+2009-11-01 : Body Height                              190.9 cm
+--------------------------------------------------------------------------------
+PROCEDURES:
+2015-11-08 : Documentation of current medications
+2009-10-25 : Measurement of respiratory function (procedure) for Acute bronchitis (disorder)
+--------------------------------------------------------------------------------
+IMMUNIZATIONS:
+2017-11-12 : Td (adult) preservative free
+2017-11-12 : Influenza, seasonal, injectable, preservative free
+2015-11-08 : Influenza, seasonal, injectable, preservative free
+2012-11-04 : Influenza, seasonal, injectable, preservative free
+2009-11-01 : Influenza, seasonal, injectable, preservative free
+--------------------------------------------------------------------------------
+ENCOUNTERS:
+2017-11-12 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2015-11-08 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2012-11-04 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2009-11-01 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+2009-10-25 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Acute bronchitis (disorder)
+2009-08-17 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER : Encounter for Viral sinusitis (disorder)
+1994-11-06 : Encounter at SALT LAKE REGIONAL MEDICAL CENTER
+--------------------------------------------------------------------------------
+IMAGING STUDIES:
+--------------------------------------------------------------------------------

@@ -1,0 +1,206 @@
+Ray930 Johns824
+===============
+Race:                White
+Ethnicity:           Non-Hispanic
+Gender:              F
+Age:                 8
+Birth Date:          2009-07-29
+Marital Status:      S
+Outpatient Provider: MOUNT AUBURN HOSPITAL
+--------------------------------------------------------------------------------
+ALLERGIES:
+No Known Allergies
+--------------------------------------------------------------------------------
+MEDICATIONS:
+2016-09-21[STOPPED] : Penicillin V Potassium 250 MG for Streptococcal sore throat (disorder)
+--------------------------------------------------------------------------------
+CONDITIONS:
+2016-09-21 - 2016-09-29 : Streptococcal sore throat (disorder)
+2015-12-23 - 2016-12-30 : Viral sinusitis (disorder)
+2015-09-05 - 2015-09-19 : Viral sinusitis (disorder)
+2014-05-04 - 2014-07-03 : Concussion with no loss of consciousness
+2012-04-14 - 2012-06-13 : Concussion with no loss of consciousness
+--------------------------------------------------------------------------------
+CARE PLANS:
+2014-05-04[STOPPED] : Head injury rehabilitation
+                         Reason: Concussion with no loss of consciousness
+                         Activity: Recommendation to rest
+                         Activity: Alcohol-free diet
+2012-04-14[STOPPED] : Head injury rehabilitation
+                         Reason: Concussion with no loss of consciousness
+                         Activity: Recommendation to rest
+                         Activity: Alcohol-free diet
+--------------------------------------------------------------------------------
+OBSERVATIONS:
+2017-07-26 : Blood Pressure
+           - Diastolic Blood Pressure                 80.0 mmHg
+           - Systolic Blood Pressure                  130.4 mmHg
+2017-07-26 : Body Mass Index                          16.9 kg/m2
+2017-07-26 : Body Weight                              24.1 kg
+2017-07-26 : Body Height                              119.5 cm
+2016-09-21 : Oral temperature                         37.8 Cel
+2016-07-20 : Blood Pressure
+           - Diastolic Blood Pressure                 85.5 mmHg
+           - Systolic Blood Pressure                  112.4 mmHg
+2016-07-20 : Body Mass Index                          16.6 kg/m2
+2016-07-20 : Body Weight                              21.5 kg
+2016-07-20 : Body Height                              113.8 cm
+2015-07-15 : Blood Pressure
+           - Diastolic Blood Pressure                 71.3 mmHg
+           - Systolic Blood Pressure                  136.1 mmHg
+2015-07-15 : Body Mass Index                          16.6 kg/m2
+2015-07-15 : Body Weight                              19.2 kg
+2015-07-15 : Body Height                              107.5 cm
+2014-07-09 : Blood Pressure
+           - Diastolic Blood Pressure                 84.5 mmHg
+           - Systolic Blood Pressure                  113.6 mmHg
+2014-07-09 : Body Mass Index                          16.7 kg/m2
+2014-07-09 : Body Weight                              17.0 kg
+2014-07-09 : Body Height                              101.0 cm
+2013-07-03 : Blood Pressure
+           - Diastolic Blood Pressure                 74.6 mmHg
+           - Systolic Blood Pressure                  129.0 mmHg
+2013-07-03 : Body Mass Index                          16.8 kg/m2
+2013-07-03 : Body Weight                              14.9 kg
+2013-07-03 : Body Height                              94.0 cm
+2013-01-02 : Blood Pressure
+           - Diastolic Blood Pressure                 83.7 mmHg
+           - Systolic Blood Pressure                  113.9 mmHg
+2013-01-02 : Body Mass Index                          16.9 kg/m2
+2013-01-02 : Body Weight                              14.0 kg
+2013-01-02 : Body Height                              90.9 cm
+2012-07-04 : Blood Pressure
+           - Diastolic Blood Pressure                 85.7 mmHg
+           - Systolic Blood Pressure                  138.2 mmHg
+2012-07-04 : Body Mass Index                          17.1 kg/m2
+2012-07-04 : Body Weight                              13.1 kg
+2012-07-04 : Body Height                              87.7 cm
+2012-01-04 : Blood Pressure
+           - Diastolic Blood Pressure                 75.5 mmHg
+           - Systolic Blood Pressure                  126.3 mmHg
+2012-01-04 : Body Mass Index                          17.5 kg/m2
+2012-01-04 : Body Weight                              12.3 kg
+2012-01-04 : Body Height                              83.7 cm
+2011-07-06 : Blood Pressure
+           - Diastolic Blood Pressure                 72.3 mmHg
+           - Systolic Blood Pressure                  109.3 mmHg
+2011-07-06 : Body Weight                              11.5 kg
+2011-07-06 : Body Height                              80.5 cm
+2011-01-05 : Blood Pressure
+           - Diastolic Blood Pressure                 83.7 mmHg
+           - Systolic Blood Pressure                  110.2 mmHg
+2011-01-05 : Body Weight                              10.5 kg
+2011-01-05 : Body Height                              75.3 cm
+2010-10-06 : Blood Pressure
+           - Diastolic Blood Pressure                 73.6 mmHg
+           - Systolic Blood Pressure                  100.1 mmHg
+2010-10-06 : Body Weight                              9.8 kg
+2010-10-06 : Body Height                              72.4 cm
+2010-07-07 : Blood Pressure
+           - Diastolic Blood Pressure                 83.8 mmHg
+           - Systolic Blood Pressure                  122.6 mmHg
+2010-07-07 : Body Weight                              9.0 kg
+2010-07-07 : Body Height                              69.1 cm
+2010-04-07 : Blood Pressure
+           - Diastolic Blood Pressure                 80.6 mmHg
+           - Systolic Blood Pressure                  124.9 mmHg
+2010-04-07 : Body Weight                              8.0 kg
+2010-04-07 : Body Height                              65.4 cm
+2010-01-06 : Blood Pressure
+           - Diastolic Blood Pressure                 85.0 mmHg
+           - Systolic Blood Pressure                  105.8 mmHg
+2010-01-06 : Body Weight                              6.7 kg
+2010-01-06 : Body Height                              60.8 cm
+2009-11-04 : Blood Pressure
+           - Diastolic Blood Pressure                 83.3 mmHg
+           - Systolic Blood Pressure                  113.3 mmHg
+2009-11-04 : Body Weight                              5.0 kg
+2009-11-04 : Body Height                              54.8 cm
+2009-09-02 : Blood Pressure
+           - Diastolic Blood Pressure                 70.3 mmHg
+           - Systolic Blood Pressure                  126.5 mmHg
+2009-09-02 : Body Weight                              3.6 kg
+2009-09-02 : Body Height                              48.5 cm
+2009-07-29 : Blood Pressure
+           - Diastolic Blood Pressure                 null mmHg
+           - Systolic Blood Pressure                  null mmHg
+2009-07-29 : Body Weight                              3.6 kg
+2009-07-29 : Body Height                              48.5 cm
+--------------------------------------------------------------------------------
+PROCEDURES:
+2017-07-26 : Documentation of current medications
+2016-09-21 : Throat culture (procedure)  for Streptococcal sore throat (disorder)
+2016-07-20 : Documentation of current medications
+2013-07-03 : Documentation of current medications
+2013-01-02 : Documentation of current medications
+2012-07-04 : Documentation of current medications
+2012-01-04 : Documentation of current medications
+2011-07-06 : Documentation of current medications
+2011-01-05 : Documentation of current medications
+2010-07-07 : Documentation of current medications
+--------------------------------------------------------------------------------
+IMMUNIZATIONS:
+2017-07-26 : Influenza, seasonal, injectable, preservative free
+2016-07-20 : Influenza, seasonal, injectable, preservative free
+2015-07-15 : Influenza, seasonal, injectable, preservative free
+2014-07-09 : MMR
+2014-07-09 : DTaP
+2014-07-09 : Influenza, seasonal, injectable, preservative free
+2014-07-09 : IPV
+2014-07-09 : varicella
+2013-07-03 : Influenza, seasonal, injectable, preservative free
+2012-07-04 : Influenza, seasonal, injectable, preservative free
+2012-01-04 : Hep A, ped/adol, 2 dose
+2011-07-06 : Influenza, seasonal, injectable, preservative free
+2011-01-05 : DTaP
+2010-10-06 : Hep A, ped/adol, 2 dose
+2010-10-06 : Pneumococcal conjugate PCV 13
+2010-10-06 : MMR
+2010-10-06 : varicella
+2010-10-06 : Hib (PRP-OMP)
+2010-07-07 : Pneumococcal conjugate PCV 13
+2010-04-07 : Hep B, adolescent or pediatric
+2010-04-07 : Pneumococcal conjugate PCV 13
+2010-04-07 : DTaP
+2010-04-07 : Influenza, seasonal, injectable, preservative free
+2010-04-07 : IPV
+2010-01-06 : Pneumococcal conjugate PCV 13
+2010-01-06 : DTaP
+2010-01-06 : IPV
+2010-01-06 : rotavirus, monovalent
+2010-01-06 : Hib (PRP-OMP)
+2009-11-04 : DTaP
+2009-11-04 : IPV
+2009-11-04 : rotavirus, monovalent
+2009-11-04 : Hib (PRP-OMP)
+2009-09-02 : Hep B, adolescent or pediatric
+2009-07-29 : Hep B, adolescent or pediatric
+--------------------------------------------------------------------------------
+ENCOUNTERS:
+2017-07-26 : Encounter at MOUNT AUBURN HOSPITAL
+2016-09-21 : Encounter at MOUNT AUBURN HOSPITAL : Encounter for Streptococcal sore throat (disorder)
+2016-07-20 : Encounter at MOUNT AUBURN HOSPITAL
+2015-12-23 : Encounter at MOUNT AUBURN HOSPITAL : Encounter for Viral sinusitis (disorder)
+2015-09-05 : Encounter at MOUNT AUBURN HOSPITAL : Encounter for Viral sinusitis (disorder)
+2015-07-15 : Encounter at MOUNT AUBURN HOSPITAL
+2014-07-03 : Encounter at MOUNT AUBURN HOSPITAL : Encounter for Concussion with no loss of consciousness
+2014-07-09 : Encounter at MOUNT AUBURN HOSPITAL
+2014-05-04 : Encounter at MOUNT AUBURN HOSPITAL
+2013-07-03 : Encounter at MOUNT AUBURN HOSPITAL
+2013-01-02 : Encounter at MOUNT AUBURN HOSPITAL
+2012-07-04 : Encounter at MOUNT AUBURN HOSPITAL
+2012-06-13 : Encounter at MOUNT AUBURN HOSPITAL : Encounter for Concussion with no loss of consciousness
+2012-04-14 : Encounter at MOUNT AUBURN HOSPITAL
+2012-01-04 : Encounter at MOUNT AUBURN HOSPITAL
+2011-07-06 : Encounter at MOUNT AUBURN HOSPITAL
+2011-01-05 : Encounter at MOUNT AUBURN HOSPITAL
+2010-10-06 : Encounter at MOUNT AUBURN HOSPITAL
+2010-07-07 : Encounter at MOUNT AUBURN HOSPITAL
+2010-04-07 : Encounter at MOUNT AUBURN HOSPITAL
+2010-01-06 : Encounter at MOUNT AUBURN HOSPITAL
+2009-11-04 : Encounter at MOUNT AUBURN HOSPITAL
+2009-09-02 : Encounter at MOUNT AUBURN HOSPITAL
+2009-07-29 : Encounter at MOUNT AUBURN HOSPITAL
+--------------------------------------------------------------------------------
+IMAGING STUDIES:
+--------------------------------------------------------------------------------
