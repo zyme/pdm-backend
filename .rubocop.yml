@@ -38,6 +38,9 @@ Style/GuardClause:
   # Exclude:
 Style/NumericPredicate:
   Enabled: false
+
+Rails/BulkChangeTable:
+  Enabled: false
 #Style/HashSyntax:
 #  UseHashRocketsWithSymbolValues: true
 Lint/HandleExceptions:
