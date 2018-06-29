@@ -27,7 +27,9 @@ Rails.application.routes.draw do
       end
       resources :providers, only: %i[index show]
 
-      resources :Patient, controller: :patients, only: %i[index show]
+      resources :Patient, controller: :patients, only: %i[index show] do
+        get '$everything', on: :member, to: 'patients#everything'
+      end
       # curated models as FHIR
       curated_models.each do |cm|
         resources cm.to_s.classify.to_sym, controller: cm, only: %i[index show]
