@@ -4,7 +4,7 @@ module Api
   module V1
     class PatientsController < ApiController
       def index
-        patients = current_resource_owner.profiles.map { |p| map_profile_to_patient(p) }
+        patients = current_resource_owner.profiles.map { |p| wrap_in_entry(map_profile_to_patient(p)) }
 
         bundle = FHIR::Bundle.new(type: 'searchset', entry: patients)
 
@@ -17,6 +17,18 @@ module Api
 
         # pre-converting to json is a workaround for a bug w/ rails & fhir_models
         render json: patient.to_json, status: :ok
+      end
+
+      def everything
+        profile = find_profile
+        patient = map_profile_to_patient(profile)
+        everything_else = profile.all_resources
+        bundle = wrap_in_bundle(everything_else)
+
+        bundle.entry.insert(0, wrap_in_entry(patient))
+
+        # pre-converting to json is a workaround for a bug w/ rails & fhir_models
+        render json: bundle.to_json, status: :ok
       end
 
       private

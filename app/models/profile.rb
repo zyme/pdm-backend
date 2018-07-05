@@ -19,6 +19,9 @@ class Profile < ApplicationRecord
   has_many :medication_statements
   has_many :observations
   has_many :procedures
+  # IMPORTANT - if adding new resource types above,
+  #             also add them to the all_resources method below
+
   # resources are the raw resources that are created from transactions, they
   # do not equate to the currated data models resources
   has_many :resources
@@ -26,6 +29,23 @@ class Profile < ApplicationRecord
   def has_provider?(provider_id)
     return false if provider_id.nil?
     !providers.find_by(id: provider_id).nil?
+  end
+
+  def all_resources
+    # there are hackish ways to do this, but not worth it at this point
+    types = %i[allergy_intolerances care_plans conditions devices
+               documents encounters goals immunizations
+               medication_administrations medication_requests
+               medication_statements observations procedures]
+
+    rs = []
+
+    types.each do |t|
+      rs_by_type = send(t)
+      rs.push(*rs_by_type)
+    end
+
+    rs
   end
 
   def reference
