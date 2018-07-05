@@ -7,6 +7,9 @@ Rails:
   Enabled: true
 # Rails/HasAndBelongsToMany:
 #   Exclude:
+Rails/BulkChangeTable:
+  Enabled: false
+  
 Metrics/LineLength:
   Max: 165
 

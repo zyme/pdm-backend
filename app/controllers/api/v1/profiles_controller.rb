@@ -3,7 +3,6 @@
 module Api
   module V1
     class ProfilesController < ApiController
-
       def index
         render json: current_resource_owner.profiles, status: :ok
       end
@@ -25,7 +24,7 @@ module Api
 
       def destroy
         profile = find_profile
-        render json: profile, status: 200 if profile.delete
+        render json: profile, status: :ok if profile.delete
       end
 
       private
@@ -37,7 +36,7 @@ module Api
       # Never trust parameters from the scary internet, only allow the white list through.
       def profile_params
         params.require(:profile).permit(:name, :first_name, :last_name, :dob,
-                                        :gender, :middle_name, :street ,:city,
+                                        :gender, :middle_name, :street, :city,
                                         :state, :zip)
       end
    end
