@@ -77,7 +77,7 @@ module HDM
       end
 
       def default_redirect_endpoint
-        'http://localhost:3000/oauth/callback'
+        'http://127.0.0.1:3000/oauth/callback'
       end
     end
   end

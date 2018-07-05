@@ -48,6 +48,6 @@ smart_sandbox:
   client_id: sandbox_id
   client_secret: sandbox_secret
   base_endpoint: https://launch.smarthealthit.org/v/r3/sim/eyJrIjoiMSIsImIiOiIxYWNjZjk4MS1iYmExLTRjM2EtYmE1MS05ODA5MmNlNTM1NTkifQ/fhir
-  scopes: "patient/*.read"
+  scopes: "patient/*.read,offline_access"
   authorization_endpoint:  https://launch.smarthealthit.org/v/r3/sim/eyJrIjoiMSIsImIiOiIxYWNjZjk4MS1iYmExLTRjM2EtYmE1MS05ODA5MmNlNTM1NTkifQ/auth/authorize
   token_endpoint:  https://launch.smarthealthit.org/v/r3/sim/eyJrIjoiMSIsImIiOiIxYWNjZjk4MS1iYmExLTRjM2EtYmE1MS05ODA5MmNlNTM1NTkifQ/auth/token
