@@ -15,6 +15,22 @@ module HDM
         super(provider)
       end
 
+      # Get the subject id from the OAuth2 token passed in.  This will look in a variety of
+      # common locations for the id.  Specific implementaions of this class may need to overwrite
+      # with implementation specific logic
+      def subject_id_from_token(token)
+          token.params['patient'] || token.params['patient_id'] || token.params['user_id'] || subject_id_from_id_token(token.params['id_token'])
+      end
+
+      # probably only applicable to the smart on fhir sandbox.  Other implementations
+      # may need to reach back to the server to ask for the profile to obtain the patient id. 
+      def subject_id_from_id_token(token)
+        return nil unless token
+        jwt = JWT.decode(token, nil, false)
+        payload = jwt[0]
+        payload['profile'].gsub("Patient/","")
+      end
+
       def sync_profile(profile_provider)
         profile_provider = provider.profile_providers.find_by(profile_id: profile_provider.profile_id) if profile_provider.instance_of? Profile
         refresh(profile_provider)

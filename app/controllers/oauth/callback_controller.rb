@@ -38,7 +38,7 @@ module Oauth
       pp.provider = req[:provider]
       pp.access_token = token.token
       pp.refresh_token = token.refresh_token
-      pp.subject_id = token.params['patient'] || token.params['patient_id'] || token.params['user_id']
+      pp.subject_id = pp.provider.subject_id_from_token(token)
       pp.scopes = token.params['scope']
       pp.save!
     end

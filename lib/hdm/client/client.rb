@@ -21,6 +21,10 @@ module HDM
         raise 'Not Implemented'
       end
 
+      def subject_id_from_token(token)
+          token.params['patient'] || token.params['patient_id'] || token.params['user_id']
+      end
+
       def refresh(profile_provider)
         # call the token endpoint with the refresh token to get a new access token_endpoint
         if profile_provider.refresh_token
