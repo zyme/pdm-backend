@@ -13,7 +13,7 @@ module Api
         render json: { message: 'Provider already linked' }, status: :internal_server_error if profile.has_provider? provider
         state = { provider_id: provider.id, profile_id: profile.id }.to_json
         state_enc = Base64.encode64(state)
-        render json: {redirect_uri: provider.generate_auth_url(state: state_enc)}, status: :ok
+        render json: { redirect_uri: provider.generate_auth_url(state: state_enc) }, status: :ok
         # kick off the linking -- actual creation of the user_provider object happens
         # through an ouath2 flow to have the user log into the provider system and
         # grant access, the redirection of this will result in the object being created

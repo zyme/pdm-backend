@@ -22,7 +22,7 @@ module HDM
       end
 
       def subject_id_from_token(token)
-          token.params['patient'] || token.params['patient_id'] || token.params['user_id']
+        token.params['patient'] || token.params['patient_id'] || token.params['user_id']
       end
 
       def refresh(profile_provider)
