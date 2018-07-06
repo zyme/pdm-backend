@@ -36,8 +36,7 @@ module HDM
         refresh(profile_provider)
         fhir_client.set_bearer_token(profile_provider.access_token)
         supported_resource_types.each do |type|
-          klass = type.constantize
-          reply = fhir_client.search(klass, search: { parameters: { patient: profile_provider.subject_id } })
+          reply = fhir_client.search(type, search: { parameters: { patient: profile_provider.subject_id } })
           bundle = reply.resource
           next unless bundle
           receipt = DataReceipt.new(profile_id: profile_provider.profile.id,
@@ -61,7 +60,9 @@ module HDM
       def supported_resource_types
         types = []
         client_capability_statement.rest[0].resource.each do |r|
-          types << "FHIR::#{r.type}" if r.type != 'Patient' && r.searchParam.find { |sp| sp.name == 'patient' }
+          if r.type != 'Patient' && r.searchParam.find { |sp| sp.name == 'patient' }
+            types << "FHIR::#{r.type}".constantize
+          end
         end
         types.empty? ? DEFAULT_TYPES : types
       end
