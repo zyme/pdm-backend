@@ -33,7 +33,7 @@ module HDM
           access_token = OAuth2::AccessToken.new(client, profile_provider.access_token, refresh_token: profile_provider.refresh_token)
 
           if access_token.refresh_token && access_token.expired?
-            access_token.refresh_token!
+            access_token.refresh!
             profile_provider.access_token = access_token.token
             profile_provider.save
           end
