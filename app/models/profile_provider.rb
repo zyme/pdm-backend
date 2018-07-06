@@ -3,7 +3,7 @@
 class ProfileProvider < ApplicationRecord
   belongs_to :provider
   belongs_to :profile
-  validate :validates_profile_already_linked
+  validate :validates_profile_already_linked, :on => :create
 
   def validates_profile_already_linked
     if profile.has_provider? provider
