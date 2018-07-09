@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAuditLogs < ActiveRecord::Migration[5.2]
   def change
     create_table :audit_logs do |t|
@@ -5,6 +7,7 @@ class CreateAuditLogs < ActiveRecord::Migration[5.2]
       t.string :event, null: false
       t.datetime :event_time, null: false
       t.string :description, null: false
+      t.timestamps
     end
   end
 end
