@@ -1,0 +1,16 @@
+language: ruby
+dist: trusty
+install: bundle install --jobs=3 --retry=3
+addons:
+    postgresql: "9.6"
+services:
+  - postgresql
+rvm:
+  - "2.3.5"
+env:
+  - DB=postgresql
+script:
+  - RAILS_ENV=test bundle exec rake db:create db:migrate --trace
+  - bundle exec rake
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
