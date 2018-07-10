@@ -36,12 +36,12 @@ module HDM
         refresh(profile_provider)
         fhir_client.set_bearer_token(profile_provider.access_token)
         supported_resource_types.each do |type|
-          reply = fhir_client.search(type, search: { parameters: { patient: profile_provider.subject_id } })
+          reply = fhir_client.search(type, search: fhir_search_params(profile_provider))
           bundle = reply.resource
-          if bundle.nil? || bundle.entry.nil? || bundle.entry.none?
-            # don't bother storing empty results
-            next
-          end
+
+          # don't bother storing empty results
+          next if bundle.nil? || bundle.entry.nil? || bundle.entry.none?
+
           receipt = DataReceipt.new(profile_id: profile_provider.profile.id,
                                     provider_id: provider.id,
                                     data_type: 'fhir_bundle',
@@ -66,6 +66,16 @@ module HDM
           types << "FHIR::#{r.type}".constantize if r.type != 'Patient' && r.searchParam.find { |sp| sp.name == 'patient' }
         end
         types.empty? ? DEFAULT_TYPES : types
+      end
+
+      def fhir_search_params(profile_provider)
+        params = {}
+        params[:patient] = profile_provider.subject_id
+
+        # see https://www.hl7.org/fhir/search.html#lastUpdate
+        params[:_lastUpdated] = 'gt' + profile_provider.last_sync.iso8601 if profile_provider.last_sync
+
+        { parameters: params }
       end
 
       def client_capability_statement
