@@ -16,4 +16,15 @@ namespace :hdm do
     merger = HDM::Merge:: Merger.new
     merger.update_profile(receipt.profile)
   end
+
+  desc 'Manually Trigger Profile Sync'
+  task :sync_profile, [:profile_provider_id] => :environment do |_t, args|
+    pp = ProfileProvider.find(args.profile_provider_id)
+
+    client = HDM::Client.get_client(pp.provider)
+    client.sync_profile(pp)
+
+    DataReceipt.where(profile: pp.profile).each(&:process!)
+    HDM::Merge:: Merger.new.update_profile(pp.profile)
+  end
 end
