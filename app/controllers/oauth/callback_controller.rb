@@ -11,8 +11,8 @@ module Oauth
       # validate code
       req = discover_request
       token = req[:provider].get_access_token(params[:code])
-      link_provider_and_profile(token, req)
-      redirect_to "/profile/#{req[:profile].id}/providers/#{req[:provider].id}"
+      pp = link_provider_and_profile(token, req)
+      render json: { id: pp.id }, status: :ok
     end
 
     private
@@ -42,6 +42,7 @@ module Oauth
       pp.subject_id = pp.provider.subject_id_from_token(token)
       pp.scopes = token.params['scope']
       pp.save!
+      pp
     end
   end
 end
