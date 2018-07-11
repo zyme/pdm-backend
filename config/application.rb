@@ -18,7 +18,6 @@ require 'fhir_models'
 require 'fhir_dstu2_models'
 require_relative '../lib/hdm'
 
-
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

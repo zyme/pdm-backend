@@ -5,19 +5,19 @@ module HDM
     class SmartClient < BaseClient
       attr_accessor :fhir_client
       DEFAULT_STU3_TYPES = [FHIR::Patient,
-                       FHIR::Immunization,
-                       FHIR::Condition,
-                       FHIR::Device,
-                       FHIR::MedicationStatement,
-                       FHIR::Encounter,
-                       FHIR::Observation].freeze
-       DEFAULT_DSTU2_TYPES = [FHIR::DSTU2::Patient,
-                        FHIR::DSTU2::Immunization,
-                        FHIR::DSTU2::Condition,
-                        FHIR::DSTU2::Device,
-                        FHIR::DSTU2::MedicationStatement,
-                        FHIR::DSTU2::Encounter,
-                        FHIR::DSTU2::Observation].freeze
+                            FHIR::Immunization,
+                            FHIR::Condition,
+                            FHIR::Device,
+                            FHIR::MedicationStatement,
+                            FHIR::Encounter,
+                            FHIR::Observation].freeze
+      DEFAULT_DSTU2_TYPES = [FHIR::DSTU2::Patient,
+                             FHIR::DSTU2::Immunization,
+                             FHIR::DSTU2::Condition,
+                             FHIR::DSTU2::Device,
+                             FHIR::DSTU2::MedicationStatement,
+                             FHIR::DSTU2::Encounter,
+                             FHIR::DSTU2::Observation].freeze
       def intialize(provider)
         super(provider)
       end
@@ -71,14 +71,13 @@ module HDM
         version = fhir_client.detect_version
         version ||= :dstu2
         defaults = version == :dstu2 ? DEFAULT_DSTU2_TYPES : DEFAULT_STU3_TYPES
-        prefix = version == :dstu2 ? "FHIR::DSTU2" : "FHIR"
+        prefix = version == :dstu2 ? 'FHIR::DSTU2' : 'FHIR'
         types = []
         client_capability_statement.rest[0].resource.each do |r|
           types << "#{prefix}::#{r.type}".constantize if r.type != 'Patient' && r.searchParam.find { |sp| sp.name == 'patient' }
         end
         types.empty? ? defaults : types
       end
-
 
       def fhir_search_params(profile_provider)
         params = {}
