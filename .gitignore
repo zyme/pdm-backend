@@ -27,3 +27,5 @@ reports
 # Mac OS
 .DS_Store
 **/.DS_Store
+
+epic_client_secret.txt

@@ -5,8 +5,8 @@ module HDM
     def self.get_client(provider)
       if provider.provider_type == 'smart'
         HDM::Client::SmartClient.new(provider)
-      elsif provider.provider_type == "smart_epic"
-          HDM::Client::EpicSmartClient.new(provider)
+      elsif provider.provider_type == 'smart_epic'
+        HDM::Client::EpicSmartClient.new(provider)
       else
         BaseClient.new(provider)
       end
@@ -77,7 +77,7 @@ module HDM
         if provider.token_endpoint && provider.authorization_endpoint
           { authorize_url: provider.authorization_endpoint,
             token_url: provider.token_endpoint }
-        end 
+        end
       end
 
       def default_redirect_endpoint
