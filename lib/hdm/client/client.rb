@@ -39,6 +39,7 @@ module HDM
           if access_token.expired?
             access_token = access_token.refresh!
             profile_provider.access_token = access_token.token
+            profile_provider.expires_at = Time.now.to_i + access_token.expires_in if access_token.expires_in
             profile_provider.refresh_token = access_token.refresh_token
             profile_provider.save
           end

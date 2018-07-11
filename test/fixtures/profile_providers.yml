@@ -9,6 +9,8 @@ harry_partners:
   provider: partners
   subject_id: harrys_partners_paitent_id
   access_token: this_is_harrys_access_token
+  refresh_token: this_is_the_refresh_token
+  expires_at: 0 
 # column: value
 #
 sema_partners:
