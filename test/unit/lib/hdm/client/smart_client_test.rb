@@ -20,7 +20,7 @@ class HDM::Client::SmartClientTest < ActiveSupport::TestCase
     params = Rack::Utils.parse_query auth_url.query
     assert_equal 'http://partners.com/smart', params['aud']
     assert_equal 'partners id', params['client_id']
-    assert_equal 'http://localhost:3000/oauth/callback', params['redirect_uri']
+    assert_equal 'http://127.0.0.1:3000/oauth/callback', params['redirect_uri']
     assert_equal 'code', params['response_type']
     assert_equal nil, params['scope']
   end

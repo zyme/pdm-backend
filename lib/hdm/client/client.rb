@@ -21,16 +21,21 @@ module HDM
         raise 'Not Implemented'
       end
 
+      def subject_id_from_token(token)
+        token.params['patient'] || token.params['patient_id'] || token.params['user_id']
+      end
+
       def refresh(profile_provider)
         # call the token endpoint with the refresh token to get a new access token_endpoint
         if profile_provider.refresh_token
           client_options = get_endpoint_params
           client = OAuth2::Client.new(provider.client_id, provider.client_secret, client_options)
-          access_token = OAuth2::AccessToken.new(client, provider.access_token, refresh_token: provider.refresh_token)
+          access_token = OAuth2::AccessToken.new(client, profile_provider.access_token, refresh_token: profile_provider.refresh_token)
 
-          if access_token.refresh_token && access_token.expired?
-            access_token.refresh_token!
+          if access_token.refresh_token
+            access_token = access_token.refresh!
             profile_provider.access_token = access_token.token
+            profile_provider.refresh_token = access_token.refresh_token
             profile_provider.save
           end
         end
@@ -77,7 +82,7 @@ module HDM
       end
 
       def default_redirect_endpoint
-        'http://localhost:3000/oauth/callback'
+        'http://127.0.0.1:3000/oauth/callback'
       end
     end
   end

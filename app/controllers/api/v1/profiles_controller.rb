@@ -35,7 +35,9 @@ module Api
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def profile_params
-        params.require(:profile).permit(:name, :first_name, :last_name, :dob, :gender)
+        params.require(:profile).permit(:name, :first_name, :last_name, :dob,
+                                        :gender, :middle_name, :street, :city,
+                                        :state, :zip)
       end
    end
  end

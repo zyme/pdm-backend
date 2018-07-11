@@ -8,7 +8,8 @@ class DataReceipt < ApplicationRecord
   def process!
     return if processed
 
-    bundle = FHIR.from_contents(data)
+    content = data.is_a?(String) ? data : JSON.unparse(data)
+    bundle = FHIR.from_contents(content)
     bundle.entry.each do |entry|
       fhir_resource = entry.resource
 

@@ -15,14 +15,33 @@ module HDM
         super(provider)
       end
 
+      # Get the subject id from the OAuth2 token passed in.  This will look in a variety of
+      # common locations for the id.  Specific implementaions of this class may need to overwrite
+      # with implementation specific logic
+      def subject_id_from_token(token)
+        token.params['patient'] || token.params['patient_id'] || token.params['user_id'] || subject_id_from_id_token(token.params['id_token'])
+      end
+
+      # probably only applicable to the smart on fhir sandbox.  Other implementations
+      # may need to reach back to the server to ask for the profile to obtain the patient id.
+      def subject_id_from_id_token(token)
+        return nil unless token
+        jwt = JWT.decode(token, nil, false)
+        payload = jwt[0]
+        payload['profile'].gsub('Patient/', '')
+      end
+
       def sync_profile(profile_provider)
         profile_provider = provider.profile_providers.find_by(profile_id: profile_provider.profile_id) if profile_provider.instance_of? Profile
         refresh(profile_provider)
         fhir_client.set_bearer_token(profile_provider.access_token)
         supported_resource_types.each do |type|
-          reply = fhir_client.search(type, search: { parameters: { patient: profile_provider.subject_id } })
+          reply = fhir_client.search(type, search: fhir_search_params(profile_provider))
           bundle = reply.resource
-          next unless bundle
+
+          # don't bother storing empty results
+          next if bundle.nil? || bundle.entry.nil? || bundle.entry.none?
+
           receipt = DataReceipt.new(profile_id: profile_provider.profile.id,
                                     provider_id: provider.id,
                                     data_type: 'fhir_bundle',
@@ -44,9 +63,19 @@ module HDM
       def supported_resource_types
         types = []
         client_capability_statement.rest[0].resource.each do |r|
-          types << "FHIR::#{r.type}" if r.type != 'Patient' && r.searchParams.find { |sp| sp.name == 'patient' }
+          types << "FHIR::#{r.type}".constantize if r.type != 'Patient' && r.searchParam.find { |sp| sp.name == 'patient' }
         end
         types.empty? ? DEFAULT_TYPES : types
+      end
+
+      def fhir_search_params(profile_provider)
+        params = {}
+        params[:patient] = profile_provider.subject_id
+
+        # see https://www.hl7.org/fhir/search.html#lastUpdate
+        params[:_lastUpdated] = 'gt' + profile_provider.last_sync.iso8601 if profile_provider.last_sync
+
+        { parameters: params }
       end
 
       def client_capability_statement

@@ -13,6 +13,8 @@ class Provider < ApplicationRecord
     get_client.get_access_token(code, params)
   end
 
+  delegate :subject_id_from_token, to: :get_client
+
   private
 
   def get_client
