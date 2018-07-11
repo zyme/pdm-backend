@@ -28,4 +28,5 @@ reports
 .DS_Store
 **/.DS_Store
 
-epic_client_secret.txt
+# ignore local files that are good to have in the local project structure but not in the repo
+local_resources
