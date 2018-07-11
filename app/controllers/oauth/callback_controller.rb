@@ -37,6 +37,7 @@ module Oauth
       pp.profile = req[:profile]
       pp.provider = req[:provider]
       pp.access_token = token.token
+      pp.expires_at = Time.now.to_i + token.expires_in
       pp.refresh_token = token.refresh_token
       pp.subject_id = pp.provider.subject_id_from_token(token)
       pp.scopes = token.params['scope']
