@@ -34,7 +34,7 @@ module HDM
           client = OAuth2::Client.new(provider.client_id, provider.client_secret, client_options)
           access_token = OAuth2::AccessToken.new(client, profile_provider.access_token,
                                                  refresh_token: profile_provider.refresh_token,
-                                                 expires_at: profile_provider.expires_at || Time.now.to_i)
+                                                 expires_at: profile_provider.expires_at || 1)
 
           if access_token.expired?
             access_token = access_token.refresh!

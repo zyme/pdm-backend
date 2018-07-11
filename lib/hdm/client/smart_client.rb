@@ -47,7 +47,7 @@ module HDM
           bundle = reply.resource
 
           # don't bother storing empty results
-          next if bundle.nil? || bundle.entry.nil? || bundle.entry.none?
+          next if bundle.nil? || bundle.entry.nil? || bundle.entry.none? || bundle.total == 0
 
           receipt = DataReceipt.new(profile_id: profile_provider.profile.id,
                                     provider_id: provider.id,

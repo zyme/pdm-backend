@@ -11,6 +11,10 @@ module HDM
         client = OAuth2::Client.new(provider.client_id, provider.client_secret, options)
         client.auth_code.get_token(code, params)
       end
+
+      def supported_resource_types
+        super - [FHIR::DSTU2::Observation]
+      end
     end
   end
 end
