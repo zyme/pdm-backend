@@ -7,7 +7,7 @@ module CuratedModel
   included do
     validates :resource, presence: true
     validate do
-      errors.add :resource_errors, fhir_model.validate unless fhir_model.valid?
+      # errors.add :resource_errors, fhir_model.validate unless fhir_model.valid?
       errors.add :resource, "Wrong resource type: expected #{self.class.name} was #{fhir_model.resourceType}" unless fhir_model.resourceType == self.class.name
     end
     # update the underlying json model with the current

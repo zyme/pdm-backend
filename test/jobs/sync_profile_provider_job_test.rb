@@ -26,8 +26,12 @@ class SyncProfileProviderJobTest < ActiveJob::TestCase
     FakeWeb.register_uri(:get, %r{http://partners.com/smart/Encounter}, body: '{}', content_type: 'application/json')
 
     pp = profile_providers(:harry_partners)
-    SyncProfileProviderJob.perform_now(pp)
+    raw_resource_count = pp.profile.resources.count
+    resource_count = pp.profile.all_resources.length
     count = DataReceipt.count()
-    assert DataReceipt.count() > count
+    SyncProfileProviderJob.perform_now(pp)
+    assert DataReceipt.count > count
+    assert pp.profile.resources.count > raw_resource_count
+    assert pp.profile.all_resources.length > resource_count
   end
 end
