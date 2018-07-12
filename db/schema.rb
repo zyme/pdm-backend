@@ -269,6 +269,9 @@ ActiveRecord::Schema.define(version: 2018_07_11_203039) do
     t.string "city"
     t.string "state"
     t.string "zip"
+    t.string "relationship"
+    t.string "telephone"
+    t.string "telephone_use"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
