@@ -19,7 +19,7 @@ class Api::V1::ProfilesControllerTest < ActionDispatch::IntegrationTest
 
     get '/oauth/callback', params: { code: code, state: state }
 
-    assert_redirected_to "http://www.example.com/profile/#{profile.id}/providers/#{provider.id}"
+    assert_response :ok
     providers = ProfileProvider.where(profile_id: profile.id, provider_id: provider.id)
     assert_equal 1, providers.count
     provider = providers.first
