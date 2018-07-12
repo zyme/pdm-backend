@@ -25,5 +25,7 @@ class Api::V1::ProfilesControllerTest < ActionDispatch::IntegrationTest
     provider = providers.first
     assert_equal data[:access_token], provider.access_token
     assert_equal data[:refresh_token], provider.refresh_token
+    assert provider.expires_at > Time.now.to_i
+    assert provider.expires_at <= Time.now.to_i + data[:expires_in]
   end
 end

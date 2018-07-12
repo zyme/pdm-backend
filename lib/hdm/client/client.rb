@@ -5,6 +5,8 @@ module HDM
     def self.get_client(provider)
       if provider.provider_type == 'smart'
         HDM::Client::SmartClient.new(provider)
+      elsif provider.provider_type == 'smart_epic'
+        HDM::Client::EpicSmartClient.new(provider)
       else
         BaseClient.new(provider)
       end
@@ -30,11 +32,14 @@ module HDM
         if profile_provider.refresh_token
           client_options = get_endpoint_params
           client = OAuth2::Client.new(provider.client_id, provider.client_secret, client_options)
-          access_token = OAuth2::AccessToken.new(client, profile_provider.access_token, refresh_token: profile_provider.refresh_token)
+          access_token = OAuth2::AccessToken.new(client, profile_provider.access_token,
+                                                 refresh_token: profile_provider.refresh_token,
+                                                 expires_at: profile_provider.expires_at || 1)
 
-          if access_token.refresh_token
+          if access_token.expired?
             access_token = access_token.refresh!
             profile_provider.access_token = access_token.token
+            profile_provider.expires_at = Time.now.to_i + access_token.expires_in if access_token.expires_in
             profile_provider.refresh_token = access_token.refresh_token
             profile_provider.save
           end
@@ -75,9 +80,6 @@ module HDM
         if provider.token_endpoint && provider.authorization_endpoint
           { authorize_url: provider.authorization_endpoint,
             token_url: provider.token_endpoint }
-        else
-          { authorize_url: provider.base_endpoint + '/auth/authorization',
-            token_url: provider.base_endpoint + '/auth/token' }
         end
       end
 

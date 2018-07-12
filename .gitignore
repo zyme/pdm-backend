@@ -27,3 +27,6 @@ reports
 # Mac OS
 .DS_Store
 **/.DS_Store
+
+# ignore local files that are good to have in the local project structure but not in the repo
+local_resources

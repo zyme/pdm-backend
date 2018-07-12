@@ -26,14 +26,40 @@ class HDM::Client::SmartClientTest < ActiveSupport::TestCase
   end
 
   test 'should be able to get refresh token' do
+    FakeWeb.register_uri(:post, %r{http://partners.com/oauth/token}, body: { access_token: 'new token', expires_in: 3600 }.to_json, content_type: 'application/json')
     p = profile_providers(:harry_partners)
     bc = HDM::Client::SmartClient.new(p.provider)
     bc.refresh(p)
   end
 
+  test 'should be only refresh token when current one has expired' do
+    FakeWeb.register_uri(:post, %r{http://partners.com/oauth/token}, body: { access_token: 'new token', expires_in: 3600 }.to_json, content_type: 'application/json')
+    p = profile_providers(:harry_partners)
+    bc = HDM::Client::SmartClient.new(p.provider)
+
+    assert_equal 'this_is_harrys_access_token', p.access_token
+    assert p.refresh_token
+    exp = Time.now.to_i + 5000
+    p.expires_at = exp
+    p.save
+    bc.refresh(p)
+    p.reload
+    # test that nothing has changed, expires_at is the same so is the token
+    assert_equal 'this_is_harrys_access_token', p.access_token
+    assert_equal exp, p.expires_at
+
+    exp = Time.now.to_i - 5000
+    p.expires_at = exp
+    p.save
+    bc.refresh(p)
+    p.reload
+    assert_equal 'new token', p.access_token
+    assert_equal Time.now.to_i + 3600, p.expires_at
+  end
+
   test 'should be able to sync data' do
     fake_body = File.read(File.join(__dir__, '../../../../fixtures/files/ouath_capability_statement.json'))
-
+    FakeWeb.register_uri(:post, %r{http://partners.com/oauth/token}, body: { access_token: 'new token', expires_in: 3600 }.to_json, content_type: 'application/json')
     FakeWeb.register_uri(:get, %r{http://partners.com/smart/metadata}, body: fake_body, content_type: 'application/json')
     FakeWeb.register_uri(:get, %r{http://partners.com/smart/Observation}, body: load_bundle('search-set'), content_type: 'application/json')
     FakeWeb.register_uri(:get, %r{http://partners.com/smart/Patient}, body: '{}', content_type: 'application/json')
