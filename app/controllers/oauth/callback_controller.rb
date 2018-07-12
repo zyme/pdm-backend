@@ -42,6 +42,7 @@ module Oauth
       pp.subject_id = pp.provider.subject_id_from_token(token)
       pp.scopes = token.params['scope']
       pp.save!
+      SyncProfileProviderJob.perform_later(pp)
       pp
     end
   end

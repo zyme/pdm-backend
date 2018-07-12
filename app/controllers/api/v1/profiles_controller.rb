@@ -39,6 +39,6 @@ module Api
                                         :gender, :middle_name, :street, :city,
                                         :state, :zip, :relationship, :telephone, :telephone_use)
       end
-   end
- end
+    end
+  end
 end
