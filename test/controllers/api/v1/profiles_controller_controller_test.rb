@@ -46,12 +46,28 @@ class Api::V1::ProfilesControllerTest < ActionDispatch::IntegrationTest
 
   test 'user should be able to create a new profile' do
     harry = users(:harry)
+    hp = profiles(:harrys_profile)
     token = generate_token(harry.id)
-    profile = Profile.new(name: 'Test')
+    profile = hp.clone
+    profile.name = 'Test'
     count = harry.profiles.count
     post '/api/v1/profiles/', params: { profile: profile.as_json, access_token: token.token }
     assert_response :created
     assert Profile.where(user_id: harry.id).count == count + 1, 'Should have created a new profile'
+    new_profile = Profile.where(user_id: harry.id, name: 'Test').first
+    assert new_profile
+    assert_equal profile.first_name, new_profile.first_name
+    assert_equal profile.last_name, new_profile.last_name
+    assert_equal profile.middle_name, new_profile.middle_name
+    assert_equal profile.gender, new_profile.gender
+    assert_equal profile.dob, new_profile.dob
+    assert_equal profile.street, new_profile.street
+    assert_equal profile.city, new_profile.city
+    assert_equal profile.state, new_profile.state
+    assert_equal profile.zip, new_profile.zip
+    assert_equal profile.relationship, new_profile.relationship
+    assert_equal profile.telephone, new_profile.telephone
+    assert_equal profile.telephone_use, new_profile.telephone_use
   end
 
   test 'user should be able to update a profile' do

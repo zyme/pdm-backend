@@ -9,7 +9,16 @@ harrys_profile:
   name: myself
   first_name: Harry
   last_name: Sotired
+  middle_name: mname
   gender: male
+  dob: 1952-11-11
+  relationship: self
+  street: 202 Burlington Rd
+  city: Bedford
+  state: MA
+  zip: 01730
+  telephone: 555-555-5555
+  telephone_use: cell
   user: harry
 
 jills_profile:
