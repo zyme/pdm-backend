@@ -31,9 +31,9 @@ class SyncProfileJobTest < ActiveJob::TestCase
     resource_count = pp.profile.all_resources.length
     count = DataReceipt.count()
     SyncProfileJob.perform_now(pp.profile)
-    #ensure that the profile_provider was syned as part of the profile being synced
-    assert DataReceipt.count() > count
-    assert pp.profile.resources.count  > raw_resource_count
-    assert pp.profile.all_resources.length  > resource_count
+    # ensure that the profile_provider was syned as part of the profile being synced
+    assert DataReceipt.count > count
+    assert pp.profile.resources.count > raw_resource_count
+    assert pp.profile.all_resources.length > resource_count
   end
 end
