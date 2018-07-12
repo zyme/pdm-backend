@@ -5,7 +5,7 @@ class SyncProfileJob < ApplicationJob
 
   def perform(profile)
     profile.profile_providers.each do |pp|
-      SyncProfileProviderJob.perfom_now(pp)
+      SyncProfileProviderJob.perform_now(pp)
     end
   end
 end
