@@ -6,7 +6,45 @@ first_dr_1:
   resource_type: Condition
   provider_resource_id: 12345
   provider_resource_version: 1
-  resource: '{}'
+  resource: '{"resourceType": "Condition",
+              "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "Q84.1" }]},
+              "subject": {"reference": "some-internal-id-here"}}'
+
+perfect_match_resource:
+  id: 7
+  profile: jills_profile
+  provider: partners
+  data_receipt: first_data_receipt
+  resource_type: Condition
+  provider_resource_id: 12345
+  provider_resource_version: 1
+  resource: '{"resourceType": "Condition",
+              "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "Q84.1" }]},
+              "subject": {"reference": "some-internal-id-here"}}'
+
+imperfect_match_resource:
+  id: 17
+  profile: jills_profile
+  provider: partners
+  data_receipt: first_data_receipt
+  resource_type: Condition
+  provider_resource_id: 12345
+  provider_resource_version: 1
+  resource: '{"resourceType": "Condition",
+              "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "Q84.1" }]},
+              "subject": {"reference": "some-internal-id-here"}}'
+
+unmatching_resource:
+  id: 22
+  profile: jills_profile
+  provider: partners
+  data_receipt: first_data_receipt
+  resource_type: Condition
+  provider_resource_id: 12345
+  provider_resource_version: 1
+  resource: '{"resourceType": "Condition",
+              "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "W56.41" }]},
+              "subject": {"reference": "some-internal-id-here"}}'
 
 second_dr_1:
   id: 2
