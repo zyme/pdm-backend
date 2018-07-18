@@ -9,19 +9,23 @@ module HDM
       DATETIME_REGEX = Regexp.new(FHIR::PRIMITIVES['dateTime']['regex']).freeze
 
       def self.match(resource, relationship)
-        relationship.find_all { |r| match?(resource, r.resource) }
+        potential_matches = relationship.map { |r| score_match(resource, r.resource) }
+        potential_matches.find_all { |pm| pm[:score] >= MATCH_THRESHOLD }
       end
 
-      def self.deconflict(_resource, _matches)
+      def self.deconflict(resource, matches)
+        # resource: new incoming resource
+        # matches: existing resources that match with some %
         []
       end
 
-      def self.match?(lhs, rhs)
-        left_path_maps = traverse(to_hash(lhs))
+      def self.score_match(left, right)
+        left_path_maps = traverse(to_hash(left))
 
-        right_path_maps = traverse(to_hash(rhs))
+        right_path_maps = traverse(to_hash(right))
 
-        paths_match?(left_path_maps, right_path_maps)
+        { left: left, right: right,
+          score: score_paths(left_path_maps, right_path_maps) }
       end
 
       def self.to_hash(obj)
@@ -53,7 +57,7 @@ module HDM
         path_map
       end
 
-      def self.paths_match?(left_path_maps, right_path_maps)
+      def self.score_paths(left_path_maps, right_path_maps)
         # we can only match on paths in both resources
         common_paths = left_path_maps.keys & right_path_maps.keys
 
@@ -68,7 +72,7 @@ module HDM
         # Test how many of the common paths were a match. If the percentage of matches exceeds
         # the configurable MatchThreshold, we've got a match. At this point matchable_paths is
         # guaranteed not to be empty, making division by 0 impossible.
-        (match_count.to_f / matchable_paths.length) >= MATCH_THRESHOLD
+        match_count.to_f / matchable_paths.length
       end
 
       def self.strip_unsuitable_paths(paths)

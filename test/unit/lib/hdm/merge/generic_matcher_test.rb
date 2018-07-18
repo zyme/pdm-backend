@@ -16,14 +16,14 @@ module HDM
         matches = GenericMatcher.match(json, relationship)
         assert_equal(1, matches.length)
         expected = conditions(:uncombable_hair_syndrome)
-        assert_equal(expected, matches[0])
+        assert_equal(expected.resource, matches[0][:right])
 
         resource = resources(:imperfect_match_resource)
         json = JSON.parse(resource.resource)
         matches = GenericMatcher.match(json, relationship)
         assert_equal(1, matches.length)
         expected = conditions(:uncombable_hair_syndrome)
-        assert_equal(expected, matches[0])
+        assert_equal(expected.resource, matches[0][:right])
       end
 
       test 'should correctly exclude non-matching resource' do
