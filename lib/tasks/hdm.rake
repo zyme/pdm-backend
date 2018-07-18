@@ -22,18 +22,17 @@ namespace :hdm do
     bundle_json = File.open(args.file, 'r:UTF-8').read
     users = User.all.to_a
 
-
     providers = Provider.all.to_a
     user_indx = 0
     profile_indx = 0
     provider_indx = 0
 
-    if users.length == 0
-       puts "There are no users in the system, please add a user before continuing"
-       return
+    if users.empty?
+      puts 'There are no users in the system, please add a user before continuing'
+      return
     elsif users.length > 1
-      puts "Select which user you want to load the data for "
-      users.each_with_index{|u,i| puts "#{i}. #{u.email}"}
+      puts 'Select which user you want to load the data for '
+      users.each_with_index { |u, i| puts "#{i}. #{u.email}" }
       user_indx = STDIN.gets.chomp.to_i
     else
       puts "Using only user in the system: #{users[user_indx].email}"
@@ -41,24 +40,23 @@ namespace :hdm do
 
     user = users[user_indx]
     profiles = user.profiles
-    if profiles.length == 0
-      puts "User has no profile, please create a profile before continuing"
+    if profiles.empty?
+      puts 'User has no profile, please create a profile before continuing'
       return
     elsif profiles.length > 1
-      puts "Select which profile you want to load the data into "
-      profiles.each_with_index{|p,i| puts "#{i}. #{p.name}"}
+      puts 'Select which profile you want to load the data into '
+      profiles.each_with_index { |p, i| puts "#{i}. #{p.name}" }
       profile_indx = STDIN.gets.chomp.to_i
     else
       puts "User only has a single profile, using profile #{profiles[profile_indx.to_i].name}"
     end
 
-    profile = profiles[profile_indx.to_i]
-    if providers.length == 0
-      puts "There are no providers in the system, please load some providers before continuing"
+    if providers.empty?
+      puts 'There are no providers in the system, please load some providers before continuing'
     elsif providers.length > 1
-      puts "Select which provider you want to assocaiate the data with "
-      providers.each_with_index{|p,i| puts "#{i} #{p.name}"}
-      provider_indx = STDIN.gets.chomp.to_i 
+      puts 'Select which provider you want to assocaiate the data with '
+      providers.each_with_index { |p, i| puts "#{i} #{p.name}" }
+      provider_indx = STDIN.gets.chomp.to_i
     else
       puts "There is only 1 provider in the system, using provider #{providers[provider_indx.to_i].name}"
     end
@@ -76,7 +74,6 @@ namespace :hdm do
 
     # select a profile
   end
-
 
   desc 'Manually Trigger Profile Sync'
   task :sync_profile, [:profile_provider_id] => :environment do |_t, args|
