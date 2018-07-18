@@ -8,6 +8,10 @@ first_dr_1:
   provider_resource_version: 1
   resource: '{"resourceType": "Condition",
               "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "Q84.1" }]},
+              "clinicalStatus": "active",
+              "verificationStatus": "confirmed",
+              "onsetDateTime": "2001-01-16T21:03:10-05:00",
+              "assertedDate": "2001-01-16T21:03:10-05:00",
               "subject": {"reference": "some-internal-id-here"}}'
 
 perfect_match_resource:
@@ -20,6 +24,10 @@ perfect_match_resource:
   provider_resource_version: 1
   resource: '{"resourceType": "Condition",
               "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "Q84.1" }]},
+              "clinicalStatus": "active",
+              "verificationStatus": "confirmed",
+              "onsetDateTime": "2001-01-16T21:03:10-05:00",
+              "assertedDate": "2001-01-16T21:03:10-05:00",
               "subject": {"reference": "some-internal-id-here"}}'
 
 imperfect_match_resource:
@@ -32,6 +40,10 @@ imperfect_match_resource:
   provider_resource_version: 1
   resource: '{"resourceType": "Condition",
               "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "Q84.1" }]},
+              "clinicalStatus": "active",
+              "verificationStatus": "confirmed",
+              "onsetDateTime": "2001-01-16T21:03:10-05:00",
+              "assertedDate": "2001-01-23T21:03:10-05:00",
               "subject": {"reference": "some-internal-id-here"}}'
 
 unmatching_resource:
@@ -44,6 +56,10 @@ unmatching_resource:
   provider_resource_version: 1
   resource: '{"resourceType": "Condition",
               "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "W56.41" }]},
+              "clinicalStatus": "active",
+              "verificationStatus": "confirmed",
+              "onsetDateTime": "2010-07-26T01:44:00-05:00",
+              "assertedDate": "2018-01-01T21:03:10-05:00",
               "subject": {"reference": "some-internal-id-here"}}'
 
 second_dr_1:

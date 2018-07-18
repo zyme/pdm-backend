@@ -5,6 +5,8 @@ module HDM
     class GenericMatcher
       MATCH_THRESHOLD = 0.8
       NON_COMPARABLE_PATHS = %w[url system id _id text reference resourcetype].freeze
+      FLOAT_TOLERANCE = 0.0001
+      DATETIME_REGEX = Regexp.new(FHIR::PRIMITIVES['dateTime']['regex']).freeze
 
       def self.match(resource, relationship)
         relationship.find_all { |r| match?(resource, r.resource) }
@@ -25,7 +27,7 @@ module HDM
       def self.to_hash(obj)
         case obj
         when FHIR::Model
-          JSON.parse(obj.to_s)
+          obj.to_hash
         when String
           JSON.parse(obj)
         else
@@ -66,16 +68,47 @@ module HDM
         # Test how many of the common paths were a match. If the percentage of matches exceeds
         # the configurable MatchThreshold, we've got a match. At this point matchable_paths is
         # guaranteed not to be empty, making division by 0 impossible.
-        (match_count / matchable_paths.length) >= MATCH_THRESHOLD
+        (match_count.to_f / matchable_paths.length) >= MATCH_THRESHOLD
       end
 
       def self.strip_unsuitable_paths(paths)
         paths.reject { |p| NON_COMPARABLE_PATHS.any? { |ncp| p.downcase.include?(ncp) } }
       end
 
-      def self.values_match?(left_value, right_value)
-        # TODO: any special handling needed here? doubles? dates?
-        left_value == right_value
+      def self.values_match?(left, right)
+        case left
+        when String
+          strings_match?(left, right)
+        when Float
+          floats_match(left, right)
+        else
+          # TODO: any other special handling needed here?
+          left == right
+        end
+      end
+
+      def self.strings_match?(left, right)
+        # special handling for date-times
+        if DATETIME_REGEX.match?(left) && DATETIME_REGEX.match?(right)
+          left_date = Time.iso8601(left)
+          right_date = Time.iso8601(right)
+          return dates_match?(left_date, right_date)
+        end
+
+        # just use regular string equality
+        left == right
+      end
+
+      def self.dates_match?(left, right)
+        # per pt merge, we consider DateTimes equal if they fall on the same day
+        left = left.utc
+        right = right.utc
+
+        left.year == right.year && left.month == right.month && left.day == right.day
+      end
+
+      def self.floats_match(left, right)
+        (left - right).abs < FLOAT_TOLERANCE
       end
     end
   end
