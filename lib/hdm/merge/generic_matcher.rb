@@ -13,7 +13,7 @@ module HDM
         # relationship: existing list of resources to compare against
 
         # note that ptmerge returns the first match found, rather than all matches
-        potential_matches = relationship.map { |r| score_match(resource, r.resource) }
+        potential_matches = relationship.map { |r| score_match(resource, r.fhir_model) }
         potential_matches.find { |pm| pm[:score] >= MATCH_THRESHOLD }
       end
 
@@ -25,9 +25,9 @@ module HDM
         return nil if conflict_paths.blank?
 
         # left == new incoming resource; right == match
-        source = to_hash(match[:right])
+        source = match[:right]
 
-        issue = create_issue(source['resourceType'], source['id'], 'Resource', resource.id, conflict_paths)
+        issue = create_issue(source.resourceType, source.id, 'Resource', resource.id, conflict_paths)
         FHIR::OperationOutcome.new(issue: [issue])
       end
 
@@ -128,10 +128,16 @@ module HDM
 
       def self.strings_match?(left, right)
         # special handling for date-times
-        if DATETIME_REGEX.match?(left) && DATETIME_REGEX.match?(right)
-          left_date = Time.iso8601(left)
-          right_date = Time.iso8601(right)
-          return dates_match?(left_date, right_date)
+        begin
+          if DATETIME_REGEX.match?(left) && DATETIME_REGEX.match?(right)
+            left_date = Time.iso8601(left)
+            right_date = Time.iso8601(right)
+            return dates_match?(left_date, right_date)
+          end
+        rescue ArgumentError
+          # the regex matched a date that the Time class didn't like
+          # just ignore it and compare as a regular string
+          Rails.logger.debug "Warning: #{left}, #{right} matched fhir_models DateTime regex, but aren't times"
         end
 
         # just use regular string equality

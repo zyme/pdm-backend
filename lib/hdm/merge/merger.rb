@@ -22,9 +22,9 @@ module HDM
         match = matcher.match(resource.resource, relationship)
 
         if match
-          outcomes = deconflictor(resource.resource_type).deconflict(resource, match)
+          outcome = deconflictor(resource.resource_type).deconflict(resource, match)
 
-          outcomes.each do |outcome|
+          if outcome
             oo = profile.operation_outcomes.build(resource: outcome)
             oo.save
           end
