@@ -7,6 +7,7 @@ first_dr_1:
   provider_resource_id: 12345
   provider_resource_version: 1
   resource: '{"resourceType": "Condition",
+              "id": "1",
               "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "Q84.1" }]},
               "clinicalStatus": "active",
               "verificationStatus": "confirmed",
@@ -23,6 +24,7 @@ perfect_match_resource:
   provider_resource_id: 12345
   provider_resource_version: 1
   resource: '{"resourceType": "Condition",
+              "id": "7",
               "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "Q84.1" }]},
               "clinicalStatus": "active",
               "verificationStatus": "confirmed",
@@ -39,6 +41,7 @@ imperfect_match_resource:
   provider_resource_id: 12345
   provider_resource_version: 1
   resource: '{"resourceType": "Condition",
+              "id": "17",
               "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "Q84.1" }]},
               "clinicalStatus": "active",
               "verificationStatus": "confirmed",
@@ -55,6 +58,7 @@ unmatching_resource:
   provider_resource_id: 12345
   provider_resource_version: 1
   resource: '{"resourceType": "Condition",
+              "id": "22",
               "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "W56.41" }]},
               "clinicalStatus": "active",
               "verificationStatus": "confirmed",

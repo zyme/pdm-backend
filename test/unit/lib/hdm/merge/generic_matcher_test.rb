@@ -13,17 +13,15 @@ module HDM
 
         resource = resources(:perfect_match_resource)
         json = JSON.parse(resource.resource)
-        matches = GenericMatcher.match(json, relationship)
-        assert_equal(1, matches.length)
+        match = GenericMatcher.match(json, relationship)
         expected = conditions(:uncombable_hair_syndrome)
-        assert_equal(expected.resource, matches[0][:right])
+        assert_equal(expected.resource, match[:right])
 
         resource = resources(:imperfect_match_resource)
         json = JSON.parse(resource.resource)
-        matches = GenericMatcher.match(json, relationship)
-        assert_equal(1, matches.length)
+        match = GenericMatcher.match(json, relationship)
         expected = conditions(:uncombable_hair_syndrome)
-        assert_equal(expected.resource, matches[0][:right])
+        assert_equal(expected.resource, match[:right])
       end
 
       test 'should correctly exclude non-matching resource' do
@@ -33,7 +31,42 @@ module HDM
         resource = resources(:unmatching_resource)
         json = JSON.parse(resource.resource)
         matches = GenericMatcher.match(json, relationship)
-        assert_empty(matches)
+        assert_nil(matches)
+      end
+
+      test 'should not create operation outcome on perfect match' do
+        profile = profiles(:jills_profile)
+        relationship = profile.conditions
+
+        resource = resources(:perfect_match_resource)
+        json = JSON.parse(resource.resource)
+        match = GenericMatcher.match(json, relationship)
+
+        outcome = GenericMatcher.deconflict(resource, match)
+
+        assert_nil outcome
+      end
+
+      test 'should create operation outcome for deconfliction on imperfect match' do
+        profile = profiles(:jills_profile)
+        relationship = profile.conditions
+
+        resource = resources(:imperfect_match_resource)
+        json = JSON.parse(resource.resource)
+        match = GenericMatcher.match(json, relationship)
+
+        expected = conditions(:uncombable_hair_syndrome)
+
+        outcome = GenericMatcher.deconflict(resource, match)
+
+        assert outcome.is_a? FHIR::OperationOutcome
+        assert_equal(1, outcome.issue.length)
+        issue = outcome.issue[0]
+        assert_equal(1, issue.location.length) # only 1 field mismatched
+        assert_equal('assertedDate', issue.location[0])
+
+        assert_includes(issue.diagnostics, "Condition:#{expected.id}") # id of the matching curated model resource
+        assert_includes(issue.diagnostics, "Resource:#{resource.id}") # id of the Resource itself
       end
 
       # lower level unit tests

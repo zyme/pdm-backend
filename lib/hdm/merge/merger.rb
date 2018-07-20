@@ -19,17 +19,23 @@ module HDM
         matcher = matcher(resource.resource_type)
         relationship = model_relationship(resource.resource_type, profile)
         return unless relationship
-        matches = matcher.match(resource.resource, relationship)
+        match = matcher.match(resource.resource, relationship)
 
-        if matches.present?
-          deconflictor(resource.resource_type).deconflict(resource, matches)
+        if match
+          outcomes = deconflictor(resource.resource_type).deconflict(resource, match)
+
+          outcomes.each do |outcome|
+            oo = profile.operation_outcomes.build(resource: outcome)
+            oo.save
+          end
         else
           obj = relationship.build(resource: resource.resource)
           obj.save
-          # TODO: Add logging if this fails and some sort of recovery
-          resource.merged = true
-          resource.save
         end
+
+        # TODO: Add logging if this fails and some sort of recovery
+        resource.merged = true
+        resource.save
       end
 
       def merge_patient(resource, _profile)

@@ -3,6 +3,7 @@ uncombable_hair_syndrome:
   profile: jills_profile
   resource_id: first_dr_1 id
   resource: '{"resourceType": "Condition",
+              "id": "841",
               "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "Q84.1" }]},
               "clinicalStatus": "active",
               "verificationStatus": "confirmed",
@@ -16,6 +17,7 @@ struck_by_duck:
   profile: jills_profile
   resource_id: first_dr_1 id
   resource: '{"resourceType": "Condition",
+              "id": "6162",
               "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "W61.62" }]},
               "clinicalStatus": "resolved",
               "verificationStatus": "confirmed",
@@ -31,6 +33,7 @@ waterskis_on_fire:
   profile: semas_profile
   resource_id: second_dr_1 id
   resource: '{"resourceType": "Condition",
+              "id": "9107",
               "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": " V91.07" }]},
               "clinicalStatus": "resolved",
               "verificationStatus": "confirmed",

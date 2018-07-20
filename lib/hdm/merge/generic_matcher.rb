@@ -9,14 +9,26 @@ module HDM
       DATETIME_REGEX = Regexp.new(FHIR::PRIMITIVES['dateTime']['regex']).freeze
 
       def self.match(resource, relationship)
+        # resource: new incoming resource
+        # relationship: existing list of resources to compare against
+
+        # note that ptmerge returns the first match found, rather than all matches
         potential_matches = relationship.map { |r| score_match(resource, r.resource) }
-        potential_matches.find_all { |pm| pm[:score] >= MATCH_THRESHOLD }
+        potential_matches.find { |pm| pm[:score] >= MATCH_THRESHOLD }
       end
 
-      def self.deconflict(resource, matches)
+      def self.deconflict(resource, match)
         # resource: new incoming resource
-        # matches: existing resources that match with some %
-        []
+        # matches: existing resource that matched with some %
+        conflict_paths = find_conflict_paths(match)
+
+        return nil if conflict_paths.blank?
+
+        # left == new incoming resource; right == match
+        source = to_hash(match[:right])
+
+        issue = create_issue(source['resourceType'], source['id'], 'Resource', resource.id, conflict_paths)
+        FHIR::OperationOutcome.new(issue: [issue])
       end
 
       def self.score_match(left, right)
@@ -24,7 +36,8 @@ module HDM
 
         right_path_maps = traverse(to_hash(right))
 
-        { left: left, right: right,
+        { left: left, left_path_maps: left_path_maps,
+          right: right, right_path_maps: right_path_maps,
           score: score_paths(left_path_maps, right_path_maps) }
       end
 
@@ -75,6 +88,28 @@ module HDM
         match_count.to_f / matchable_paths.length
       end
 
+      def self.find_conflict_paths(match_obj)
+        left_path_maps = match_obj[:left_path_maps]
+        left_keys = left_path_maps.keys
+
+        right_path_maps = match_obj[:right_path_maps]
+        right_keys = right_path_maps.keys
+
+        # we can only match on paths in both resources
+        common_paths = left_keys & right_keys
+        # NOTE: ptmerge doesn't exclude "unsuitable paths" here, so different IDs would trigger a conflict
+        matchable_paths = strip_unsuitable_paths(common_paths)
+
+        left_only_paths = left_keys - right_keys
+        right_only_paths = right_keys - left_keys
+
+        conflict_paths = matchable_paths.find_all { |p| !values_match?(left_path_maps[p], right_path_maps[p]) }
+
+        conflict_paths.push(*left_only_paths).push(*right_only_paths)
+
+        conflict_paths
+      end
+
       def self.strip_unsuitable_paths(paths)
         paths.reject { |p| NON_COMPARABLE_PATHS.any? { |ncp| p.downcase.include?(ncp) } }
       end
@@ -113,6 +148,17 @@ module HDM
 
       def self.floats_match(left, right)
         (left - right).abs < FLOAT_TOLERANCE
+      end
+
+      def self.create_issue(source_resource_type, source_resource_id, target_resource_type, target_resource_id, conflict_paths)
+        {
+          severity: 'information',
+          code: 'conflict',
+          # The resource types and IDs are stored as additional diagnostic information.
+          diagnostics: source_resource_type + ':' + source_resource_id.to_s + ';' + target_resource_type + ':' + target_resource_id.to_s,
+          # Paths in the resource with conflicts, as a JSON path rather than XPath.
+          location: conflict_paths
+        }
       end
     end
   end

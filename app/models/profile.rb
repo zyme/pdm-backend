@@ -25,6 +25,8 @@ class Profile < ApplicationRecord
   # resources are the raw resources that are created from transactions, they
   # do not equate to the currated data models resources
   has_many :resources
+  # internal OperationOutcomes from deconflicting resources
+  has_many :operation_outcomes
 
   def has_provider?(provider_id)
     return false if provider_id.nil?
