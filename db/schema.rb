@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_11_203039) do
+ActiveRecord::Schema.define(version: 2018_07_20_122541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -209,6 +209,16 @@ ActiveRecord::Schema.define(version: 2018_07_11_203039) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_observations_on_profile_id"
+  end
+
+  create_table "operation_outcomes", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_operation_outcomes_on_profile_id"
   end
 
   create_table "operational_outcomes", force: :cascade do |t|
