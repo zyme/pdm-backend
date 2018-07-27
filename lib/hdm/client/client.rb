@@ -7,6 +7,8 @@ module HDM
         HDM::Client::SmartClient.new(provider)
       elsif provider.provider_type == 'smart_epic'
         HDM::Client::EpicSmartClient.new(provider)
+      elsif provider.provider_type == 'smart_cerner'
+        HDM::Client::CernerSmartClient.new(provider)
       else
         BaseClient.new(provider)
       end
