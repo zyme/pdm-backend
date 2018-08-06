@@ -90,6 +90,7 @@ namespace :provider_client do
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.request_uri)
     request['Authorization'] = "Bearer #{token}"
+    request['Content-Type'] = 'application/json'
     request.body = bundle_json
 
     response = http.request(request)
