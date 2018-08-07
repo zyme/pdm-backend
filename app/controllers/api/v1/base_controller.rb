@@ -19,7 +19,7 @@ module Api
                              data_type: 'fhir_bundle_edr')
         dr.save!
 
-        # run the sync job asynchronously, so the request returns
+        # run the sync job asynchronously, so the request returns quickly
         # set fetch = false, so that it doesn't fetch, it only processes the things we added
         SyncProfileJob.perform_later(profile, false)
 

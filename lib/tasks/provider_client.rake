@@ -4,11 +4,13 @@ require 'rake'
 
 namespace :provider_client do
   desc 'Simulate Posting Encounter Data Receipt'
-  task :post_edr, %i[file] => :environment do |_t, args|
+  task :post_edr, %i[file base_url] => :environment do |_t, args|
+    args.with_defaults(base_url: 'https://localhost:3000')
+
     bundle_json = File.open(args.file, 'r:UTF-8').read
 
     users = User.all.to_a
-    providers = Provider.all.to_a
+
     user_indx = 0
     profile_indx = 0
     provider_indx = 0
@@ -36,17 +38,20 @@ namespace :provider_client do
     else
       puts "User only has a single profile, using profile #{profiles[profile_indx.to_i].name}"
     end
+    profile = profiles[profile_indx.to_i]
 
+    providers = Provider.all.to_a.find_all { |p| ProviderApplication.exists?(provider: p) }
     if providers.empty?
-      puts 'There are no providers in the system, please load some providers before continuing'
+      puts 'There are no providers with applications in the system, please load some providers before continuing'
     elsif providers.length > 1
-      puts 'Select which provider you want to associate the EDR with '
+      puts 'Select which provider you want to associate the EDR with:'
       providers.each_with_index { |p, i| puts "#{i} #{p.name}" }
+      puts '(Note: other providers may exist but do not have applications setup.'
+      puts ' Run the hdm:create_provider_application rake task to create the application)'
       provider_indx = STDIN.gets.chomp.to_i
     else
-      puts "There is only 1 provider in the system, using provider #{providers[provider_indx.to_i].name}"
+      puts "There is only 1 provider with an application in the system, using provider #{providers[provider_indx.to_i].name}"
     end
-    profile = profiles[profile_indx.to_i]
     provider = providers[provider_indx.to_i]
 
     # inject the profile ID into the bundle.
@@ -66,18 +71,13 @@ namespace :provider_client do
 
     # get the provider client_id and client_secret to get the token
     pa = ProviderApplication.find_by(provider: provider)
-
-    unless pa
-      puts 'No application found for provider.'
-      puts 'Run the hdm:create_provider_application rake task to create an application for this provider.'
-      return
-    end
-
     app = pa.application
     client_id = app.uid
     client_secret = app.secret
 
-    uri = URI('https://localhost:3000/oauth/token')
+    base_url = args.base_url
+
+    uri = URI("#{base_url}/oauth/token")
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.request_uri)
     request.body = "grant_type=client_credentials&client_id=#{client_id}&client_secret=#{client_secret}"
@@ -86,7 +86,7 @@ namespace :provider_client do
 
     token = JSON.parse(response.body)['access_token']
 
-    uri = URI('https://localhost:3000/api/v1/')
+    uri = URI("#{base_url}/api/v1/")
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.request_uri)
     request['Authorization'] = "Bearer #{token}"
