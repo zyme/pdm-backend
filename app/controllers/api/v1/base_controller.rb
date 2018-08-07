@@ -23,7 +23,7 @@ module Api
         # set fetch = false, so that it doesn't fetch, it only processes the things we added
         SyncProfileJob.perform_later(profile, false)
 
-        render status: :ok
+        render status: :created
       end
 
       private

@@ -123,6 +123,10 @@
             "value": "2159d1ae-e556-4533-978d-be1f9812607d"
           },
           {
+            "system": "urn:health_data_manager:profile_id",
+            "value": "BASE_CONTROLLER_TEST_PLACEHOLDER_ID"
+          },
+          {
             "type": {
               "coding": [
                 {
