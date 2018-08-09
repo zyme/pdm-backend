@@ -21,7 +21,11 @@ class ApplicationController < ActionController::API
 
   # Function to update the audit log as new events occur in a user's account.
   def update_log
-    recorded_user = current_resource_owner&.id || 'N/A'
+    recorded_user = begin
+                      current_resource_owner&.id || 'N/A'
+                    rescue ActiveRecord::RecordNotFound
+                      'N/A'
+                    end
     description = controller_name + ' ' + action_name
     params.each do |variable|
       description = description + ' ' + variable.to_s

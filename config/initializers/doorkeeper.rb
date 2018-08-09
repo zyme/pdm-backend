@@ -67,7 +67,7 @@ Doorkeeper.configure do
   # falls back to the `:client_id` and `:client_secret` params from the `params` object.
   # Check out https://github.com/doorkeeper-gem/doorkeeper/wiki/Changing-how-clients-are-authenticated
   # for more information on customization
-  # client_credentials :from_basic, :from_params
+  client_credentials :from_basic, :from_params
 
   # Change the way access token is authenticated from the request object.
   # By default it retrieves first from the `HTTP_AUTHORIZATION` header, then
@@ -120,7 +120,7 @@ Doorkeeper.configure do
   #   http://tools.ietf.org/html/rfc6819#section-4.4.3
   #
   # grant_flows %w[password authorization_code client_credentials]
-  grant_flows %w[password]
+  grant_flows %w[password client_credentials]
   # Hook into the strategies' request & response life-cycle in case your
   # application needs advanced customization or logging:
   #

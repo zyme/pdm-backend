@@ -115,4 +115,37 @@ namespace :hdm do
     DataReceipt.where(profile: pp.profile).each(&:process!)
     HDM::Merge:: Merger.new.update_profile(pp.profile)
   end
+
+  desc 'Create Doorkeeper Application for Provider'
+  task :create_provider_application, [] => :environment do |_t, _args|
+    providers = Provider.all.to_a
+    provider_indx = 0
+
+    if providers.empty?
+      puts 'There are no providers in the system, please load some providers before continuing'
+      return
+    elsif providers.length > 1
+      puts 'Select which provider you want to associate the token with '
+      providers.each_with_index { |p, i| puts "#{i} #{p.name}" }
+      provider_indx = STDIN.gets.chomp.to_i
+    else
+      puts "There is only 1 provider in the system, using provider #{providers[provider_indx.to_i].name}"
+    end
+    provider = providers[provider_indx.to_i]
+
+    pa = ProviderApplication.find_by(provider: provider)
+
+    if pa
+      app = pa.application
+      puts 'Found existing application for provider: '
+    else
+      app = Doorkeeper::Application.create(name: provider.name, redirect_uri: 'http://example.com')
+      ProviderApplication.create(provider_id: provider.id, application_id: app.id)
+      puts 'Created successfully.'
+    end
+
+    puts app.inspect
+    puts "Client ID: #{app.uid}"
+    puts "Client Secret: #{app.secret}"
+  end
 end
