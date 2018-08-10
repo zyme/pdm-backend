@@ -10,7 +10,7 @@ module Oauth
     def callback
       # validate code
       req = discover_request
-      token = req[:provider].get_access_token(params[:code])
+      token = req[:provider].get_access_token(params[:code], redirect_uri: params[:redirect_uri])
       pp = link_provider_and_profile(token, req)
       render json: { id: pp.id }, status: :ok
     end
