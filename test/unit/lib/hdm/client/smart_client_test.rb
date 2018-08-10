@@ -22,7 +22,7 @@ class HDM::Client::SmartClientTest < ActiveSupport::TestCase
     assert_equal 'partners id', params['client_id']
     assert_equal 'http://127.0.0.1:3000/oauth/callback', params['redirect_uri']
     assert_equal 'code', params['response_type']
-    assert_equal nil, params['scope']
+    assert_equal '', params['scope']
   end
 
   test 'should be able to get refresh token' do
