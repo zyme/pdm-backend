@@ -104,12 +104,13 @@ Rails/LexicallyScopedActionFilter:
   Exclude:
     - 'app/controllers/users/registrations_controller.rb'
 
-# Offense count: 1
+# Offense count: 2
 # Configuration parameters: Include.
 # Include: app/**/*.rb, config/**/*.rb, db/**/*.rb, lib/**/*.rb
 Rails/Output:
   Exclude:
     - 'lib/hdm/client/smart_client.rb'
+    - 'lib/tasks/selection_functions.rb'
 
 # Offense count: 2
 # Configuration parameters: EnforcedStyle.
