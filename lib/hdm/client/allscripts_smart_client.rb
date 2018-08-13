@@ -3,7 +3,6 @@
 module HDM
   module Client
     class AllscriptsSmartClient < SmartClient
-
       def fhir_search_client(profile_provider)
         FHIR::Client.new("#{provider.base_endpoint}/Patient/#{profile_provider.subject_id}")
       end
