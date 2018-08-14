@@ -1,58 +1,22 @@
 # frozen_string_literal: true
 
 require 'rake'
+require_relative 'selection_functions'
 
 namespace :provider_client do
+  include SelectionFunctions
   desc 'Simulate Posting Encounter Data Receipt'
   task :post_edr, %i[file base_url] => :environment do |_t, args|
     args.with_defaults(base_url: 'https://localhost:3000')
 
     bundle_json = File.open(args.file, 'r:UTF-8').read
 
-    users = User.all.to_a
-
-    user_indx = 0
-    profile_indx = 0
-    provider_indx = 0
-
-    if users.empty?
-      puts 'There are no users in the system, please add a user before continuing'
-      return
-    elsif users.length > 1
-      puts 'Select which user you want to load the data for '
-      users.each_with_index { |u, i| puts "#{i}. #{u.email}" }
-      user_indx = STDIN.gets.chomp.to_i
-    else
-      puts "Using only user in the system: #{users[user_indx].email}"
-    end
-
-    user = users[user_indx]
-    profiles = user.profiles
-    if profiles.empty?
-      puts 'User has no profile, please create a profile before continuing'
-      return
-    elsif profiles.length > 1
-      puts 'Select which profile you want to load the data into '
-      profiles.each_with_index { |p, i| puts "#{i}. #{p.name}" }
-      profile_indx = STDIN.gets.chomp.to_i
-    else
-      puts "User only has a single profile, using profile #{profiles[profile_indx.to_i].name}"
-    end
-    profile = profiles[profile_indx.to_i]
-
-    providers = Provider.all.to_a.find_all { |p| ProviderApplication.exists?(provider: p) }
-    if providers.empty?
-      puts 'There are no providers with applications in the system, please load some providers before continuing'
-    elsif providers.length > 1
-      puts 'Select which provider you want to associate the EDR with:'
-      providers.each_with_index { |p, i| puts "#{i} #{p.name}" }
-      puts '(Note: other providers may exist but do not have applications setup.'
-      puts ' Run the hdm:create_provider_application rake task to create the application)'
-      provider_indx = STDIN.gets.chomp.to_i
-    else
-      puts "There is only 1 provider with an application in the system, using provider #{providers[provider_indx.to_i].name}"
-    end
-    provider = providers[provider_indx.to_i]
+    user = SelectionFunctions.select_user
+    exit(0) if user.nil?
+    profile = select_profile(user)
+    exit(0) if profile.nil?
+    provider = select_provider_client
+    exit(0) if provider.nil?
 
     # inject the profile ID into the bundle.
     # nearly the same logic as extracting the id in BaseController
