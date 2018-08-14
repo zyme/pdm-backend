@@ -1,0 +1,382 @@
+{
+  "id": "40f20320-8219-0136-c25a-6a0001787430",
+  "item": [{
+    "service": {
+      "coding": [{
+        "code": "99205",
+        "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+        "version": "1"
+      }]
+    },
+    "category": {
+      "coding": [{
+        "code": "1",
+        "system": "https://bluebutton.cms.gov/resources/variables/line_cms_type_srvc_cd",
+        "display": "Medical care"
+      }]
+    },
+    "quantity": {
+      "value": 1
+    },
+    "sequence": 1,
+    "extension": [{
+      "url": "https://bluebutton.cms.gov/resources/variables/carr_line_mtus_cd",
+      "valueCoding": {
+        "code": "3",
+        "system": "https://bluebutton.cms.gov/resources/variables/carr_line_mtus_cd",
+        "display": "Services"
+      }
+    }, {
+      "url": "https://bluebutton.cms.gov/resources/variables/carr_line_mtus_cnt",
+      "valueQuantity": {
+        "value": 1
+      }
+    }, {
+      "url": "https://bluebutton.cms.gov/resources/variables/betos_cd",
+      "valueCoding": {
+        "code": "M1A",
+        "system": "https://bluebutton.cms.gov/resources/variables/betos_cd",
+        "display": "Office visits - new"
+      }
+    }, {
+      "url": "https://bluebutton.cms.gov/resources/variables/line_service_deductible",
+      "valueCoding": {
+        "code": "0",
+        "system": "https://bluebutton.cms.gov/resources/variables/line_service_deductible",
+        "display": "Service Subject to Deductible"
+      }
+    }],
+    "adjudication": [{
+      "reason": {
+        "coding": [{
+          "code": "0",
+          "system": "https://bluebutton.cms.gov/resources/variables/carr_line_rdcd_pmt_phys_astn_c",
+          "display": "N/A"
+        }]
+      },
+      "category": {
+        "coding": [{
+          "code": "https://bluebutton.cms.gov/resources/variables/carr_line_rdcd_pmt_phys_astn_c",
+          "system": "https://bluebutton.cms.gov/resources/codesystem/adjudication",
+          "display": "Carrier Line Reduced Payment Physician Assistant Code"
+        }]
+      }
+    }, {
+      "amount": {
+        "code": "USD",
+        "value": 150.0,
+        "system": "urn:iso:std:iso:4217"
+      },
+      "category": {
+        "coding": [{
+          "code": "https://bluebutton.cms.gov/resources/variables/line_nch_pmt_amt",
+          "system": "https://bluebutton.cms.gov/resources/codesystem/adjudication",
+          "display": "Line NCH Medicare Payment Amount"
+        }]
+      },
+      "extension": [{
+        "url": "https://bluebutton.cms.gov/resources/variables/line_pmt_80_100_cd",
+        "valueCoding": {
+          "code": "0",
+          "system": "https://bluebutton.cms.gov/resources/variables/line_pmt_80_100_cd",
+          "display": "80%"
+        }
+      }]
+    }, {
+      "amount": {
+        "code": "USD",
+        "value": 150.0,
+        "system": "urn:iso:std:iso:4217"
+      },
+      "category": {
+        "coding": [{
+          "code": "https://bluebutton.cms.gov/resources/variables/line_bene_pmt_amt",
+          "system": "https://bluebutton.cms.gov/resources/codesystem/adjudication",
+          "display": "Line Payment Amount to Beneficiary"
+        }]
+      }
+    }, {
+      "amount": {
+        "code": "USD",
+        "value": 0.0,
+        "system": "urn:iso:std:iso:4217"
+      },
+      "category": {
+        "coding": [{
+          "code": "https://bluebutton.cms.gov/resources/variables/line_prvdr_pmt_amt",
+          "system": "https://bluebutton.cms.gov/resources/codesystem/adjudication",
+          "display": "Line Provider Payment Amount"
+        }]
+      }
+    }, {
+      "amount": {
+        "code": "USD",
+        "value": 0.0,
+        "system": "urn:iso:std:iso:4217"
+      },
+      "category": {
+        "coding": [{
+          "code": "https://bluebutton.cms.gov/resources/variables/line_bene_ptb_ddctbl_amt",
+          "system": "https://bluebutton.cms.gov/resources/codesystem/adjudication",
+          "display": "Line Beneficiary Part B Deductible Amount"
+        }]
+      }
+    }, {
+      "amount": {
+        "code": "USD",
+        "value": 0.0,
+        "system": "urn:iso:std:iso:4217"
+      },
+      "category": {
+        "coding": [{
+          "code": "https://bluebutton.cms.gov/resources/variables/line_bene_prmry_pyr_pd_amt",
+          "system": "https://bluebutton.cms.gov/resources/codesystem/adjudication",
+          "display": "Line Primary Payer (if not Medicare) Paid Amount"
+        }]
+      }
+    }, {
+      "amount": {
+        "code": "USD",
+        "value": 30.0,
+        "system": "urn:iso:std:iso:4217"
+      },
+      "category": {
+        "coding": [{
+          "code": "https://bluebutton.cms.gov/resources/variables/line_coinsrnc_amt",
+          "system": "https://bluebutton.cms.gov/resources/codesystem/adjudication",
+          "display": "Line Beneficiary Coinsurance Amount"
+        }]
+      }
+    }, {
+      "amount": {
+        "code": "USD",
+        "value": 200.0,
+        "system": "urn:iso:std:iso:4217"
+      },
+      "category": {
+        "coding": [{
+          "code": "https://bluebutton.cms.gov/resources/variables/line_sbmtd_chrg_amt",
+          "system": "https://bluebutton.cms.gov/resources/codesystem/adjudication",
+          "display": "Line Submitted Charge Amount"
+        }]
+      }
+    }, {
+      "amount": {
+        "code": "USD",
+        "value": 150.0,
+        "system": "urn:iso:std:iso:4217"
+      },
+      "category": {
+        "coding": [{
+          "code": "https://bluebutton.cms.gov/resources/variables/line_alowd_chrg_amt",
+          "system": "https://bluebutton.cms.gov/resources/codesystem/adjudication",
+          "display": "Line Allowed Charge Amount"
+        }]
+      }
+    }, {
+      "reason": {
+        "coding": [{
+          "code": "A",
+          "system": "https://bluebutton.cms.gov/resources/variables/line_prcsg_ind_cd",
+          "display": "Allowed"
+        }]
+      },
+      "category": {
+        "coding": [{
+          "code": "https://bluebutton.cms.gov/resources/variables/line_prcsg_ind_cd",
+          "system": "https://bluebutton.cms.gov/resources/codesystem/adjudication",
+          "display": "Line Processing Indicator Code"
+        }]
+      }
+    }],
+    "servicedPeriod": {
+      "end": "2001-05-01",
+      "start": "2001-05-01"
+    },
+    "diagnosisLinkId": [5],
+    "locationCodeableConcept": {
+      "coding": [{
+        "code": "99",
+        "system": "https://bluebutton.cms.gov/resources/variables/line_place_of_srvc_cd",
+        "display": "Other Place of Service. Other place of service not identified above."
+      }],
+      "extension": [{
+        "url": "https://bluebutton.cms.gov/resources/variables/prvdr_state_cd",
+        "valueCoding": {
+          "code": "99",
+          "system": "https://bluebutton.cms.gov/resources/variables/prvdr_state_cd",
+          "display": "With 000 county code is American Samoa; otherwise unknown"
+        }
+      }, {
+        "url": "https://bluebutton.cms.gov/resources/variables/prvdr_zip",
+        "valueCoding": {
+          "code": "999999999",
+          "system": "https://bluebutton.cms.gov/resources/variables/prvdr_zip"
+        }
+      }, {
+        "url": "https://bluebutton.cms.gov/resources/variables/carr_line_prcng_lclty_cd",
+        "valueCoding": {
+          "code": "99",
+          "system": "https://bluebutton.cms.gov/resources/variables/carr_line_prcng_lclty_cd"
+        }
+      }]
+    }
+  }],
+  "type": {
+    "coding": [{
+      "code": "71",
+      "system": "https://bluebutton.cms.gov/resources/variables/nch_clm_type_cd",
+      "display": "Local carrier non-durable medical equipment, prosthetics, orthotics, and supplies (DMEPOS) claim"
+    }, {
+      "code": "CARRIER",
+      "system": "https://bluebutton.cms.gov/resources/codesystem/eob-type"
+    }, {
+      "code": "professional",
+      "system": "http://hl7.org/fhir/ex-claimtype",
+      "display": "Professional"
+    }, {
+      "code": "O",
+      "system": "https://bluebutton.cms.gov/resources/variables/nch_near_line_rec_ident_cd",
+      "display": "Part B physician/supplier claim record (processed by local carriers; can include DMEPOS services)"
+    }]
+  },
+  "status": "active",
+  "patient": {
+    "reference": "Patient/88f19d9f-eb8f-4dfc-a99b-b0d6b08d5d27"
+  },
+  "payment": {
+    "amount": {
+      "code": "USD",
+      "value": 150.0,
+      "system": "urn:iso:std:iso:4217"
+    }
+  },
+  "diagnosis": [{
+    "type": [{
+      "coding": [{
+        "code": "principal",
+        "system": "https://bluebutton.cms.gov/resources/codesystem/diagnosis-type",
+        "display": "The single medical diagnosis that is most relevant to the patient's chief complaint or need for treatment."
+      }]
+    }],
+    "sequence": 1,
+    "diagnosisCodeableConcept": {
+      "coding": [{
+        "code": "25001",
+        "system": "http://hl7.org/fhir/sid/icd-9-cm"
+      }]
+    }
+  }, {
+    "sequence": 2,
+    "dignosisCodeableConcept": {
+      "coding": [{
+        "code": "4019",
+        "system": "http://hl7.org/fhir/sid/icd-9-cm"
+      }]
+    }
+  }, {
+    "sequence": 3,
+    "diagnosisCodeableConcept": {
+      "coding": [{
+        "code": "2724",
+        "system": "http://hl7.org/fhir/sid/icd-9-cm"
+      }]
+    }
+  }, {
+    "sequence": 4,
+    "diagnosisCodeableConcept": {
+      "coding": [{
+        "code": "78900",
+        "system": "http://hl7.org/fhir/sid/icd-9-cm"
+      }]
+    }
+  }, {
+    "sequence": 5,
+    "diagnosisCodeableConcept": {
+      "coding": [{
+        "code": "9999999",
+        "system": "http://hl7.org/fhir/sid/icd-9-cm"
+      }]
+    }
+  }],
+  "extension": [{
+    "url": "https://bluebutton.cms.gov/resources/variables/prpayamt",
+    "valueMoney": {
+      "code": "USD",
+      "value": 0.0,
+      "system": "urn:iso:std:iso:4217"
+    }
+  }, {
+    "url": "https://bluebutton.cms.gov/resources/variables/carr_num",
+    "valueIdentifier": {
+      "value": "99999",
+      "system": "https://bluebutton.cms.gov/resources/variables/carr_num"
+    }
+  }, {
+    "url": "https://bluebutton.cms.gov/resources/variables/carr_clm_pmt_dnl_cd",
+    "valueCoding": {
+      "code": "1",
+      "system": "https://bluebutton.cms.gov/resources/variables/carr_clm_pmt_dnl_cd",
+      "display": "Physician/supplier"
+    }
+  }, {
+    "url": "https://bluebutton.cms.gov/resources/variables/asgmntcd",
+    "valueCoding": {
+      "code": "N",
+      "system": "https://bluebutton.cms.gov/resources/variables/asgmntcd",
+      "display": "Non-assigned claim"
+    }
+  }, {
+    "url": "https://bluebutton.cms.gov/resources/variables/carr_clm_cash_ddctbl_apld_amt",
+    "valueMoney": {
+      "code": "USD",
+      "value": 0.0,
+      "system": "urn:iso:std:iso:4217"
+    }
+  }, {
+    "url": "https://bluebutton.cms.gov/resources/variables/nch_clm_prvdr_pmt_amt",
+    "valueMoney": {
+      "code": "USD",
+      "value": 0.0,
+      "system": "urn:iso:std:iso:4217"
+    }
+  }, {
+    "url": "https://bluebutton.cms.gov/resources/variables/nch_clm_bene_pmt_amt",
+    "valueMoney": {
+      "code": "USD",
+      "value": 150.0,
+      "system": "urn:iso:std:iso:4217"
+    }
+  }, {
+    "url": "https://bluebutton.cms.gov/resources/variables/nch_carr_clm_sbmtd_chrg_amt",
+    "valueMoney": {
+      "code": "USD",
+      "value": 200.0,
+      "system": "urn:iso:std:iso:4217"
+    }
+  }, {
+    "url": "https://bluebutton.cms.gov/resources/variables/nch_carr_clm_alowd_amt",
+    "valueMoney": {
+      "code": "USD",
+      "value": 150.0,
+      "system": "urn:iso:std:iso:4217"
+    }
+  }],
+  "insurance": {
+    "coverage": {
+      "reference": "Coverage/part-b-19990000000001"
+    }
+  },
+  "identifier": [{
+    "value": "9324614917",
+    "system": "https://bluebutton.cms.gov/resources/variables/clm_id"
+  }, {
+    "value": "44077735787",
+    "system": "https://bluebutton.cms.gov/resources/identifier/claim-group"
+  }],
+  "resourceType": "ExplanationOfBenefits",
+  "billablePeriod": {
+    "end": "2001-05-01",
+    "start": "2001-05-01"
+  }
+}

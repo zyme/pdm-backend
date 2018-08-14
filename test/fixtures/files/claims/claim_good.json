@@ -1,0 +1,27 @@
+{
+  "id": "41446340-8219-0136-c25a-6a0001787430",
+  "use": "complete",
+  "item": [{
+    "sequence": 1,
+    "encounter": [{
+      "reference": "urn:uuid:38a3162a-3fe1-47da-9f9f-c17ebcc8011a"
+    }]
+  }],
+  "total": {
+    "code": "USD",
+    "value": 125.0,
+    "system": "urn:iso:std:iso:4217"
+  },
+  "status": "active",
+  "patient": {
+    "reference": "Patient/88f19d9f-eb8f-4dfc-a99b-b0d6b08d5d27"
+  },
+  "organization": {
+    "reference": "urn:uuid:d265d215-d757-4074-a4ff-19b93731ff90"
+  },
+  "resourceType": "Claim",
+  "billablePeriod": {
+    "end": "2016-06-03T15:55:51-04:00",
+    "start": "2016-06-03T15:40:51-04:00"
+  }
+}
