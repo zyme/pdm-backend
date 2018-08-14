@@ -14,7 +14,7 @@ module HDM
 
         # note that ptmerge returns the first match found, rather than all matches
         potential_matches = relationship.map { |r| score_match(resource, r.fhir_model) }
-        potential_matches.find { |pm| pm[:score] >= MATCH_THRESHOLD }
+        potential_matches.find { |pm| pm[:score] && pm[:score] >= MATCH_THRESHOLD }
       end
 
       def self.deconflict(resource, match)

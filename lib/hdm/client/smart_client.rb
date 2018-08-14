@@ -16,6 +16,10 @@ module HDM
                              FHIR::DSTU2::Condition,
                              FHIR::DSTU2::Device,
                              FHIR::DSTU2::MedicationStatement,
+                             FHIR::DSTU2::MedicationOrder,
+                             FHIR::DSTU2::Procedure,
+                             FHIR::DSTU2::CarePlan,
+                             FHIR::DSTU2::Goal,
                              FHIR::DSTU2::Encounter,
                              FHIR::DSTU2::Observation].freeze
       def intialize(provider)
@@ -41,9 +45,10 @@ module HDM
       def sync_profile(profile_provider)
         profile_provider = provider.profile_providers.find_by(profile_id: profile_provider.profile_id) if profile_provider.instance_of? Profile
         refresh(profile_provider)
-        fhir_client.set_bearer_token(profile_provider.access_token)
+        fclient = fhir_search_client(profile_provider)
+        fclient.set_bearer_token(profile_provider.access_token)
         supported_resource_types.each do |type|
-          reply = fhir_client.search(type, search: fhir_search_params(profile_provider))
+          reply = fclient.search(type, search: fhir_search_params(profile_provider))
           bundle = reply.resource
 
           # don't bother storing empty results
@@ -60,6 +65,10 @@ module HDM
       end
 
       private
+
+      def fhir_search_client(_profile_provider)
+        fhir_client
+      end
 
       def fhir_client
         @fhir_client ||= FHIR::Client.new(provider.base_endpoint)
@@ -101,6 +110,19 @@ module HDM
         fhir_client.default_json
         options = fhir_client.get_oauth2_metadata_from_conformance
         options
+      end
+
+      def get_auth_params(params = {})
+        params[:scope] = generate_scopes_from_conformance unless provider.scopes
+        super(params)
+      end
+
+      def generate_scopes_from_conformance
+        scopes = ''
+        client_capability_statement.rest[0].resource.each do |r|
+          scopes += "patient/#{r.type}.read "
+        end
+        scopes
       end
     end
   end

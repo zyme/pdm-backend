@@ -64,7 +64,7 @@
         ],
         "description": "SMART on FHIR uses OAuth2 for authorization"
       },
-      "resource": [],
+      "resource": [{"type" :"MedicationStatement"},{"type" :"AllergyIntolerance"}],
       "operation": [
         {
           "name": "transaction",

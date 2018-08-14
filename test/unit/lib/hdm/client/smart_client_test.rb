@@ -6,6 +6,7 @@ class HDM::Client::SmartClientTest < ActiveSupport::TestCase
   def load_bundle(name)
     File.read(File.join(__dir__, "../../../../fixtures/files/bundles/#{name}.json"))
   end
+
   test 'should be able to generate auth redirection url for clients' do
     # mock the meta data endpoint
     fake_body = File.read(File.join(__dir__, '../../../../fixtures/files/ouath_capability_statement.json'))
@@ -22,7 +23,7 @@ class HDM::Client::SmartClientTest < ActiveSupport::TestCase
     assert_equal 'partners id', params['client_id']
     assert_equal 'http://127.0.0.1:3000/oauth/callback', params['redirect_uri']
     assert_equal 'code', params['response_type']
-    assert_equal nil, params['scope']
+    assert_equal 'patient/MedicationStatement.read patient/AllergyIntolerance.read ', params['scope']
   end
 
   test 'should be able to get refresh token' do
