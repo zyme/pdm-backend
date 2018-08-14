@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_03_134246) do
+ActiveRecord::Schema.define(version: 2018_08_14_173524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(version: 2018_08_03_134246) do
     t.index ["profile_id"], name: "index_care_plans_on_profile_id"
   end
 
+  create_table "claims", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_claims_on_profile_id"
+  end
+
   create_table "clients", force: :cascade do |t|
     t.string "name", null: false
     t.string "type", null: false
@@ -66,6 +76,16 @@ ActiveRecord::Schema.define(version: 2018_08_03_134246) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_conditions_on_profile_id"
+  end
+
+  create_table "coverages", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_coverages_on_profile_id"
   end
 
   create_table "data_receipts", force: :cascade do |t|
@@ -109,6 +129,16 @@ ActiveRecord::Schema.define(version: 2018_08_03_134246) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_encounters_on_profile_id"
+  end
+
+  create_table "explanation_of_benefits", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_explanation_of_benefits_on_profile_id"
   end
 
   create_table "goals", force: :cascade do |t|
