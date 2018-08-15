@@ -8,7 +8,7 @@ class CuratedModelTest < ActiveSupport::TestCase
     p = profiles(:harrys_profile)
     types = [AllergyIntolerance, CarePlan, Condition, Device, Encounter, Goal,
              Immunization, MedicationAdministration, MedicationRequest, MedicationStatement,
-             Observation, Procedure]
+             Observation, Procedure, ExplanationOfBenefit, Claim]
     types.each do |type|
       begin
         puts "Testing create #{type}"
@@ -37,7 +37,7 @@ class CuratedModelTest < ActiveSupport::TestCase
     p = profiles(:harrys_profile)
     types = [AllergyIntolerance, CarePlan, Condition, Device, Encounter, Goal,
              Immunization, MedicationAdministration, MedicationRequest, MedicationStatement,
-             Observation, Procedure]
+             Observation, Procedure, ExplanationOfBenefit, Claim]
     types.each do |type|
       begin
         puts "Testing resourceType #{type}"

@@ -19,6 +19,9 @@ class Profile < ApplicationRecord
   has_many :medication_statements
   has_many :observations
   has_many :procedures
+  has_many :explanation_of_benefits
+  has_many :coverages
+  has_many :claims
   # IMPORTANT - if adding new resource types above,
   #             also add them to the all_resources method below
 
@@ -38,7 +41,8 @@ class Profile < ApplicationRecord
     types = %i[allergy_intolerances care_plans conditions devices
                documents encounters goals immunizations
                medication_administrations medication_requests
-               medication_statements observations procedures]
+               medication_statements observations procedures
+               explanation_of_benefits coverages claims]
 
     rs = []
 
