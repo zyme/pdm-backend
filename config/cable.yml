@@ -5,6 +5,6 @@ test:
   adapter: async
 
 production:
-  adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
-  channel_prefix: health-data-manager_production
+  adapter: postgresql
+  # use postgres instead of redis
+  # as we are already using pg for the DB

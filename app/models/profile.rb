@@ -54,7 +54,43 @@ class Profile < ApplicationRecord
     rs
   end
 
+  def to_patient
+    FHIR::Patient.new(id: id,
+                      name: [{ given: [first_name],
+                               family: last_name,
+                               use: 'official' }],
+                      gender: gender)
+  end
+
+  def bundle_everything
+    bundle = wrap_in_bundle(all_resources)
+    bundle.entry.insert(0, wrap_in_entry(to_patient))
+    bundle
+  end
+
   def reference
     "Patient/#{patient_id}"
   end
+
+  private
+
+  # TODO: find a common location for both these 2 functions and the ones in ApiController
+  def wrap_in_bundle(results)
+    # get just the FHIR resources, but then wrap it in an Entry.
+    resources = results.map { |r| wrap_in_entry(r.resource) }
+    FHIR::Bundle.new(type: 'searchset', entry: resources)
+  end
+
+  def wrap_in_entry(obj)
+    # FHIR::X.new() requires that these be hashes, not strings or full FHIR objects
+
+    if obj.is_a? String
+      obj = JSON.parse(obj)
+    elsif obj.is_a? FHIR::Model
+      obj = obj.to_hash
+    end
+
+    { resource: obj }
+  end
+
 end
