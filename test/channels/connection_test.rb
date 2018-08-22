@@ -5,7 +5,7 @@ module ApplicationCable
     def test_connects_with_token
       user = users(:harry)
       token = Doorkeeper::AccessToken.create(resource_owner_id: user.id)
-      
+
       connect "/cable?token=#{token.token}"
 
       assert_equal(user, connection.current_user)

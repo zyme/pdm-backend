@@ -92,5 +92,4 @@ class Profile < ApplicationRecord
 
     { resource: obj }
   end
-
 end
