@@ -37,7 +37,10 @@ class SyncProfileJobTest < ActiveJob::TestCase
   test 'that the profile is broadcast following the job' do
     profile = profiles(:smart_sandbox)
     assert_broadcast_on(profile, profile.bundle_everything, channel: UpdateChannel) do
-      SyncProfileJob.perform_now(profile, false)
+      # also ensure only a single broadcast, not one per profile, since the SyncProfileProviderJob can broadcast too
+      assert_broadcasts(profile, 1, channel: UpdateChannel) do
+        SyncProfileJob.perform_now(profile, false)
+      end
     end
   end
 end
