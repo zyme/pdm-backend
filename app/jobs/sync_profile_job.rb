@@ -7,7 +7,7 @@ class SyncProfileJob < ApplicationJob
   # if false, will only run against what's already loaded
   def perform(profile, fetch = true)
     profile.profile_providers.each do |pp|
-      SyncProfileProviderJob.perform_now(pp, fetch)
+      SyncProfileProviderJob.perform_now(pp, fetch, true)
     end
 
     # fallback to catch any DRs that are associated with profiles/providers

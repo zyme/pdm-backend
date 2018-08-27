@@ -18,3 +18,8 @@ sema_partners:
   provider: bwh
   subject_id: semas_partners_paitent_id
 # column: value
+
+really_smart:
+  profile: smart_sandbox
+  provider: smart_sandbox
+  subject_id: really_smart_paitent_id
