@@ -7,7 +7,7 @@ class SyncProfileJob < ApplicationJob
   # if false, will only run against what's already loaded
   def perform(profile, fetch = true)
     profile.profile_providers.each do |pp|
-      SyncProfileProviderJob.perform_now(pp, fetch)
+      SyncProfileProviderJob.perform_now(pp, fetch, true)
     end
 
     # fallback to catch any DRs that are associated with profiles/providers
@@ -15,5 +15,9 @@ class SyncProfileJob < ApplicationJob
     # (for instance, an EDR where the person didn't already establish the link)
     DataReceipt.where(profile: profile, processed: nil).each(&:process!)
     HDM::Merge::Merger.new.update_profile(profile)
+
+    # broadcast the entire patient bundle to any connected users
+    # (reload ensures we get all the latest data -- seems to be some issues if that's removed)
+    UpdateChannel.broadcast_to(profile, profile.reload.bundle_everything)
   end
 end

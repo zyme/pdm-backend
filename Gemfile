@@ -41,6 +41,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'action-cable-testing' # note - expected to be merged into rails in v6.0
   gem 'brakeman', require: false
   gem 'bundler-audit'
   gem 'fakeweb'

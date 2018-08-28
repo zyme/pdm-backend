@@ -3,10 +3,7 @@
 require 'test_helper'
 
 class SyncProfileJobTest < ActiveJob::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-
+  include ActionCable::TestHelper
   def load_bundle(name)
     File.read(File.join(__dir__, "../fixtures/files/bundles/#{name}.json"))
   end
@@ -35,5 +32,15 @@ class SyncProfileJobTest < ActiveJob::TestCase
     assert DataReceipt.count > count
     assert pp.profile.resources.count > raw_resource_count
     assert pp.profile.all_resources.length > resource_count
+  end
+
+  test 'that the profile is broadcast following the job' do
+    profile = profiles(:smart_sandbox)
+    assert_broadcast_on(profile, profile.bundle_everything, channel: UpdateChannel) do
+      # also ensure only a single broadcast, not one per profile, since the SyncProfileProviderJob can broadcast too
+      assert_broadcasts(profile, 1, channel: UpdateChannel) do
+        SyncProfileJob.perform_now(profile, false)
+      end
+    end
   end
 end

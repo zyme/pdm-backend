@@ -3,9 +3,8 @@
 require 'test_helper'
 
 class SyncProfileProviderJobTest < ActiveJob::TestCase
-  # test "the truth" do
-  #   assert true
-  #
+  include ActionCable::TestHelper
+
   def load_bundle(name)
     File.read(File.join(__dir__, "../fixtures/files/bundles/#{name}.json"))
   end
@@ -33,5 +32,22 @@ class SyncProfileProviderJobTest < ActiveJob::TestCase
     assert DataReceipt.count > count
     assert pp.profile.resources.count > raw_resource_count
     assert pp.profile.all_resources.length > resource_count
+  end
+
+  test 'that the profile is broadcast following the job' do
+    pp = profile_providers(:really_smart)
+    profile = pp.profile
+    assert_broadcast_on(profile, profile.bundle_everything, channel: UpdateChannel) do
+      SyncProfileProviderJob.perform_now(pp, false)
+    end
+  end
+
+  test 'that nothing is broadcast following the job if called from SyncProfileJob' do
+    pp = profile_providers(:really_smart)
+    profile = pp.profile
+    # assert_no_broadcasts seems to be broken, have to call assert_broadcasts with count = 0
+    assert_broadcasts(profile, 0, channel: UpdateChannel) do
+      SyncProfileProviderJob.perform_now(pp, false, true)
+    end
   end
 end
