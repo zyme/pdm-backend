@@ -17,7 +17,7 @@ module Api
         # hardcoding the ID caused some issues with other tests so we have to manually set it in the bundle
         bundle_json.gsub!('BASE_CONTROLLER_TEST_PLACEHOLDER_ID', profile.id.to_s)
 
-        post '/api/v1/', params: bundle_json, headers: { authorization: "Bearer #{token.token}" }
+        post '/api/v1/$process-message', params: bundle_json, headers: { authorization: "Bearer #{token.token}" }
         assert_response :created
 
         assert DataReceipt.find_by(profile_id: profile.id, provider_id: provider.id)
