@@ -3,13 +3,15 @@
 module Api
   module V1
     class BaseController < ApiController
-      def create
+      def process_message
         # identify provider based on the token
         provider = ProviderApplication.find_by(application_id: doorkeeper_token.application_id).provider
 
         bundle_json = request.body.read
 
         # identify profile based on identifiers in the Patient entry
+        # -- would be nice to store it in the MessageHeader, but there's no good field for it
+        # see https://www.hl7.org/fhir/messageheader.html
         profile_id = find_profile_id(bundle_json)
         profile = Profile.find(profile_id)
 

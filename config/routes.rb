@@ -12,9 +12,8 @@ Rails.application.routes.draw do
   get '/oauth/callback', action: :callback, controller: 'oauth/callback'
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      # Base FHIR endpoint to allow POSTing of transactions
-      # per https://www.hl7.org/fhir/http.html#transaction
-      post '/', to: 'base#create'
+      # Messaging -- https://www.hl7.org/fhir/messaging.html
+      post '/$process-message', to: 'base#process_message'
 
       curated_models = %i[allergy_intolerances care_plans conditions
                           devices documents encounters goals immunizations

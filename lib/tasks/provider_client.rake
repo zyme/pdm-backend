@@ -18,10 +18,31 @@ namespace :provider_client do
     provider = select_provider_client
     exit(0) if provider.nil?
 
+    bundle = FHIR::Json.from_json(bundle_json)
+
+    patient = bundle.entry.find { |e| e.resource.resourceType == 'Patient' }.resource
+
+    # inject a MessageHeader resource into the bundle
+    # for FHIR Messaging the MessageHeader must be the first entry
+    message_header = bundle.entry.first.resource
+    if message_header.resourceType == 'MessageHeader'
+      puts 'MessageHeader already exists in bundle, not creating a new one'
+    else
+      puts 'Creating MessageHeader entry in bundle'
+
+      encounter = bundle.entry.first { |e| e.resource.resourceType == 'Encounter' }.resource
+
+      message_header = { resourceType: 'MessageHeader',
+                         event: { system: 'urn:health_data_manager', code: 'EDR', display: 'Encounter Data Receipt' },
+                         source: { name: provider.name, endpoint: provider.base_endpoint },
+                         focus: [{ reference: "urn:uuid:#{encounter.id}" },
+                                 { reference: "urn:uuid:#{patient.id}" }] }
+      entry = FHIR::Bundle::Entry.new(resource: message_header)
+      bundle.entry.insert(0, entry)
+    end
+
     # inject the profile ID into the bundle.
     # nearly the same logic as extracting the id in BaseController
-    bundle = FHIR::Json.from_json(bundle_json)
-    patient = bundle.entry.find { |e| e.resource.resourceType == 'Patient' }.resource
     ids = patient.identifier
     ident = ids.find { |id| id.system == 'urn:health_data_manager:profile_id' }
     if ident
@@ -31,6 +52,7 @@ namespace :provider_client do
       puts 'Injecting profile_id into patient identifier list'
       ids << FHIR::Identifier.new(system: 'urn:health_data_manager:profile_id', value: profile.id)
     end
+
     bundle_json = bundle.to_json
 
     # get the provider client_id and client_secret to get the token
@@ -50,7 +72,7 @@ namespace :provider_client do
 
     token = JSON.parse(response.body)['access_token']
 
-    uri = URI("#{base_url}/api/v1/")
+    uri = URI("#{base_url}/api/v1/$process-message")
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.request_uri)
     request['Authorization'] = "Bearer #{token}"
