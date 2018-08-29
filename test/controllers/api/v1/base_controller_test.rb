@@ -6,7 +6,6 @@ module Api
   module V1
     class BaseControllerTest < ActionDispatch::IntegrationTest
       test 'should be able to post EDR bundle' do
-        user = users(:harry)
         profile = profiles(:harrys_profile)
 
         provider = providers(:bwh)
