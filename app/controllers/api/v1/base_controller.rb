@@ -8,11 +8,9 @@ module Api
         provider = ProviderApplication.find_by(application_id: doorkeeper_token.application_id).provider
 
         bundle_json = request.body.read
+        bundle = FHIR::Json.from_json(bundle_json)
 
-        # identify profile based on identifiers in the Patient entry
-        # -- would be nice to store it in the MessageHeader, but there's no good field for it
-        # see https://www.hl7.org/fhir/messageheader.html
-        profile_id = find_profile_id(bundle_json)
+        profile_id = find_profile_id(bundle)
         profile = Profile.find(profile_id)
 
         dr = DataReceipt.new(profile: profile,
@@ -25,17 +23,29 @@ module Api
         # set fetch = false, so that it doesn't fetch, it only processes the things we added
         SyncProfileJob.perform_later(profile, false)
 
-        render status: :created
+        response = build_response(bundle)
+
+        render json: response.to_json, status: :ok
       end
 
       private
 
-      def find_profile_id(bundle_json)
-        bundle = FHIR::Json.from_json(bundle_json)
-        patient = bundle.entry.find { |e| e.resource.resourceType == 'Patient' }.resource
-        ids = patient.identifier
-        ident = ids.find { |id| id.system == 'urn:health_data_manager:profile_id' }
-        ident.value
+      def find_profile_id(bundle)
+        params = bundle.entry.find { |e| e.resource.resourceType == 'Parameters' }.resource
+        params.parameter.find { |p| p.name == 'health_data_manager_profile_id' }.value
+      end
+
+      def build_response(bundle)
+        original_message = bundle.entry[0].resource
+
+        message_header = { 'resourceType' => 'MessageHeader',
+                           'timestamp' => Time.now.iso8601,
+                           'event' => { 'system' => 'urn:health_data_manager', 'code' => 'EDR', 'display' => 'Encounter Data Receipt' },
+                           'source' => { 'name' => 'Rosie', 'endpoint' => 'urn:health_data_manager' },
+                           'response' => { 'identifier' => original_message.id, 'code' => 'ok' } }
+
+        FHIR::Bundle.new('type' => 'message',
+                         'entry' => [{ 'resource' => message_header }])
       end
     end
   end

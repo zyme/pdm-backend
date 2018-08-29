@@ -19,6 +19,7 @@ namespace :provider_client do
     exit(0) if provider.nil?
 
     bundle = FHIR::Json.from_json(bundle_json)
+    bundle.type = 'message'
 
     patient = bundle.entry.find { |e| e.resource.resourceType == 'Patient' }.resource
 
@@ -27,30 +28,32 @@ namespace :provider_client do
     message_header = bundle.entry.first.resource
     if message_header.resourceType == 'MessageHeader'
       puts 'MessageHeader already exists in bundle, not creating a new one'
+      # inject the profile ID into the bundle.
+      # nearly the same logic as extracting the id in BaseController
+      puts 'Updating Parameters with selected profile id'
+      params = bundle.entry.find { |e| e.resource.resourceType == 'Parameters' }.resource
+      params.parameter.find { |p| p.name == 'health_data_manager_profile_id' }.valueString = profile.id.to_s
     else
       puts 'Creating MessageHeader entry in bundle'
 
       encounter = bundle.entry.first { |e| e.resource.resourceType == 'Encounter' }.resource
 
-      message_header = { resourceType: 'MessageHeader',
-                         event: { system: 'urn:health_data_manager', code: 'EDR', display: 'Encounter Data Receipt' },
-                         source: { name: provider.name, endpoint: provider.base_endpoint },
-                         focus: [{ reference: "urn:uuid:#{encounter.id}" },
-                                 { reference: "urn:uuid:#{patient.id}" }] }
-      entry = FHIR::Bundle::Entry.new(resource: message_header)
-      bundle.entry.insert(0, entry)
-    end
+      parameters = { 'resourceType' => 'Parameters',
+                     'id' => SecureRandom.uuid,
+                     'parameter' => [{ 'name' => 'health_data_manager_profile_id', 'valueString' => profile.id.to_s }] }
 
-    # inject the profile ID into the bundle.
-    # nearly the same logic as extracting the id in BaseController
-    ids = patient.identifier
-    ident = ids.find { |id| id.system == 'urn:health_data_manager:profile_id' }
-    if ident
-      puts 'Found HDM profile_id identifier. Overwriting value to selected profile.id'
-      ident.value = profile.id
-    else
-      puts 'Injecting profile_id into patient identifier list'
-      ids << FHIR::Identifier.new(system: 'urn:health_data_manager:profile_id', value: profile.id)
+      entry = FHIR::Bundle::Entry.new('resource' => parameters, 'fullUrl' => "urn:uuid:#{parameters['id']}")
+      bundle.entry.insert(0, entry)
+
+      message_header = { 'resourceType' => 'MessageHeader',
+                         'timestamp' => Time.now.iso8601,
+                         'event' => { 'system' => 'urn:health_data_manager', 'code' => 'EDR', 'display' => 'Encounter Data Receipt' },
+                         'source' => { 'name' => provider.name, 'endpoint' => provider.base_endpoint },
+                         'focus' => [{ 'reference' => "urn:uuid:#{parameters['id']}" },
+                                     { 'reference' => "urn:uuid:#{encounter.id}" },
+                                     { 'reference' => "urn:uuid:#{patient.id}" }] }
+      entry = FHIR::Bundle::Entry.new('resource' => message_header)
+      bundle.entry.insert(0, entry)
     end
 
     bundle_json = bundle.to_json

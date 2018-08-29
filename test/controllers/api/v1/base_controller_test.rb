@@ -7,20 +7,26 @@ module Api
     class BaseControllerTest < ActionDispatch::IntegrationTest
       test 'should be able to post EDR bundle' do
         user = users(:harry)
-        profile = user.profiles.first
+        profile = profiles(:harrys_profile)
 
         provider = providers(:bwh)
         app = generate_application(provider)
         token = generate_app_token(app.id)
 
-        bundle_json = load_bundle('Harris789_Stark857_2159d1ae-e556-4533-978d-be1f9812607d')
-        # hardcoding the ID caused some issues with other tests so we have to manually set it in the bundle
-        bundle_json.gsub!('BASE_CONTROLLER_TEST_PLACEHOLDER_ID', profile.id.to_s)
+        bundle_json = load_bundle('encounter_data_receipt')
 
         post '/api/v1/$process-message', params: bundle_json, headers: { authorization: "Bearer #{token.token}" }
-        assert_response :created
+        assert_response :ok
 
         assert DataReceipt.find_by(profile_id: profile.id, provider_id: provider.id)
+
+        response_bundle = FHIR::Json.from_json(@response.body)
+
+        assert_equal(1, response_bundle.entry.length)
+        response_message = response_bundle.entry[0].resource
+        assert_equal('MessageHeader', response_message.resourceType)
+        assert_equal('6fc53664-8912-4b78-bd43-8d89eea7b651', response_message.response.identifier)
+        assert_equal('ok', response_message.response.code)
       end
 
       def load_bundle(name)
