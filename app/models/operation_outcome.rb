@@ -3,8 +3,12 @@
 class OperationOutcome < ApplicationRecord
   include CuratedModel
   belongs_to :profile
-  after_find do |oo| # rubocop:disable Style/SymbolProc # rubocop's suggestion here breaks it
+  after_find do |oo|
     oo.find_diagnostics
+
+    # add the referenced conflicting resources to the fhir_models "contained"
+    # note that these are not persisted if the OperationOutcome is saved
+    oo.fhir_model.contained.push(target.fhir_model, conflict.fhir_model)
   end
 
   def target

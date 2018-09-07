@@ -22,14 +22,13 @@ class Profile < ApplicationRecord
   has_many :explanation_of_benefits
   has_many :coverages
   has_many :claims
+  has_many :operation_outcomes # internal OperationOutcomes from deconflicting resources
   # IMPORTANT - if adding new resource types above,
   #             also add them to the all_resources method below
 
   # resources are the raw resources that are created from transactions, they
   # do not equate to the currated data models resources
   has_many :resources
-  # internal OperationOutcomes from deconflicting resources
-  has_many :operation_outcomes
 
   def has_provider?(provider_id)
     return false if provider_id.nil?
@@ -42,7 +41,7 @@ class Profile < ApplicationRecord
                documents encounters goals immunizations
                medication_administrations medication_requests
                medication_statements observations procedures
-               explanation_of_benefits coverages claims]
+               explanation_of_benefits coverages claims operation_outcomes]
 
     rs = []
 
