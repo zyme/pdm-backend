@@ -4,7 +4,7 @@ module HDM
   module Merge
     class GenericMatcher
       MATCH_THRESHOLD = 0.8
-      NON_COMPARABLE_PATHS = %w[url system id _id text reference resourcetype].freeze
+      NON_COMPARABLE_PATHS = %w[url system id _id text reference resourcetype meta].freeze
       FLOAT_TOLERANCE = 0.0001
       DATETIME_REGEX = Regexp.new(FHIR::PRIMITIVES['dateTime']['regex']).freeze
 
