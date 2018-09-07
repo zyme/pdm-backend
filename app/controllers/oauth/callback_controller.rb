@@ -25,9 +25,10 @@ module Oauth
     # look up the request that is associated with the state that was passed
     # into the auth server.
     def discover_request
-      json = HDM::OAuth::State.decode(params[:state])
-      json.merge(provider: Provider.find(json['provider_id']),
-                 profile: Profile.find(json['profile_id']))
+      #json = HDM::OAuth::State.decode(params[:state])
+      ids = params[:state].split(':')
+      return {provider: Provider.find(ids[0]),
+                 profile: Profile.find(ids[1])}
     end
 
     # perfrom the code validation step

@@ -16,6 +16,7 @@ module Api
         end
         state = { provider_id: provider.id, profile_id: profile.id }.to_json
         state_enc = Base64.encode64(state)
+        state_enc = "#{provider.id}:#{profile.id}"
         redirect_uri = provider.generate_auth_url(redirect_uri: params[:redirect_uri], state: state_enc)
         render json: { redirect_uri: redirect_uri }, status: :ok
         # kick off the linking -- actual creation of the user_provider object happens
