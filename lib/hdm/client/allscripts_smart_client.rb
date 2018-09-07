@@ -3,7 +3,6 @@
 module HDM
   module Client
     class AllscriptsSmartClient < SmartClient
-
       def subject_id_from_token(token)
         params = JWT.decode token.token, nil, false
         params[0]['local_patient_id'] || params[0]['sub']
