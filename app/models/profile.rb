@@ -63,7 +63,7 @@ class Profile < ApplicationRecord
 
   def bundle_everything
     bundle = wrap_in_bundle(all_resources)
-    bundle.entry.insert(0, wrap_in_entry(to_patient))
+    bundle.entry.insert(0, resource: to_patient.to_hash)
     bundle
   end
 
@@ -73,22 +73,10 @@ class Profile < ApplicationRecord
 
   private
 
-  # TODO: find a common location for both these 2 functions and the ones in ApiController
+  # TODO: find a common location for this functions and the one in CuratedModelsController
   def wrap_in_bundle(results)
     # get just the FHIR resources, but then wrap it in an Entry.
-    resources = results.map { |r| wrap_in_entry(r.resource) }
+    resources = results.map { |r| { resource: r.fhir_model.to_hash } }
     FHIR::Bundle.new(type: 'searchset', entry: resources)
-  end
-
-  def wrap_in_entry(obj)
-    # FHIR::X.new() requires that these be hashes, not strings or full FHIR objects
-
-    if obj.is_a? String
-      obj = JSON.parse(obj)
-    elsif obj.is_a? FHIR::Model
-      obj = obj.to_hash
-    end
-
-    { resource: obj }
   end
 end

@@ -4,7 +4,7 @@ module Api
   module V1
     class PatientsController < ApiController
       def index
-        patients = current_resource_owner.profiles.map { |p| wrap_in_entry(p.to_patient) }
+        patients = current_resource_owner.profiles.map { |p| { resource: p.to_patient.to_hash } }
 
         bundle = FHIR::Bundle.new(type: 'searchset', entry: patients)
 
