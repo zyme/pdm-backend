@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_28_184951) do
+ActiveRecord::Schema.define(version: 2018_09_07_133216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -337,6 +337,11 @@ ActiveRecord::Schema.define(version: 2018_08_28_184951) do
     t.string "scopes"
     t.string "client_id"
     t.string "client_secret"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "logo"
     t.index ["parent_id"], name: "index_providers_on_parent_id"
   end
 
