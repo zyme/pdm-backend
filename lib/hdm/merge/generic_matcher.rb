@@ -171,7 +171,7 @@ module HDM
 
       # return true if any single element of the given path exists in the given list
       def self.part_in_list?(path, list)
-        list.any? { |ncp| path.downcase.split('.').include?(ncp) }
+        list.any? { |ncp| path.downcase.split(/(?:\[(\d+)\])?\./).include?(ncp) }
       end
 
       def self.create_issue(source_resource_type, source_resource_id, target_resource_type, target_resource_id, conflict_paths)
