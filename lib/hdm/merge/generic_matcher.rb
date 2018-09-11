@@ -8,6 +8,10 @@ module HDM
       FLOAT_TOLERANCE = 0.0001
       DATETIME_REGEX = Regexp.new(FHIR::PRIMITIVES['dateTime']['regex']).freeze
 
+      # the set of fields for which a match on this field is required to be a match overall
+      # for starters we just use dates, i.e., if 2 objects have different dates they necessarily do not match
+      REQUIRED_FIELDS = %w[onsetDateTime effectiveDateTime authoredOn date].freeze
+
       def self.match(resource, relationship)
         # resource: new incoming resource
         # relationship: existing list of resources to compare against
@@ -77,9 +81,19 @@ module HDM
         matchable_paths = strip_unsuitable_paths(common_paths)
 
         # There is nothing in common to match on.
-        return false unless matchable_paths.any?
+        return 0 unless matchable_paths.any?
 
-        match_count = matchable_paths.count { |p| values_match?(left_path_maps[p], right_path_maps[p]) }
+        match_count = 0
+
+        matchable_paths.each do |p|
+          if values_match?(left_path_maps[p], right_path_maps[p])
+            match_count += 1
+          elsif part_in_list?(p, REQUIRED_FIELDS)
+            # the values don't match on this field which is required for the object to match
+            # therefore we exit early
+            return 0
+          end
+        end
 
         # Test how many of the common paths were a match. If the percentage of matches exceeds
         # the configurable MatchThreshold, we've got a match. At this point matchable_paths is
@@ -110,7 +124,7 @@ module HDM
       end
 
       def self.strip_unsuitable_paths(paths)
-        paths.reject { |p| NON_COMPARABLE_PATHS.any? { |ncp| p.downcase.include?(ncp) } }
+        paths.reject { |p| part_in_list?(p, NON_COMPARABLE_PATHS) }
       end
 
       def self.values_match?(left, right)
@@ -153,6 +167,11 @@ module HDM
 
       def self.floats_match(left, right)
         (left - right).abs < FLOAT_TOLERANCE
+      end
+
+      # return true if any single element of the given path exists in the given list
+      def self.part_in_list?(path, list)
+        list.any? { |ncp| path.downcase.split('.').include?(ncp) }
       end
 
       def self.create_issue(source_resource_type, source_resource_id, target_resource_type, target_resource_id, conflict_paths)

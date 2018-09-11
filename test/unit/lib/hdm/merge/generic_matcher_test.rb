@@ -63,7 +63,7 @@ module HDM
         assert_equal(1, outcome.issue.length)
         issue = outcome.issue[0]
         assert_equal(1, issue.location.length) # only 1 field mismatched
-        assert_equal('assertedDate', issue.location[0])
+        assert_equal('clinicalStatus', issue.location[0])
 
         assert_includes(issue.diagnostics, "Condition:#{expected.id}") # id of the matching curated model resource
         assert_includes(issue.diagnostics, "Resource:#{resource.id}") # id of the Resource itself
