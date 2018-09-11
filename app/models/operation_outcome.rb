@@ -39,7 +39,9 @@ class OperationOutcome < ApplicationRecord
     # path defines a place in the object tree, fields or indices separated by .
     value = hash
 
-    path.split('.').each do |key|
+    # the regex means split on . or array indices
+    # ex: "component[0].valueQuantity.value" ==> ["component", "0", "valueQuantity", "value"]
+    path.split(/(?:\[(\d+)\])?\./).each do |key|
       key = key.to_i if value.is_a? Array
       value = value[key]
       return nil if value.nil?
