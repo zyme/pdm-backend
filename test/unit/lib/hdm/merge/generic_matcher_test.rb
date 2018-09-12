@@ -47,6 +47,17 @@ module HDM
         assert_nil outcome
       end
 
+      test 'should not match on otherwise perfect match with different date' do
+        profile = profiles(:jills_profile)
+        relationship = profile.conditions
+
+        resource = resources(:diff_date_perfect_match_resource)
+        json = JSON.parse(resource.resource)
+        match = GenericMatcher.match(json, relationship)
+
+        assert_nil match
+      end
+
       test 'should create operation outcome for deconfliction on imperfect match' do
         profile = profiles(:jills_profile)
         relationship = profile.conditions
