@@ -47,6 +47,17 @@ module HDM
         assert_nil outcome
       end
 
+      test 'should not match on otherwise perfect match with different date' do
+        profile = profiles(:jills_profile)
+        relationship = profile.conditions
+
+        resource = resources(:diff_date_perfect_match_resource)
+        json = JSON.parse(resource.resource)
+        match = GenericMatcher.match(json, relationship)
+
+        assert_nil match
+      end
+
       test 'should create operation outcome for deconfliction on imperfect match' do
         profile = profiles(:jills_profile)
         relationship = profile.conditions
@@ -63,7 +74,7 @@ module HDM
         assert_equal(1, outcome.issue.length)
         issue = outcome.issue[0]
         assert_equal(1, issue.location.length) # only 1 field mismatched
-        assert_equal('assertedDate', issue.location[0])
+        assert_equal('clinicalStatus', issue.location[0])
 
         assert_includes(issue.diagnostics, "Condition:#{expected.id}") # id of the matching curated model resource
         assert_includes(issue.diagnostics, "Resource:#{resource.id}") # id of the Resource itself

@@ -32,6 +32,23 @@ perfect_match_resource:
               "assertedDate": "2001-01-16T21:03:10-05:00",
               "subject": {"reference": "some-internal-id-here"}}'
 
+diff_date_perfect_match_resource:
+  id: 8
+  profile: jills_profile
+  provider: partners
+  data_receipt: first_data_receipt
+  resource_type: Condition
+  provider_resource_id: 12345
+  provider_resource_version: 1
+  resource: '{"resourceType": "Condition",
+              "id": "7",
+              "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "Q84.1" }]},
+              "clinicalStatus": "active",
+              "verificationStatus": "confirmed",
+              "onsetDateTime": "2018-01-16T21:03:10-05:00",
+              "assertedDate": "2018-01-16T21:03:10-05:00",
+              "subject": {"reference": "some-internal-id-here"}}'
+
 imperfect_match_resource:
   id: 17
   profile: jills_profile
@@ -43,10 +60,10 @@ imperfect_match_resource:
   resource: '{"resourceType": "Condition",
               "id": "17",
               "code": {"coding": [{"system": "http://hl7.org/fhir/sid/icd-10", "code": "Q84.1" }]},
-              "clinicalStatus": "active",
+              "clinicalStatus": "inactive",
               "verificationStatus": "confirmed",
               "onsetDateTime": "2001-01-16T21:03:10-05:00",
-              "assertedDate": "2001-01-23T21:03:10-05:00",
+              "assertedDate": "2001-01-16T21:03:10-05:00",
               "subject": {"reference": "some-internal-id-here"}}'
 
 unmatching_resource:
