@@ -4,7 +4,7 @@ module HDM
   module Merge
     class GenericMatcher
       MATCH_THRESHOLD = 0.8
-      NON_COMPARABLE_PATHS = %w[url system id _id text reference resourcetype].freeze
+      NON_COMPARABLE_PATHS = %w[url system id _id text reference resourcetype meta].freeze
       FLOAT_TOLERANCE = 0.0001
       DATETIME_REGEX = Regexp.new(FHIR::PRIMITIVES['dateTime']['regex']).freeze
 
@@ -53,16 +53,15 @@ module HDM
       end
 
       def self.traverse(obj, path_map = {}, path = '')
-        prefix = path == '' ? '' : path + '.'
-
         case obj
         when Hash
+          prefix = path == '' ? '' : path + '.'
           obj.each { |k, v| traverse(v, path_map, prefix + k.to_s) }
         when Array
           # TODO: IMPORTANT -- this compares array contents by index
           # meaning 2 arrays with equivalent contents but different order
           # will not match. we should review
-          obj.each_with_index { |v, i| traverse(v, path_map, prefix + i.to_s) }
+          obj.each_with_index { |v, i| traverse(v, path_map, "#{path}[#{i}]") }
         else
           path_map[path] = obj
         end

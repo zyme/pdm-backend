@@ -41,6 +41,12 @@ module Api
                    end
       end
 
+      def wrap_in_bundle(results)
+        # get just the FHIR resources, but then wrap it in an Entry.
+        resources = results.map { |r| { resource: r.fhir_model.to_hash } }
+        FHIR::Bundle.new(type: 'searchset', entry: resources)
+      end
+
       def filtered_params
         params.permit(:profile_id, :id)
       end

@@ -3,6 +3,7 @@
 require 'uuid'
 module CuratedModel
   extend ActiveSupport::Concern
+  include FHIRWrapper
 
   included do
     validates :resource, presence: true
@@ -19,10 +20,6 @@ module CuratedModel
     end
   end
 
-  def fhir_model
-    @fhir_model ||= from_json
-  end
-
   # empty method, should be implemented in classes
   def update_resource
     if fhir_model.respond_to? :patient
@@ -33,16 +30,6 @@ module CuratedModel
   end
 
   private
-
-  def from_json
-    if resource.instance_of? String
-      FHIR.from_contents(resource)
-    else
-      resource_type = resource['resourceType']
-      klass = Module.const_get("FHIR::#{resource_type}")
-      klass.new(resource)
-    end
-  end
 
   def generate_resource_id
     self.resource_id = UUID.generate
