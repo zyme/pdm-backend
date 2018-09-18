@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Provider < ApplicationRecord
-  belongs_to :parent, foreign_key: :parent_id, class_name: name
+  belongs_to :parent, foreign_key: :parent_id, class_name: name, optional: true
 
   validates :name, :base_endpoint, presence: true
 
