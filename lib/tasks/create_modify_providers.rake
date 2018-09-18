@@ -14,7 +14,7 @@ def display_error_msg(current_provider)
       end
     end
   end
-  puts "Error! Could not add/update provider #{each_provider[name]}. Exited with message(s): #{error_msg}"
+  puts "Error! Could not add/update provider #{current_provider['name']}. Exited with message(s): #{error_msg}"
 end
 
 namespace :provider do
@@ -23,7 +23,6 @@ namespace :provider do
     all_providers = JSON.parse(File.open(args.file, 'r:UTF-8').read)['Entries']
     all_providers.each do |each_provider|
       specific_provider = Provider.where(name: each_provider['name']).take
-      each_provider['provider_type'] = 'smart_epic'
       if specific_provider.nil?
         new_provider = Provider.create(each_provider)
         save_success = new_provider.save
