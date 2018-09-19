@@ -8,11 +8,11 @@ class OperationOutcome < ApplicationRecord
 
     # add the referenced conflicting resources to the fhir_models "contained"
     # note that these are not persisted if the OperationOutcome is saved
-    oo.fhir_model.contained.push(target.fhir_model, conflict.fhir_model)
+    oo.fhir_model.contained.push(target.fhir_model, conflict.fhir_model) if target && conflict
   end
 
   def target
-    @target ||= @target_class.find_by(resource_id: @target_id)
+    @target ||= @target_class.find_by(resource_id: @target_id) if @target_id
   end
 
   def conflict
@@ -52,6 +52,7 @@ class OperationOutcome < ApplicationRecord
 
   def find_diagnostics
     description = fhir_model.issue[0].diagnostics
+    return unless description
     # format is target_type:id;conflict_type:id
     fields = description.split(/[;:]/)
 

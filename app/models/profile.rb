@@ -41,7 +41,7 @@ class Profile < ApplicationRecord
                documents encounters goals immunizations
                medication_administrations medication_requests
                medication_statements observations procedures
-               explanation_of_benefits coverages claims operation_outcomes]
+               explanation_of_benefits coverages claims]
 
     rs = []
 
@@ -69,6 +69,19 @@ class Profile < ApplicationRecord
 
   def reference
     "Patient/#{patient_id}"
+  end
+
+  def alerts
+    alerts = []
+    operation_outcomes.limit(15).each do |outcome|
+      next unless outcome.fhir_model.issue[0].diagnostics
+      alerts <<   { type: 'conflict',
+                    text: outcome.fhir_model.issue[0].diagnostics.split(':').first,
+                    date: outcome.created_at,
+                    icon: 'circle',
+                    outcome: outcome.as_json }
+    end
+    alerts
   end
 
   private

@@ -4,7 +4,7 @@ module Api
   module V1
     class ProfilesController < ApiController
       def index
-        render json: current_resource_owner.profiles, status: :ok
+        render json: current_resource_owner.profiles.as_json(methods: [:alerts]), status: :ok
       end
 
       def show
