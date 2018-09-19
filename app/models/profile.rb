@@ -5,7 +5,8 @@ class Profile < ApplicationRecord
   has_many :profile_providers
   has_many :providers, through: :profile_providers
   validates :name, presence: true
-
+  has_many :resources
+  has_many :data_reciepts
   has_many :allergy_intolerances
   has_many :care_plans
   has_many :conditions
@@ -35,13 +36,26 @@ class Profile < ApplicationRecord
     !providers.find_by(id: provider_id).nil?
   end
 
+  def clear_all_resources
+    types = %i[ allergy_intolerances care_plans conditions devices
+                documents encounters goals immunizations
+                medication_administrations medication_requests
+                medication_statements observations procedures ]
+    types.each do |t|
+      rs_by_type = send(t)
+      rs_by_type.destroy_all
+    end
+    Resource.where(profile_id: self).destroy_all
+    DataReceipt.where(profile_id: self).destroy_all
+  end
+
   def all_resources
     # there are hackish ways to do this, but not worth it at this point
     types = %i[allergy_intolerances care_plans conditions devices
                documents encounters goals immunizations
                medication_administrations medication_requests
                medication_statements observations procedures
-               explanation_of_benefits coverages claims operation_outcomes]
+               explanation_of_benefits coverages operation_outcomes]
 
     rs = []
 
