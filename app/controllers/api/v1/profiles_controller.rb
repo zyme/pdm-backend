@@ -37,7 +37,8 @@ module Api
       def profile_params
         params.require(:profile).permit(:name, :first_name, :last_name, :dob,
                                         :gender, :middle_name, :street, :city,
-                                        :state, :zip, :relationship, :telephone, :telephone_use)
+                                        :state, :zip, :relationship, :telephone,
+                                        :telephone_use, :photo)
       end
     end
   end

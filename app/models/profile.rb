@@ -5,7 +5,7 @@ class Profile < ApplicationRecord
   has_many :profile_providers
   has_many :providers, through: :profile_providers
   validates :name, presence: true
-
+  has_one_attached :photo
   has_many :allergy_intolerances
   has_many :care_plans
   has_many :conditions
@@ -41,7 +41,7 @@ class Profile < ApplicationRecord
                documents encounters goals immunizations
                medication_administrations medication_requests
                medication_statements observations procedures
-               explanation_of_benefits coverages claims operation_outcomes]
+               explanation_of_benefits coverages claims ]
 
     rs = []
 
@@ -69,6 +69,16 @@ class Profile < ApplicationRecord
 
   def reference
     "Patient/#{patient_id}"
+  end
+
+  def as_json(args)
+    json = super(args)
+    if self.photo.attached?
+      content_type=photo.content_type
+      b64 = Base64.encode64(photo.download)
+      json[:photo] = "data:#{content_type};base64,#{b64}"
+    end
+    json
   end
 
   private
