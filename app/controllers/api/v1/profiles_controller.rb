@@ -8,18 +8,18 @@ module Api
       end
 
       def show
-        render json: find_profile, status: :ok
+        render json: find_profile.as_json(methods: [:alerts]), status: :ok
       end
 
       def create
         profile = current_resource_owner.profiles.build(profile_params)
         profile.save!
-        render json: profile, status: :created
+        render json: profile.as_json(methods: [:alerts]), status: :created
       end
 
       def update
         profile = find_profile
-        render json: profile, status: :ok if profile.update(profile_params)
+        render json: profile.as_json(methods: [:alerts]), status: :ok if profile.update(profile_params)
       end
 
       def destroy
