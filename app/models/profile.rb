@@ -71,8 +71,8 @@ class Profile < ApplicationRecord
     "Patient/#{patient_id}"
   end
 
-  def as_json(args)
-    json = super(args)
+  def as_json(*args)
+    json = super
     if photo.attached?
       content_type = photo.content_type
       b64 = Base64.encode64(photo.download)
