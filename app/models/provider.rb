@@ -2,7 +2,7 @@
 
 class Provider < ApplicationRecord
   belongs_to :parent, foreign_key: :parent_id, class_name: name, optional: true
-
+  has_one_attached :photo
   validates :name, :base_endpoint, presence: true
 
   def generate_auth_url(params = {})

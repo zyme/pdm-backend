@@ -2,6 +2,7 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   TargetRubyVersion: 2.3
   Exclude:
+    - 'db/migrate/**'
     - 'db/schema.rb'
 Rails:
   Enabled: true
@@ -9,7 +10,7 @@ Rails:
 #   Exclude:
 Rails/BulkChangeTable:
   Enabled: false
-  
+
 Metrics/LineLength:
   Max: 165
 
