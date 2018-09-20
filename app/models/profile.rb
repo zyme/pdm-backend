@@ -73,8 +73,8 @@ class Profile < ApplicationRecord
 
   def as_json(args)
     json = super(args)
-    if self.photo.attached?
-      content_type=photo.content_type
+    if photo.attached?
+      content_type = photo.content_type
       b64 = Base64.encode64(photo.download)
       json[:photo] = "data:#{content_type};base64,#{b64}"
     end

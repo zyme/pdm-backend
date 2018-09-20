@@ -12,14 +12,30 @@ module Api
       end
 
       def create
-        profile = current_resource_owner.profiles.build(profile_params)
-        profile.save!
+        profile =
+          Profile.transaction do
+            current_resource_owner.profiles.create!(profile_params).tap do |created_profile|
+              created_profile.photo.attach(params[:profile][:photo]) if params[:profile][:photo].present?
+            end
+          end
+
         render json: profile, status: :created
       end
 
       def update
         profile = find_profile
-        render json: profile, status: :ok if profile.update(profile_params)
+
+        Profile.transaction do
+          profile.update!(profile_params)
+          if params[:profile][:photo].present?
+            profile.photo.purge
+            profile.photo.attach(params[:profile][:photo])
+          elsif params[:profile][:photo] == ''
+            profile.photo.purge
+          end
+        end
+
+        render json: profile, status: :ok
       end
 
       def destroy
@@ -38,7 +54,7 @@ module Api
         params.require(:profile).permit(:name, :first_name, :last_name, :dob,
                                         :gender, :middle_name, :street, :city,
                                         :state, :zip, :relationship, :telephone,
-                                        :telephone_use, :photo)
+                                        :telephone_use)
       end
     end
   end
