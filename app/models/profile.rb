@@ -35,6 +35,19 @@ class Profile < ApplicationRecord
     !providers.find_by(id: provider_id).nil?
   end
 
+  def clear_all_resources
+    types = %i[ allergy_intolerances care_plans conditions devices
+                documents encounters goals immunizations
+                medication_administrations medication_requests
+                medication_statements observations procedures ]
+    types.each do |t|
+      rs_by_type = send(t)
+      rs_by_type.destroy_all
+    end
+    Resource.where(profile_id: self).destroy_all
+    DataReceipt.where(profile_id: self).destroy_all
+  end
+
   def all_resources
     # there are hackish ways to do this, but not worth it at this point
     types = %i[allergy_intolerances care_plans conditions devices
