@@ -13,6 +13,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     raise MethodNotAllowed
   end
 
+  def create
+    super do |user|
+      # Simply add the IP address to the user object
+      user.dua_remote_ip = request.ip
+    end
+  end
+
   private
 
   def sign_up_params
@@ -22,6 +29,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                    password_confirmation
                                    first_name
                                    last_name
+                                   dua_accepted_at
+                                   dua_agreed_to
+                                   dua_legal_name
                                  ])
   end
 
