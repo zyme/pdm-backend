@@ -43,3 +43,17 @@ module ResourceTestHelper
     assert_equal mod.fhir_model.id, mod.resource_id, 'Should update resource id'
   end
 end
+
+# Monkey patch to fix a FakeWeb issue with newer versions of Ruby - Ruby now
+# auto-closes sockets and FakeWeb's sockets have no close method
+require 'fakeweb'
+module MonkeyPatch
+  module FakeWeb
+    module StubSocketFixes
+      def close
+      end
+    end
+  end
+end
+
+FakeWeb::StubSocket.include MonkeyPatch::FakeWeb::StubSocketFixes
