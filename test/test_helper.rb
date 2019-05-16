@@ -50,8 +50,7 @@ require 'fakeweb'
 module MonkeyPatch
   module FakeWeb
     module StubSocketFixes
-      def close
-      end
+      def close; end
     end
   end
 end

@@ -37,6 +37,7 @@ module HDM
       # may need to reach back to the server to ask for the profile to obtain the patient id.
       def subject_id_from_id_token(token)
         return nil unless token
+
         jwt = JWT.decode(token, nil, false)
         payload = jwt[0]
         payload['profile'].gsub('Patient/', '')

@@ -19,6 +19,7 @@ module HDM
         matcher = matcher(resource.resource_type)
         relationship = model_relationship(resource.resource_type, profile)
         return unless relationship
+
         match = matcher.match(resource.resource, relationship)
 
         if match
@@ -41,6 +42,7 @@ module HDM
       def merge_patient(resource, _profile)
         ## TODO: Implement merging of patient demographics into profile
         return if resource.resource_type != 'Patient'
+
         resource.merged = true
         resource.save
       end
