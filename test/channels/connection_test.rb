@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'test_helper'
+
 module ApplicationCable
   class ConnectionTest < ActionCable::Connection::TestCase
     def test_connects_with_token
