@@ -1,9 +1,8 @@
-# Health Data Manager - Backend Server
+# Patient Data Manager - Backend Server
 
 ## About
 
-This project is the backend for the Health Data Manager.
-
+This project is the backend for the Patient Data Manager.
 
 ## Quick Start
 
@@ -13,7 +12,7 @@ This project is the backend for the Health Data Manager.
  - PostgreSQL, v9.4 or higher, running on port 5432
 
 ### Installation
-```
+```sh
 gem install bundler
 bundle install
 bundle exec rake db:setup
@@ -23,30 +22,30 @@ bundle exec rake test
 ```
 
 ### Usage
-```
+```sh
 bundle exec rails s
 ```
 
 To optionally specify port: (default is 3000 if not specified)
 
-```
+```sh
 bundle exec rails s --port 7001
 ```
 
 To execute the test suite:
 
-```
+```sh
 bundle exec rake test
 ```
 
 # License
-Copyright 2018 The MITRE Corporation
+Copyright 2018, 2019 The MITRE Corporation
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
