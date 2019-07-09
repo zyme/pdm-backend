@@ -145,4 +145,3 @@ Doorkeeper.configure do
   #  true
   # end
 end
-Doorkeeper.configuration.token_grant_types << 'password'

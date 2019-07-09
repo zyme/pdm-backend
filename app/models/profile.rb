@@ -32,6 +32,7 @@ class Profile < ApplicationRecord
 
   def has_provider?(provider_id)
     return false if provider_id.nil?
+
     !providers.find_by(id: provider_id).nil?
   end
 

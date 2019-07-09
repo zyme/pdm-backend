@@ -10,13 +10,11 @@ class CuratedModelTest < ActiveSupport::TestCase
              Immunization, MedicationAdministration, MedicationRequest, MedicationStatement,
              Observation, Procedure, ExplanationOfBenefit, Claim]
     types.each do |type|
-      begin
-        puts "Testing create #{type}"
-        snake = type.name.underscore
-        create_new_success(type, p, parse_test_file("#{snake.pluralize}/#{snake}_good.json"))
-      rescue StandardError
-        assert false, "Error testing #{type} #{$ERROR_INFO}"
-      end
+      puts "Testing create #{type}"
+      snake = type.name.underscore
+      create_new_success(type, p, parse_test_file("#{snake.pluralize}/#{snake}_good.json"))
+    rescue StandardError
+      assert false, "Error testing #{type} #{$ERROR_INFO}"
     end
 
     p.reload
@@ -39,16 +37,14 @@ class CuratedModelTest < ActiveSupport::TestCase
              Immunization, MedicationAdministration, MedicationRequest, MedicationStatement,
              Observation, Procedure, ExplanationOfBenefit, Claim]
     types.each do |type|
-      begin
-        puts "Testing resourceType #{type}"
+      puts "Testing resourceType #{type}"
 
-        mod = type.new(profile: p, resource: parse_test_file('bundles/search-set.json'))
-        assert_equal false, mod.valid?, 'Should not be valid with wrond resource type'
-        errors = mod.errors
-        assert_equal errors['resource'], ["Wrong resource type: expected #{type.name} was Bundle"]
-      rescue StandardError
-        assert false, "Error testing #{type} #{$ERROR_INFO}"
-      end
+      mod = type.new(profile: p, resource: parse_test_file('bundles/search-set.json'))
+      assert_equal false, mod.valid?, 'Should not be valid with wrond resource type'
+      errors = mod.errors
+      assert_equal errors['resource'], ["Wrong resource type: expected #{type.name} was Bundle"]
+    rescue StandardError
+      assert false, "Error testing #{type} #{$ERROR_INFO}"
     end
   end
   # Disable for now: Need to determin whether we go with DSTU2 or STU3 as a basis or

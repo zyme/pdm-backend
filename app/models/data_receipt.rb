@@ -13,9 +13,11 @@ class DataReceipt < ApplicationRecord
     bundle.entry.each do |entry|
       # sometimes nil shows up here for some reason
       next unless entry
+
       fhir_resource = entry.resource
       # if this isn't a resource (OperationOutcome for instance) do nothing
       next unless fhir_resource.id
+
       # default to version 0 if no meta/versionId given
       resource_version = fhir_resource&.meta&.versionId || 0
 

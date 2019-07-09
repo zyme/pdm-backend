@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.5'
+ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
@@ -27,8 +27,10 @@ gem 'puma', '~> 3.11'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
-gem 'doorkeeper'
-gem 'fhir_client'
+# These gems currently held back for potential compatibility issues - haven't verified that the latest versions work yet
+gem 'doorkeeper', '~> 4.4'
+gem 'fhir_client', '~> 3.0.5'
+gem 'fhir_models', '~> 3.0.3'
 gem 'rack-cors', require: 'rack/cors'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -37,7 +39,7 @@ gem 'uuid'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'rubocop', '~> 0.57.2', require: false
+  gem 'rubocop', '~> 0.69.0', require: false
 end
 
 group :test do
