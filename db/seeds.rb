@@ -7,3 +7,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Create the self provider in the seeds
+Provider.create! provider_type: 'self', name: 'Self Reported', description: 'Records sent via a patient themselves'

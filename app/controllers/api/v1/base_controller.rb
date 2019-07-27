@@ -5,13 +5,31 @@ module Api
     class BaseController < ApiController
       def process_message
         # identify provider based on the token
-        provider = ProviderApplication.find_by(application_id: doorkeeper_token.application_id).provider
+        allowed_user = nil
+        # I believe this needs to be declared here to set its scope to the top function level
+        provider = nil
+        if doorkeeper_token.application_id.nil?
+          # Assume a user token
+          if doorkeeper_token.resource_owner_id.nil?
+            return render json: { 'error': 'Invalid token.' }, status: :forbidden
+          end
+          allowed_user = User.find_by(id: doorkeeper_token.resource_owner_id)
+          if allowed_user.nil?
+            return render json: { 'error': 'Invalid token.' }, status: :forbidden
+          end
+          provider = find_self_provider
+        else
+          provider = ProviderApplication.find_by(application_id: doorkeeper_token.application_id).provider
+        end
 
         bundle_json = request.body.read
         bundle = FHIR::Json.from_json(bundle_json)
 
         profile_id = find_profile_id(bundle)
         profile = Profile.find(profile_id)
+        if profile.user_id != allowed_user.id
+          return render json: { 'error': 'User account cannot write to the given profile.' }, status: :forbidden
+        end
 
         dr = DataReceipt.new(profile: profile,
                              provider: provider,
@@ -33,6 +51,16 @@ module Api
       def find_profile_id(bundle)
         params = bundle.entry.find { |e| e.resource.resourceType == 'Parameters' }.resource
         params.parameter.find { |p| p.name == 'health_data_manager_profile_id' }.value
+      end
+
+      # This looks up the self provider. There should only be one, but if there are multiple, it
+      # returns the one with the lowest ID. If none exist in the database, this raises an error.
+      def find_self_provider
+        self_provider = Provider.where(provider_type: 'self').order(:id).first
+        if self_provider.nil?
+          raise ActiveRecord::RecordNotFound.new('Unable to locate the "self" provider - a provider of type "self" should exist', 'Provider')
+        end
+        self_provider
       end
 
       def build_response(bundle)
