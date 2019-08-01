@@ -17,6 +17,7 @@ class Profile < ApplicationRecord
   has_many :medication_administrations
   has_many :medication_requests
   has_many :medication_statements
+  has_many :medication_orders
   has_many :observations
   has_many :procedures
   has_many :explanation_of_benefits
@@ -40,7 +41,7 @@ class Profile < ApplicationRecord
     types = %i[ allergy_intolerances care_plans conditions devices
                 documents encounters goals immunizations
                 medication_administrations medication_requests
-                medication_statements observations procedures ]
+                medication_statements medication_orders observations procedures ]
     types.each do |t|
       rs_by_type = send(t)
       rs_by_type.destroy_all
@@ -54,7 +55,7 @@ class Profile < ApplicationRecord
     types = %i[allergy_intolerances care_plans conditions devices
                documents encounters goals immunizations
                medication_administrations medication_requests
-               medication_statements observations procedures
+               medication_statements medication_orders observations procedures
                explanation_of_benefits coverages claims ]
 
     rs = []
@@ -68,7 +69,9 @@ class Profile < ApplicationRecord
   end
 
   def to_patient
-    FHIR::Patient.new(id: id,
+    fhir_manager = FhirUtilities.new()
+    fhir = fhir_manager.get_fhir
+    fhir::Patient.new(id: id,
                       name: [{ given: [first_name],
                                family: last_name,
                                use: 'official' }],
@@ -101,6 +104,8 @@ class Profile < ApplicationRecord
   def wrap_in_bundle(results)
     # get just the FHIR resources, but then wrap it in an Entry.
     resources = results.map { |r| { resource: r.fhir_model.to_hash } }
-    FHIR::Bundle.new(type: 'searchset', entry: resources)
+    fhir_manager = FhirUtilities.new()
+    fhir = fhir_manager.get_fhir
+    fhir::Bundle.new(type: 'searchset', entry: resources)
   end
 end
