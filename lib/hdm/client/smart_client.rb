@@ -84,7 +84,7 @@ module HDM
         prefix = version == :dstu2 ? 'FHIR::DSTU2' : 'FHIR'
         types = []
         client_capability_statement.rest[0].resource.each do |r|
-          types << "#{prefix}::#{r.type}".constantize if r.type != 'Patient' && r.searchParam.find { |sp| sp.name == 'patient' }
+          types << "#{prefix}::#{r.type}".constantize if r.type != 'Patient' && r.searchParam.find { |sp| sp.name == 'patient' } rescue nil
         end
         types.empty? ? defaults : types
       end
