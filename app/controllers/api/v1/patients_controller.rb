@@ -5,8 +5,9 @@ module Api
     class PatientsController < ApiController
       def index
         patients = current_resource_owner.profiles.map { |p| { resource: p.to_patient.to_hash } }
-
-        bundle = FHIR::Bundle.new(type: 'searchset', entry: patients)
+        fhir_manager = FhirUtilities.new()
+        fhir = fhir_manager.get_fhir_string
+        bundle = fhir::Bundle.new(type: 'searchset', entry: patients)
 
         # pre-converting to json is a workaround for a bug w/ rails & fhir_models
         render json: bundle.to_json, status: :ok

@@ -9,7 +9,10 @@ class DataReceipt < ApplicationRecord
     return if processed
 
     content = data.is_a?(String) ? data : JSON.unparse(data)
-    bundle = FHIR.from_contents(content)
+    
+    fhir_manager = FhirUtilities.new()
+    fhir = fhir_manager.get_fhir
+    bundle = fhir.from_contents(content)
     bundle.entry.each do |entry|
       # sometimes nil shows up here for some reason
       next unless entry
@@ -22,10 +25,24 @@ class DataReceipt < ApplicationRecord
       resource_version = fhir_resource&.meta&.versionId || 0
 
       # don't insert duplicates
-      next if Resource.exists?(profile: profile,
-                               provider: provider,
-                               provider_resource_id: fhir_resource.id,
-                               provider_resource_version: resource_version)
+      duplicate_found = false
+      potential_duplicates = Resource.where(profile: profile,
+                                            provider: provider,
+                                            provider_resource_id: fhir_resource.id,
+                                            provider_resource_version: resource_version,
+                                            resource_type: fhir_resource.resourceType)
+
+      # for each potential duplicate, check if the resource hashes are equal, break if duplicate found   
+      jfhir_resource = JSON.parse(fhir_resource.to_json)
+      potential_duplicates.each do | duplicate |
+        jduplicate = duplicate.resource
+        if jduplicate == jfhir_resource
+          duplicate_found = true
+          break
+        end
+      end
+
+      next if duplicate_found
 
       app_resource = Resource.new(profile: profile,
                                   provider: provider,

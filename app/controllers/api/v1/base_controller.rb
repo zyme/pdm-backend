@@ -8,14 +8,21 @@ module Api
         provider = ProviderApplication.find_by(application_id: doorkeeper_token.application_id).provider
 
         bundle_json = request.body.read
-        bundle = FHIR::Json.from_json(bundle_json)
+        
+        fhir_manager = FhirUtilities.new()
+    	fhir = fhir_manager.get_fhir
+    	bundle = fhir::Json.from_json(bundle_json)
 
         profile_id = find_profile_id(bundle)
         profile = Profile.find(profile_id)
 
+        #puts "REQUEST.BODY.READ"
+        #puts bundle_json
+        bundle_json_utf = bundle_json.force_encoding('UTF-8')
+
         dr = DataReceipt.new(profile: profile,
                              provider: provider,
-                             data: bundle_json,
+                             data: bundle_json_utf,
                              data_type: 'fhir_bundle_edr')
         dr.save!
 
@@ -24,7 +31,6 @@ module Api
         SyncProfileJob.perform_later(profile, false)
 
         response = build_response(bundle)
-
         render json: response.to_json, status: :ok
       end
 
@@ -44,7 +50,9 @@ module Api
                            'source' => { 'name' => 'Rosie', 'endpoint' => 'urn:health_data_manager' },
                            'response' => { 'identifier' => original_message.id, 'code' => 'ok' } }
 
-        FHIR::Bundle.new('type' => 'message',
+        fhir_manager = FhirUtilities.new()
+        fhir = fhir_manager.get_fhir
+        fhir::Bundle.new('type' => 'message',
                          'entry' => [{ 'resource' => message_header }])
       end
     end

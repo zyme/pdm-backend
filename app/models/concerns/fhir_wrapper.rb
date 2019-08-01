@@ -10,11 +10,14 @@ module FHIRWrapper
   private
 
   def from_json
+    fhir_manager = FhirUtilities.new()
+    fhir = fhir_manager.get_fhir
+    fhir_str = fhir_manager.get_fhir_string
     if resource.instance_of? String
-      FHIR.from_contents(resource)
+      fhir.from_contents(resource)
     else
       resource_type = resource['resourceType']
-      klass = Module.const_get("FHIR::#{resource_type}")
+      klass = Module.const_get(fhir_str + "::#{resource_type}")
       klass.new(resource)
     end
   end
