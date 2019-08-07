@@ -8,11 +8,9 @@ class DataReceipt < ApplicationRecord
   def process!
     return if processed
 
-    content = data.is_a?(String) ? data : JSON.unparse(data)
+    fhir = FhirUtilities.new.fhir
+    bundle = fhir.from_contents(data.is_a?(String) ? data : JSON.unparse(data))
     
-    fhir_manager = FhirUtilities.new()
-    fhir = fhir_manager.get_fhir
-    bundle = fhir.from_contents(content)
     bundle.entry.each do |entry|
       # sometimes nil shows up here for some reason
       next unless entry

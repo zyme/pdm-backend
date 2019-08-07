@@ -10,9 +10,9 @@ module FHIRWrapper
   private
 
   def from_json
-    fhir_manager = FhirUtilities.new()
-    fhir = fhir_manager.get_fhir
-    fhir_str = fhir_manager.get_fhir_string
+    fhir_manager = FhirUtilities.new
+    fhir = fhir_manager.fhir
+    fhir_str = fhir_manager.fhir_string
     if resource.instance_of? String
       fhir.from_contents(resource)
     else

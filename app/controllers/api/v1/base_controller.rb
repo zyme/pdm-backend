@@ -8,16 +8,16 @@ module Api
         provider = ProviderApplication.find_by(application_id: doorkeeper_token.application_id).provider
 
         bundle_json = request.body.read
-        
-        fhir_manager = FhirUtilities.new()
-    	fhir = fhir_manager.get_fhir
-    	bundle = fhir::Json.from_json(bundle_json)
+
+        fhir_manager = FhirUtilities.new
+        fhir = fhir_manager.fhir
+        bundle = fhir::Json.from_json(bundle_json)
 
         profile_id = find_profile_id(bundle)
         profile = Profile.find(profile_id)
 
-        #puts "REQUEST.BODY.READ"
-        #puts bundle_json
+        # puts "REQUEST.BODY.READ"
+        # puts bundle_json
         bundle_json_utf = bundle_json.force_encoding('UTF-8')
 
         dr = DataReceipt.new(profile: profile,
@@ -50,8 +50,8 @@ module Api
                            'source' => { 'name' => 'Rosie', 'endpoint' => 'urn:health_data_manager' },
                            'response' => { 'identifier' => original_message.id, 'code' => 'ok' } }
 
-        fhir_manager = FhirUtilities.new()
-        fhir = fhir_manager.get_fhir
+        fhir_manager = FhirUtilities.new
+        fhir = fhir_manager.fhir
         fhir::Bundle.new('type' => 'message',
                          'entry' => [{ 'resource' => message_header }])
       end

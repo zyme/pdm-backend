@@ -22,8 +22,8 @@ module CuratedModel
 
   # empty method, should be implemented in classes
   def update_resource
-    fhir_manager = FhirUtilities.new()
-    fhir = fhir_manager.get_fhir
+    fhir_manager = FhirUtilities.new
+    fhir = fhir_manager.fhir
     if fhir_model.respond_to? :patient
       fhir_model.patient = fhir::Reference.new(reference: profile.reference)
     elsif fhir_model.respond_to? :subject
