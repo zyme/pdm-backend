@@ -76,7 +76,7 @@ module HDM
 
       def get_auth_params(params = {})
         { aud: provider.base_endpoint,
-          redirect_uri:  default_redirect_endpoint,
+          redirect_uri: default_redirect_endpoint,
           scope: provider.scopes }.merge params
       end
 
