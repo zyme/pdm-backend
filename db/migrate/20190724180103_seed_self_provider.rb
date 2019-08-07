@@ -10,7 +10,7 @@ class SeedSelfProvider < ActiveRecord::Migration[5.2]
     reversible do |dir|
       dir.up do
         # Simply create the new self provider.
-        Provider.create! provider_type: 'self', name: 'Self Reported', description: 'Records sent via a patient themselves'
+        Provider.create! provider_type: 'self', name: 'Self Reported', description: 'Records sent via a patient themselves', base_endpoint: 'https://localhost/'
       end
       dir.down do
         Provider.where(provider_type: 'self').destroy
