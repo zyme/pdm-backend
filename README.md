@@ -16,6 +16,7 @@ This project is the backend for the Patient Data Manager.
 gem install bundler
 bundle install
 bundle exec rake db:setup
+```
 
 ### Running via Docker with a disposable database
 ```
