@@ -192,6 +192,16 @@ ActiveRecord::Schema.define(version: 2019_05_17_123457) do
     t.index ["profile_id"], name: "index_medication_administrations_on_profile_id"
   end
 
+  create_table "medication_orders", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.string "resource_id", null: false
+    t.jsonb "resource"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_medication_orders_on_profile_id"
+  end
+
   create_table "medication_requests", force: :cascade do |t|
     t.bigint "profile_id", null: false
     t.string "resource_id", null: false

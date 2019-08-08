@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
       curated_models = %i[allergy_intolerances care_plans conditions
                           devices documents encounters goals immunizations
-                          medication_administrations medication_requests medication_statements
+                          medication_administrations medication_requests medication_statements medication_orders
                           observations practitioners procedures]
 
       resources :profiles do
