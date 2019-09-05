@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Devise.setup do |config|
   # ==> Security Extension
   # Configure security extension for devise
@@ -5,9 +7,9 @@ Devise.setup do |config|
   # Should the password expire (e.g 3.months)
   # config.expire_password_after = false
 
-  # Regexp extracted from https://stackoverflow.com/questions/19605150/ 
+  # Regexp extracted from https://stackoverflow.com/questions/19605150/
   # Length should be 8-70 characters and include: 1 uppercase, 1 lowercase, 1 digit and 1 special character
-  config.password_regex = /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}/ 
+  config.password_regex = /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}/
 
   # How many passwords to keep in archive
   # config.password_archiving_count = 5
