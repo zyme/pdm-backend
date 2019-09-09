@@ -15,6 +15,12 @@ class Provider < ApplicationRecord
 
   delegate :subject_id_from_token, to: :get_client
 
+  # This looks up the self provider. There should only be one, but if there are multiple, it
+  # returns the one with the lowest ID. If none exist in the database, this returns nil.
+  def self.find_self_provider
+    Provider.where(provider_type: 'self').order(:id).first
+  end
+
   private
 
   def get_client
