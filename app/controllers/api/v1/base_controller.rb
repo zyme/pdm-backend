@@ -7,7 +7,11 @@ module Api
         # identify provider based on the token
         provider, allowed_user = find_provider_for_request
 
-        return render json: { 'error': 'Invalid token' }, status: :forbidden if provider.nil?
+        if provider.nil?
+          return render json: { 'error': 'Self provider not permitted (removed from providers)' }, status: :forbidden unless allowed_user.nil?
+
+          return render json: { 'error': 'Invalid token' }, status: :forbidden
+        end
 
         bundle_json = request.body.read
 
@@ -60,19 +64,10 @@ module Api
           allowed_user = User.find_by(id: doorkeeper_token.resource_owner_id)
           return nil if allowed_user.nil?
 
-          [find_self_provider, allowed_user]
+          [Provider.find_self_provider, allowed_user]
         else
           [ProviderApplication.find_by(application_id: doorkeeper_token.application_id).provider, nil]
         end
-      end
-
-      # This looks up the self provider. There should only be one, but if there are multiple, it
-      # returns the one with the lowest ID. If none exist in the database, this raises an error.
-      def find_self_provider
-        self_provider = Provider.where(provider_type: 'self').order(:id).first
-        raise ActiveRecord::RecordNotFound.new('Unable to locate the "self" provider - a provider of type "self" should exist', 'Provider') if self_provider.nil?
-
-        self_provider
       end
 
       def build_response(bundle)
