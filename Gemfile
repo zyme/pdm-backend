@@ -27,6 +27,9 @@ gem 'puma', '~> 3.11'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
+# add security extension for password complexity
+gem 'devise_security_extension', git: 'https://github.com/phatworx/devise_security_extension.git'
+gem 'rails_email_validator'
 # These gems currently held back for potential compatibility issues - haven't verified that the latest versions work yet
 gem 'doorkeeper', '~> 4.4'
 gem 'fhir_client', '~> 3.0.5'
