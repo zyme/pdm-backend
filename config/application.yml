@@ -9,7 +9,8 @@
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
-# Configurations: 
+# Environmental Variable Configurations: (must restart server for changes to take affect)
 
-# generate devise secret key
-DEVISE_SECRET_KEY: <put_secret_key_here>
+# devise secret key
+DEVISE_SECRET_KEY: <insert devise secret key> 
+SSL_CERT_FILE: <insert path to openssl cert.pem>
