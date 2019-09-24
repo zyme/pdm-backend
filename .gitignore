@@ -30,3 +30,6 @@ reports
 
 # ignore local files that are good to have in the local project structure but not in the repo
 local_resources
+
+# Ignore application configuration
+/config/application.yml
