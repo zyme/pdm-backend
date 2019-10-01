@@ -61,8 +61,8 @@ namespace :provider_client do
     # get the provider client_id and client_secret to get the token
     pa = ProviderApplication.find_by(provider: provider)
     app = pa.application
-    client_id = app.uid
-    client_secret = app.secret
+    client_id = CGI.escape(app.uid)
+    client_secret = CGI.escape(app.secret)
 
     base_url = args.base_url
 
