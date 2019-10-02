@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'hdm/oauth/state'
 module Oauth
   class CallbackController < ApplicationController
     # this happens outof band from client right now,
@@ -25,7 +24,6 @@ module Oauth
     # look up the request that is associated with the state that was passed
     # into the auth server.
     def discover_request
-      # json = HDM::OAuth::State.decode(params[:state])
       ids = params[:state].split(':')
       { provider: Provider.find(ids[0]),
         profile: Profile.find(ids[1]) }
