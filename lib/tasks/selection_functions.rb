@@ -22,8 +22,8 @@ module SelectionFunctions
      { |eachentry| eachentry.key?('resource') && eachentry['resource'].key?('resourceType') && eachentry['resource']['resourceType'] == 'Patient' }
     user_first_name = patient_entry['resource']['name'][0]['given'][0]
     user_last_name = patient_entry['resource']['name'][0]['family']
-    user_email = email || user_first_name + '_' + user_last_name[0] + '@test.com'
-    user_password = password || 'Password123'
+    user_email = email
+    user_password = password
     user = User.create(first_name: user_first_name, last_name: user_last_name, email: user_email, password: user_password)
     unless user.validate
       puts 'Could not create a new user with given bundle'
@@ -40,7 +40,7 @@ module SelectionFunctions
         return nil
       end
     end
-    puts "Created account for #{user_first_name} #{user_last_name} with email #{user_email} and password #{user_password}"
+    puts "Created account for #{user_first_name} #{user_last_name} with email #{user_email}"
     user
   end
 
