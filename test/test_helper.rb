@@ -4,7 +4,6 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'hdm'
 require 'rails/test_help'
-require 'hdm/oauth/state'
 FHIR.logger.level = 'ERROR'
 class ActionDispatch::IntegrationTest
   def generate_token(user_id)

@@ -40,7 +40,7 @@ module HDM
 
         jwt = JWT.decode(token, nil, false)
         payload = jwt[0]
-        payload['profile'].gsub('Patient/', '')
+        payload['profile'].gsub('^Patient/', '')
       end
 
       def sync_profile(profile_provider)
