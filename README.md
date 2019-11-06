@@ -38,6 +38,10 @@ To execute the test suite:
 bundle exec rake test
 ```
 
+### Configuring the front end
+
+At present, the CORS headers required to run the front end on a different server are commented out. If the front end is running on a different web server, you will need to add back in the `Rack::Cors` middleware in `config/application.rb` before it will work.
+
 # License
 Copyright 2018, 2019 The MITRE Corporation
 
