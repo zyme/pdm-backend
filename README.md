@@ -8,7 +8,7 @@ This project is the backend for the Patient Data Manager.
 
 ### System Requirements
 
- - Ruby, v2.3.5 or higher ([rvm](https://rvm.io/) is recommended for managing multiple versions of Ruby)
+ - Ruby, v2.6.3 or higher ([rvm](https://rvm.io/) is recommended for managing multiple versions of Ruby)
  - PostgreSQL, v9.4 or higher, running on port 5432
 
 ### Installation
@@ -16,6 +16,13 @@ This project is the backend for the Patient Data Manager.
 gem install bundler
 bundle install
 bundle exec rake db:setup
+```
+
+### Running via Docker with a disposable database
+```
+export SECRET_KEY_BASE=`openssl rand -hex 64`
+docker-compose -f docker-compose.yaml up
+```
 
 # finally, to confirm it worked -- should see "<#> runs, <#> assertions, 0 failures, 0 errors, 0 skips" at the end
 bundle exec rake test

@@ -1,0 +1,22 @@
+
+version: '2'
+
+services:
+   postgres:
+      image: postgres:12
+      #restart:always
+      environment:
+         - POSTGRES_PASSWORD=test
+      ports:
+         - "5432:5432"
+
+   pdm-backend:
+      build:
+         context: ./
+         dockerfile: Dockerfile
+      ports:
+         - "3000:3000"
+      links:
+         - "postgres:postgres"
+      environment:
+         - SECRET_KEY_BASE=${SECRET_KEY_BASE}
