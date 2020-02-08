@@ -38,11 +38,11 @@ module HealthDataManager
     config.api_only = true
     # CORS must be configured to allow the front end to access the back end if
     # they are not running on the same server.
-    # config.middleware.insert_before 0, Rack::Cors do
-    #   allow do
-    #     origins '*'
-    #     resource '*', headers: :any, methods: %i[get post put delete patch options]
-    #   end
-    # end
+    config.middleware.insert_before 0, Rack::Cors do
+       allow do
+         origins '*'
+         resource '*', headers: :any, methods: %i[get post put delete patch options]
+       end
+     end
   end
 end

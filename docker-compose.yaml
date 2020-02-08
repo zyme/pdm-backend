@@ -4,9 +4,8 @@ version: '2'
 services:
    postgres:
       image: postgres:12
-      #restart:always
       environment:
-         - POSTGRES_PASSWORD=test
+         - POSTGRES_PASSWORD:test
       ports:
          - "5432:5432"
 
@@ -19,4 +18,8 @@ services:
       links:
          - "postgres:postgres"
       environment:
+         - DB_HOST=postgres
+         - DB_PASSWORD=test
+         - DB_USER=postgres
          - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+         - RAILS_LOG_TO_STDOUT=true

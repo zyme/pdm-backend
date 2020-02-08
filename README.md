@@ -24,6 +24,8 @@ export SECRET_KEY_BASE=`openssl rand -hex 64`
 docker-compose -f docker-compose.yaml up
 ```
 
+Next, ssh to the postgress backend and run `bundle exec rake db:setup`
+
 # finally, to confirm it worked -- should see "<#> runs, <#> assertions, 0 failures, 0 errors, 0 skips" at the end
 bundle exec rake test
 ```
