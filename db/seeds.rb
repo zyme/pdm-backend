@@ -10,5 +10,3 @@
 
 # Create the self provider in the seeds
 Provider.create! provider_type: 'self', name: 'Self Reported', description: 'Records sent via a patient themselves', base_endpoint: 'https://localhost/'
-# Hack alert, put in broad epic creds
-Provider.create! provider_type: "smart_epic", name: "Atrius Health", base_endpoint: "https://iatrius.atriushealth.org/FHIR/api/FHIR/DSTU2/"
