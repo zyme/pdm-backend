@@ -51,7 +51,7 @@ module Api
       private
 
       def find_profile_id(bundle)
-        params = bundle.entry.find { |e| e.resource.resourceType == 'Parameters' }.resource
+        params = bundle.entry.find { |e| e.resource&.resourceType == 'Parameters' }.resource
         params.parameter.find { |p| p.name == 'health_data_manager_profile_id' }.value
       end
 
