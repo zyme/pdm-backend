@@ -1,0 +1,7 @@
+service: pdm-backend
+runtime: ruby
+env: flex
+entrypoint: bundle exec rails s --port $PORT
+
+env_variables:
+  SECRET_KEY_BASE: ...
