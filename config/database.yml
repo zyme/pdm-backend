@@ -25,6 +25,10 @@ development:
   <<: *default
   database: health-data-manager_development
   sslmode: "allow"
+  pool: <%= ENV["RAILS_MAX_THREADS"] || 5 %>
+  host:  <%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/<%= ENV["INSTANCE_CONNECTION_NAME"] %>
+  username: <%= ENV['DB_USER']%>
+  password: <%= ENV['DB_PASSWORD'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -83,7 +87,9 @@ test:
 production:
   <<: *default
   pool: <%= ENV["RAILS_MAX_THREADS"] || 5 %>
-  host: <%= ENV['DB_HOST'] %>
+  #host: <%= ENV['DB_HOST'] %>
+  host:  <%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/<%= ENV["INSTANCE_CONNECTION_NAME"] %>
   username: <%= ENV['DB_USER']%>
   password: <%= ENV['DB_PASSWORD'] %>
+  database: <%= ENV['DATABASE'] %>
   sslmode: "allow"
